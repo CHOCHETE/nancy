@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Zona Deportiva | Micrositio de Deportes</title>
+    <!-- Fuentes modernas y diseño limpio -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (gratuito) para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <nav>
+        <a href="index.html">inicio</a>
+        <a href="tema2.html">Videojuegos</a>
+        <a href="Musica.html">Musica</a>
+        <a href="cine.html">Cine</a>
+        <link rel="stylesheet" href="style.css">
+</nav>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f7fc;
+            color: #1e2a3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* Header hero */
+        .hero {
+            background: linear-gradient(135deg, #0b2b3b 0%, #1c5a6a 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero h1 i {
+            margin-right: 12px;
+            color: #ffd966;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        /* contenedor principal */
+        .container {
+            max-width: 1300px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Grid de tarjetas */
+        .sports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Tarjeta individual */
+        .card {
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+            transition: transform 0.25s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(0px);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.2);
+        }
+
+        /* Cabecera de la tarjeta con color temático */
+        .card-header {
+            padding: 1.8rem 1.5rem 1rem 1.5rem;
+            background: #ffffff;
+            border-bottom: 3px solid;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-header i {
+            font-size: 2.4rem;
+        }
+
+        .card-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        /* contenido */
+        .card-content {
+            padding: 1.2rem 1.5rem 1.5rem;
+            flex: 1;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            color: #2c3e44;
+            margin-bottom: 1.2rem;
+            line-height: 1.45;
+            font-weight: 400;
+        }
+
+        /* datos importantes */
+        .facts-title {
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #2c7a6e;
+            margin: 0.8rem 0 0.6rem 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .facts-list {
+            list-style: none;
+            background: #f8fafc;
+            border-radius: 1rem;
+            padding: 0.8rem 1rem;
+            margin-top: 0.2rem;
+        }
+
+        .facts-list li {
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+
+        .facts-list li:last-child {
+            border-bottom: none;
+        }
+
+        .facts-list li i {
+            font-size: 0.8rem;
+            color: #0f766e;
+            width: 20px;
+            text-align: center;
+        }
+
+        .badge-icon {
+            background: #eef2ff;
+            border-radius: 30px;
+            padding: 0.2rem 0.7rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #0c4e6e;
+            display: inline-block;
+        }
+
+        /* footer */
+        .footer {
+            background: #0f2c34;
+            color: #cddfe6;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #ffd966;
+            text-decoration: none;
+        }
+
+        /* ajustes responsivos */
+        @media (max-width: 720px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 0 1rem;
+            }
+            .card-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <h1><i class="fas fa-futbol"></i> Zona Deportiva</h1>
+    <p>Explora los deportes más apasionantes del mundo y descubre datos sorprendentes que quizás no conocías.</p>
+</header>
+
+<div class="container">
+    <div class="sports-grid">
+        <!-- FÚTBOL (SOCCER) -->
+        <div class="card">
+            <div class="card-header" style="border-bottom-color: #2e7d64;">
+                <i class="fas fa-futbol" style="color:#2e7d64;"></i>
+                <h2>Fútbol</h2>
+            </div>
+            <div class="card-content">
+                <div class="description">
+                    El deporte rey, practicado por más de 250 millones de jugadores en más de 200 países. 
+                    Pasión, goles y la emoción de los mundiales lo convierten en el fenómeno global más seguido.
+                </div>
+                <div class="facts-title"><i class="fas fa-star-of-life"></i> DATOS IMPORTANTES</div>
+                <ul class="facts-list">
+                    <li><i class="fas fa-trophy"></i> <strong>Mundial más visto:</strong> 2022 (5,000 millones de audiencia acumulada)</li>
+                    <li><i class="fas fa-chart-line"></i> <strong>Máximo goleador histórico:</strong> Cristiano Ronaldo (más de 960 goles oficiales)</li>
+                    <li><i class="fas fa-medal"></i> <strong>País con más Copas del Mundo:</strong> Brasil (5 títulos)</li>
+                    <li><i class="fas fa-clock"></i> <strong>Partido más antiguo:</strong> Escocia vs Inglaterra (1872)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- BALONCESTO -->
+        <div class="card">
+            <div class="card-header" style="border-bottom-color: #e96c2a;">
+                <i class="fas fa-basketball-ball" style="color:#e96c2a;"></i>
+                <h2>Baloncesto</h2>
+            </div>
+            <div class="card-content">
+                <div class="description">
+                    Dinamismo, velocidad y espectáculo. Creado por James Naismith en 1891, la NBA impulsó su popularidad global con leyendas como Jordan, LeBron y Curry.
+                </div>
+                <div class="facts-title"><i class="fas fa-star-of-life"></i> DATOS IMPORTANTES</div>
+                <ul class="facts-list">
+                    <li><i class="fas fa-chart-simple"></i> <strong>Puntuación récord NBA:</strong> 186 puntos (Detroit vs Denver, 1983)</li>
+                    <li><i class="fas fa-crown"></i> <strong>Máximo anotador histórico:</strong> LeBron James (más de 48,000 puntos sumando playoffs)</li>
+                    <li><i class="fas fa-globe"></i> <strong>País dominante:</strong> Estados Unidos (16 medallas olímpicas de oro)</li>
+                    <li><i class="fas fa-person"></i> <strong>Jugador más alto:</strong> Gheorghe Mureșan (2.31 m)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TENIS -->
+        <div class="card">
+            <div class="card-header" style="border-bottom-color: #d4af37;">
+                <i class="fas fa-table-tennis" style="color:#d4af37;"></i>
+                <h2>Tenis</h2>
+            </div>
+            <div class="card-content">
+                <div class="description">
+                    Deporte de precisión y resistencia, con torneos legendarios como Wimbledon, Roland Garros, US Open y el Abierto de Australia.
+                </div>
+                <div class="facts-title"><i class="fas fa-star-of-life"></i> DATOS IMPORTANTES</div>
+                <ul class="facts-list">
+                    <li><i class="fas fa-chart-line"></i> <strong>Grand Slams masculinos:</strong> Novak Djokovic (24 títulos, récord absoluto)</li>
+                    <li><i class="fas fa-female"></i> <strong>Grand Slams femeninos:</strong> Margaret Court (24 títulos individuales)</li>
+                    <li><i class="fas fa-hourglass-half"></i> <strong>Partido más largo:</strong> Isner vs Mahut (11h 5m, Wimbledon 2010)</li>
+                    <li><i class="fas fa-rocket"></i> <strong>Saque más rápido:</strong> John Isner (253 km/h, 2016)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- FÓRMULA 1 (AUTOMOVILISMO) -->
+        <div class="card">
+            <div class="card-header" style="border-bottom-color: #d44c2f;">
+                <i class="fas fa-car" style="color:#d44c2f;"></i>
+                <h2>Fórmula 1</h2>
+            </div>
+            <div class="card-content">
+                <div class="description">
+                    La máxima categoría del automovilismo mundial. Velocidad, estrategia y tecnología de punta cautivan a millones en cada Gran Premio.
+                </div>
+                <div class="facts-title"><i class="fas fa-star-of-life"></i> DATOS IMPORTANTES</div>
+                <ul class="facts-list">
+                    <li><i class="fas fa-crown"></i> <strong>Más campeonatos:</strong> Lewis Hamilton y Michael Schumacher (7 títulos c/u)</li>
+                    <li><i class="fas fa-tachometer-alt"></i> <strong>Velocidad máxima registrada:</strong> 372.5 km/h (Valtteri Bottas, 2016)</li>
+                    <li><i class="fas fa-flag-checkered"></i> <strong>Equipo más exitoso:</strong> Ferrari (16 campeonatos de constructores)</li>
+                    <li><i class="fas fa-calendar-week"></i> <strong>Piloto más joven campeón:</strong> Sebastian Vettel (23 años, 2010)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- NATACIÓN -->
+        <div class="card">
+            <div class="card-header" style="border-bottom-color: #189ab4;">
+                <i class="fas fa-swimmer" style="color:#189ab4;"></i>
+                <h2>Natación</h2>
+            </div>
+            <div class="card-content">
+                <div class="description">
+                    Disciplina que combina técnica, fuerza y control respiratorio. Es uno de los deportes con más medallas en los Juegos Olímpicos.
+                </div>
+                <div class="facts-title"><i class="fas fa-star-of-life"></i> DATOS IMPORTANTES</div>
+                <ul class="facts-list">
+                    <li><i class="fas fa-medal"></i> <strong>Más medallas olímpicas:</strong> Michael Phelps (28 medallas, 23 de oro)</li>
+                    <li><i class="fas fa-water"></i> <strong>Récord mundial 100m libre:</strong> 46.86s (Pan Zhanle, 2024)</li>
+                    <li><i class="fas fa-chart-line"></i> <strong>Travesía histórica:</strong> Gertrude Ederle (Canal de la Mancha, 1926)</li>
+                    <li><i class="fas fa-person-walking"></i> <strong>Estilo más rápido:</strong> Crol (crawl frontal)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- VOLEIBOL -->
+        <div class="card">
+            <div class="card-header" style="border-bottom-color: #d62828;">
+                <i class="fas fa-volleyball-ball" style="color:#d62828;"></i>
+                <h2>Voleibol</h2>
+            </div>
+            <div class="card-content">
+                <div class="description">
+                    Deporte de equipo dinámico, con espectaculares remates y defensas. Muy popular en Brasil, Italia, Polonia y Estados Unidos.
+                </div>
+                <div class="facts-title"><i class="fas fa-star-of-life"></i> DATOS IMPORTANTES</div>
+                <ul class="facts-list">
+                    <li><i class="fas fa-chart-simple"></i> <strong>Mayor racha olímpica:</strong> Brasil (oro 2004, 2008, 2012 masculino? 2004 y 2016 femenino… datos mixtos)</li>
+                    <li><i class="fas fa-arrow-up"></i> <strong>Remate más rápido:</strong> 132 km/h (Ivan Zaytsev, Italia)</li>
+                    <li><i class="fas fa-users"></i> <strong>Equipo dominante:</strong> Selección femenina de Brasil (3 medallas olímpicas doradas)</li>
+                    <li><i class="fas fa-stopwatch"></i> <strong>Set más largo:</strong> 48 minutos (múltiples récords, ligas profesionales)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ATLETISMO -->
+        <div class="card">
+            <div class="card-header" style="border-bottom-color: #2b7e3a;">
+                <i class="fas fa-running" style="color:#2b7e3a;"></i>
+                <h2>Atletismo</h2>
+            </div>
+            <div class="card-content">
+                <div class="description">
+                    La esencia del olimpismo: velocidad, fondo, saltos y lanzamientos. Los récords mundiales representan los límites del cuerpo humano.
+                </div>
+                <div class="facts-title"><i class="fas fa-star-of-life"></i> DATOS IMPORTANTES</div>
+                <ul class="facts-list">
+                    <li><i class="fas fa-bolt"></i> <strong>Hombre más rápido:</strong> Usain Bolt (9.58s en 100m / 19.19s en 200m)</li>
+                    <li><i class="fas fa-female"></i> <strong>Récord femenino 100m:</strong> Florence Griffith-Joyner (10.49s, 1988)</li>
+                    <li><i class="fas fa-jump"></i> <strong>Salto de longitud récord:</strong> Mike Powell (8.95 m, 1991)</li>
+                    <li><i class="fas fa-marathon"></i> <strong>Maratón récord mundial:</strong> Kelvin Kiptum (2:00:35, 2023)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CICLISMO -->
+        <div class="card">
+            <div class="card-header" style="border-bottom-color: #f3a712;">
+                <i class="fas fa-bicycle" style="color:#f3a712;"></i>
+                <h2>Ciclismo</h2>
+            </div>
+            <div class="card-content">
+                <div class="description">
+                    Resistencia épica y espectáculo en rutas míticas como el Tour de Francia, Giro de Italia y la Vuelta a España.
+                </div>
+                <div class="facts-title"><i class="fas fa-star-of-life"></i> DATOS IMPORTANTES</div>
+                <ul class="facts-list">
+                    <li><i class="fas fa-trophy"></i> <strong>Más Tours de Francia:</strong> Eddy Merckx, Bernard Hinault, Jacques Anquetil, Miguel Induráin (5 triunfos)</li>
+                    <li><i class="fas fa-chart-line"></i> <strong>Velocidad punta en descenso:</strong> más de 110 km/h (profesionales)</li>
+                    <li><i class="fas fa-map-marked-alt"></i> <strong>Etapa más larga Tour:</strong> 253 km (Les Sables-d'Olonne - Burdeos, récord histórico)</li>
+                    <li><i class="fas fa-medal"></i> <strong>Leyenda:</strong> Eddy Merckx (525 victorias en su carrera)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p><i class="fas fa-dumbbell"></i> Zona Deportiva  <br> 
+    © 2025 ·  | <i class="fas fa-heart" style="color:#ffaaa5;"></i> El deporte une culturas</p>
+    <p style="margin-top: 0.6rem; font-size:0.8rem;"><a href="#"><i class="fas fa-arrow-up"></i> Volver al inicio</a></p>
+</footer>
+
+<!-- pequeña interacción adicional para resaltar la experiencia (nada intrusivo) -->
+<script>
+    // Solo añade un efecto sutil en consola amigable
+    (function() {
+        console.log("🏆 Micrositio de Deportes cargado — Disfruta la información deportiva");
+        // Puedes agregar efectos hover adicionales si gustas, pero ya se ve bien.
+    })();
+</script>
+</body>
+</html>

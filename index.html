@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Micrositio Informativo</title>
+
+
+</head>
+<body>
+
+<header>
+<h1>Micrositio Informativo</h1>
+<p>Explora nuestros 4 temas principales</p>
+</header>
+
+<nav>
+<a href="Deportes.html">Deportes</a>
+<a href="Videojuegos.html">Videojuegos </a>
+<a href="Musica.html">Musica</a>
+<a href="cine.html">Cine</a>
+</nav>
+
+<section class="contenedor">
+
+<div class="tarjeta">
+<h2>Deportes </h2>
+<p>Breve introducción del tema 1 para conocer más.</p>
+<a href="Deportes.html">Ver más</a>
+</div>
+
+<div class="tarjeta">
+<h2>VideoJuegos</h2>
+<p>Información resumida del segundo tema.</p>
+<a href="tema2.html">Ver más</a>
+</div>
+
+<div class="tarjeta">
+<h2>Musica</h2>
+<p>Conoce los puntos más importantes del tema 3.</p>
+<a href="Musica.html">Ver más</a>
+</div>
+
+<div class="tarjeta">
+<h2>Cine</h2>
+<p>El cine no solo se ve, se siente en cada historia que cobra vida en la pantalla.</p>
+<a href="cine.html">Ver más</a>
+</div>
+
+</section>
+
+<footer>
+<p></p>
+</footer>
+
+<section style="padding:30px; background:white; margin:20px; border-radius:15px;">
+
+<h2>Contador de visitas</h2>
+<p>Visitas: <span id="contador">0</span></p>
+
+<h2>Comentarios</h2>
+
+<input type="text" id="nombre" placeholder="Tu nombre"><br><br>
+
+<textarea id="comentario" placeholder="Escribe tu comentario"></textarea><br><br>
+
+<button onclick="guardarComentario()">Enviar</button>
+
+<div id="listaComentarios"></div>
+
+</section>
+
+<script>
+let visitas = localStorage.getItem("visitas");
+
+if(visitas == null){
+visitas = 1;
+}else{
+visitas = parseInt(visitas) + 1;
+}
+
+localStorage.setItem("visitas", visitas);
+document.getElementById("contador").innerText = visitas;
+
+function guardarComentario(){
+
+let nombre = document.getElementById("nombre").value;
+let comentario = document.getElementById("comentario").value;
+
+if(nombre == "" || comentario == ""){
+alert("Completa los campos");
+return;
+}
+
+let lista = document.getElementById("listaComentarios");
+
+lista.innerHTML += "<p><b>" + nombre + ":</b> " + comentario + "</p>";
+
+document.getElementById("nombre").value="";
+document.getElementById("comentario").value="";
+}
+</script>
+
+<section style="padding:30px; background:white; margin:20px; border-radius:15px;">
+
+<h2>Ubicación del Plantel</h2>
+<p>CONALEP Acapulco I - Las Cruces</p>
+
+<iframe
+src="https://www.google.com/maps?q=CONALEP+Acapulco+1+Las+Cruces+Acapulco+Guerrero&output=embed"
+width="100%"
+height="350"
+style="border:0; border-radius:15px;"
+allowfullscreen=""
+loading="lazy">
+</iframe>
+
+</section>
+</body>
+</html>
