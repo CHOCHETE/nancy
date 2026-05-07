@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+     
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mundo Gamer - Todo sobre los videojuegos</title>
+
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background-color: #111827;
+      color: white;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    nav {
+      background-color: #1f2937;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #a78bfa;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-size: 2.2rem;
+      color: #a78bfa;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background-color: #1f2937;
+      border-radius: 15px;
+      padding: 25px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+
+    .card h3 {
+      color: #c4b5fd;
+      margin-bottom: 15px;
+    }
+
+    .banner {
+      background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .banner h2 {
+      background-color: rgba(0,0,0,0.7);
+      padding: 20px;
+      border-radius: 15px;
+      color: white;
+      font-size: 2.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      background-color: #1f2937;
+    }
+
+    table th, table td {
+      border: 1px solid #374151;
+      padding: 15px;
+      text-align: center;
+    }
+
+    table th {
+      background-color: #4f46e5;
+    }
+
+    .timeline {
+      margin-top: 40px;
+    }
+
+    .timeline-item {
+      background-color: #1f2937;
+      padding: 20px;
+      border-left: 5px solid #8b5cf6;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+
+    footer {
+      background-color: #0f172a;
+      text-align: center;
+      padding: 30px;
+      margin-top: 40px;
+    }
+
+    footer p {
+      color: #d1d5db;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      .banner h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+     <nav>
+    <ul>
+      <li><a href="index.html">inicio</a></li>
+      <li> <a href="Deportes.html">Deportes</a></li>
+      <li> <a href="Musica.html">Musica</a></li>
+      <li> <a href="cine.html">Cine</a></li>
+     
+    </ul>
+  </nav>
+    <header>
+    <h1> Mundo Gamer</h1>
+    <p>
+      Descubre todo sobre los videojuegos: su historia, géneros, consolas,
+      juegos más famosos, impacto en la sociedad, esports y mucho más.
+    </p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#intro">Introducción</a></li>
+      <li><a href="#historia">Historia</a></li>
+      <li><a href="#tipos">Tipos</a></li>
+      <li><a href="#consolas">Consolas</a></li>
+      <li><a href="#famosos">Juegos Famosos</a></li>
+      <li><a href="#esports">Esports</a></li>
+      <li><a href="#beneficios">Beneficios</a></li>
+      <li><a href="#futuro">Futuro</a></li>
+    </ul>
+  </nav>
+
+  <div class="banner">
+    <h2>El universo de los videojuegos en un solo lugar</h2>
+  </div>
+
+  <section id="intro">
+    <h2>¿Qué son los videojuegos?</h2>
+    <p>
+      Los videojuegos son una forma de entretenimiento digital que permite a los usuarios interactuar con mundos virtuales mediante controles, teclados, pantallas táctiles o dispositivos especiales. Desde sus inicios, los videojuegos han evolucionado enormemente, convirtiéndose en una de las industrias más importantes del mundo.
+    </p>
+    <br>
+    <p>
+      Actualmente existen videojuegos para todas las edades y gustos. Algunos ofrecen aventuras épicas, otros competencias deportivas, simulaciones realistas o incluso experiencias educativas.
+    </p>
+  </section>
+
+  <section id="historia">
+    <h2>Historia de los videojuegos</h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>1958 - Primer videojuego</h3>
+        <p>
+          William Higinbotham creó "Tennis for Two", considerado uno de los primeros videojuegos de la historia.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>1972 - Atari y Pong</h3>
+        <p>
+          La empresa Atari revolucionó el mercado con Pong, uno de los videojuegos arcade más populares.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>1985 - Nintendo domina</h3>
+        <p>
+          Nintendo lanzó la NES junto con Super Mario Bros., cambiando para siempre la industria.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>2000 en adelante</h3>
+        <p>
+          Los gráficos 3D, el juego en línea y los esports transformaron los videojuegos en una experiencia global.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tipos">
+    <h2>Tipos de videojuegos</h2>
+
+    <div class="card-container">
+      <div class="card">
+        <h3> Acción</h3>
+        <p>
+          Juegos rápidos y emocionantes donde los reflejos son fundamentales.
+          Ejemplos: Call of Duty, Fortnite y Doom.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3> Carreras</h3>
+        <p>
+          Simulan competencias automovilísticas con vehículos reales o ficticios.
+          Ejemplos: Need for Speed y Mario Kart.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3> Deportes</h3>
+        <p>
+          Recrean deportes como fútbol, baloncesto o tenis.
+          Ejemplos: FIFA y NBA 2K.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3> Estrategia</h3>
+        <p>
+          Requieren planificación y pensamiento táctico.
+          Ejemplos: Clash Royale y Age of Empires.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3> Mundo abierto</h3>
+        <p>
+          Permiten explorar enormes escenarios libremente.
+          Ejemplos: Minecraft y GTA V.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3> Terror</h3>
+        <p>
+          Diseñados para provocar miedo y suspenso.
+          Ejemplos: Resident Evil y Silent Hill.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="consolas">
+    <h2>Consolas más importantes</h2>
+
+    <table>
+      <tr>
+        <th>Consola</th>
+        <th>Empresa</th>
+        <th>Año</th>
+        <th>Importancia</th>
+      </tr>
+
+      <tr>
+        <td>NES</td>
+        <td>Nintendo</td>
+        <td>1985</td>
+        <td>Popularizó los videojuegos domésticos.</td>
+      </tr>
+
+      <tr>
+        <td>PlayStation 2</td>
+        <td>Sony</td>
+        <td>2000</td>
+        <td>La consola más vendida de la historia.</td>
+      </tr>
+
+      <tr>
+        <td>Xbox 360</td>
+        <td>Microsoft</td>
+        <td>2005</td>
+        <td>Impulsó el juego online moderno.</td>
+      </tr>
+
+      <tr>
+        <td>Nintendo Switch</td>
+        <td>Nintendo</td>
+        <td>2017</td>
+        <td>Innovó con su sistema híbrido portátil.</td>
+      </tr>
+    </table>
+  </section>
+
+  <section id="famosos">
+    <h2>Videojuegos más famosos</h2>
+
+    <div class="card-container">
+      <div class="card">
+        <h3> Minecraft</h3>
+        <p>
+          Juego de construcción y supervivencia que permite crear mundos infinitos.
+          Es uno de los videojuegos más vendidos de todos los tiempos.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3> GTA V</h3>
+        <p>
+          Un enorme mundo abierto lleno de misiones, vehículos y acción.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3> Super Mario Bros.</h3>
+        <p>
+          Uno de los videojuegos más importantes e influyentes de la historia.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3> The Legend of Zelda</h3>
+        <p>
+          Saga de aventura reconocida por su historia, exploración y jugabilidad.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="esports">
+    <h2>Esports y competencias</h2>
+
+    <p>
+      Los esports son competencias profesionales de videojuegos. Actualmente millones de personas siguen torneos de juegos como League of Legends, Valorant, Counter Strike y Fortnite.
+    </p>
+
+    <br>
+
+    <p>
+      Existen equipos profesionales, patrocinadores y premios millonarios. Muchos jugadores se convierten en celebridades gracias a sus habilidades.
+    </p>
+
+    <div class="card-container">
+      <div class="card">
+        <h3> Juegos competitivos</h3>
+        <p>
+          League of Legends, Valorant, CS:GO, Dota 2 y Rocket League son algunos de los más populares.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3> Torneos mundiales</h3>
+        <p>
+          Algunos eventos llenan estadios y son vistos por millones de personas en internet.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3> Premios</h3>
+        <p>
+          Los torneos internacionales pueden ofrecer millones de dólares en premios.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="beneficios">
+    <h2>Beneficios de los videojuegos</h2>
+
+    <div class="card-container">
+      <div class="card">
+        <h3> Desarrollo mental</h3>
+        <p>
+          Mejoran la memoria, reflejos, concentración y resolución de problemas.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3> Trabajo en equipo</h3>
+        <p>
+          Muchos juegos fomentan la cooperación y la comunicación entre jugadores.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3> Creatividad</h3>
+        <p>
+          Juegos como Minecraft permiten crear construcciones y mundos únicos.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3> Educación</h3>
+        <p>
+          Existen videojuegos educativos que ayudan a aprender matemáticas, idiomas y ciencias.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="futuro">
+    <h2>El futuro de los videojuegos</h2>
+
+    <p>
+      La industria sigue creciendo gracias a nuevas tecnologías como la realidad virtual, inteligencia artificial y gráficos ultra realistas.
+    </p>
+
+    <br>
+
+    <p>
+      También se espera que el metaverso y los videojuegos en la nube cambien la manera en la que jugamos en el futuro.
+    </p>
+
+    <div class="card-container">
+      <div class="card">
+        <h3> Realidad virtual</h3>
+        <p>
+          Permite experiencias inmersivas donde el jugador se siente dentro del juego.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3> Juego en la nube</h3>
+        <p>
+          Servicios que permiten jugar sin descargar juegos pesados.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3> Inteligencia artificial</h3>
+        <p>
+          Los NPC y enemigos serán más inteligentes y realistas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+   © 2026 Mundo Gamer | Sitio web educativo sobre videojuegos.
+    </p>
+  </footer>
+
+</body>
+</html>
