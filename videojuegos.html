@@ -1,539 +1,595 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mundo Gamer - Todo sobre los videojuegos</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mundo Gamer - Todo sobre los videojuegos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    body {
-      background-color: #111827;
-      color: white;
-      line-height: 1.7;
-    }
+        body {
+            background-color: #111827;
+            color: white;
+            line-height: 1.7;
+        }
 
-    header {
-      background: linear-gradient(135deg, #4f46e5, #7c3aed);
-      padding: 40px 20px;
-      text-align: center;
-    }
+        /* NAVEGACIÓN PRINCIPAL (Volver al menú) */
+        .nav-principal {
+            background: #1f2937;
+            padding: 15px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+        }
 
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
+        .nav-principal a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 8px;
+            background: #374151;
+        }
 
-    header p {
-      font-size: 1.2rem;
-      max-width: 800px;
-      margin: auto;
-    }
+        .nav-principal a:hover {
+            background: #4f46e5;
+            color: white;
+            transform: translateY(-2px);
+        }
 
-    nav {
-      background-color: #1f2937;
-      padding: 15px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+        header {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            padding: 60px 20px;
+            text-align: center;
+        }
 
-    nav ul {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      list-style: none;
-      gap: 20px;
-    }
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: auto;
+            opacity: 0.95;
+        }
 
-    nav a:hover {
-      color: #a78bfa;
-    }
+        nav {
+            background-color: #1f2937;
+            padding: 15px;
+            position: sticky;
+            top: 68px;
+            z-index: 999;
+        }
 
-    section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 20px;
+        }
 
-    section h2 {
-      font-size: 2.2rem;
-      color: #a78bfa;
-      margin-bottom: 20px;
-      text-align: center;
-    }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
 
-    .card-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-top: 30px;
-    }
+        nav a:hover {
+            color: #a78bfa;
+            background: #374151;
+        }
 
-    .card {
-      background-color: #1f2937;
-      border-radius: 15px;
-      padding: 25px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
 
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-    }
+        section h2 {
+            font-size: 2.2rem;
+            color: #a78bfa;
+            margin-bottom: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
 
-    .card h3 {
-      color: #c4b5fd;
-      margin-bottom: 15px;
-    }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
 
-    .banner {
-      background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
-      height: 400px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
+        .card {
+            background-color: #1f2937;
+            border-radius: 15px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #374151;
+        }
 
-    .banner h2 {
-      background-color: rgba(0,0,0,0.7);
-      padding: 20px;
-      border-radius: 15px;
-      color: white;
-      font-size: 2.5rem;
-    }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            border-color: #8b5cf6;
+        }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 30px;
-      background-color: #1f2937;
-    }
+        .card h3 {
+            color: #c4b5fd;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
 
-    table th, table td {
-      border: 1px solid #374151;
-      padding: 15px;
-      text-align: center;
-    }
+        .card p {
+            color: #d1d5db;
+            line-height: 1.7;
+        }
 
-    table th {
-      background-color: #4f46e5;
-    }
+        .banner {
+            background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 
-    .timeline {
-      margin-top: 40px;
-    }
+        .banner h2 {
+            background-color: rgba(0,0,0,0.75);
+            padding: 25px 35px;
+            border-radius: 15px;
+            color: white;
+            font-size: 2.5rem;
+        }
 
-    .timeline-item {
-      background-color: #1f2937;
-      padding: 20px;
-      border-left: 5px solid #8b5cf6;
-      margin-bottom: 20px;
-      border-radius: 10px;
-    }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            background-color: #1f2937;
+            border-radius: 10px;
+            overflow: hidden;
+        }
 
-    footer {
-      background-color: #0f172a;
-      text-align: center;
-      padding: 30px;
-      margin-top: 40px;
-    }
+        table th, table td {
+            border: 1px solid #374151;
+            padding: 15px;
+            text-align: center;
+        }
 
-    footer p {
-      color: #d1d5db;
-    }
+        table th {
+            background-color: #4f46e5;
+            color: white;
+            font-weight: 600;
+        }
 
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.2rem;
-      }
+        table tr:hover {
+            background-color: #374151;
+        }
 
-      .banner h2 {
-        font-size: 1.8rem;
-      }
-    }
-  </style>
+        .timeline {
+            margin-top: 40px;
+        }
+
+        .timeline-item {
+            background-color: #1f2937;
+            padding: 25px;
+            border-left: 5px solid #8b5cf6;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            background-color: #263144;
+        }
+
+        .timeline-item h3 {
+            color: #c4b5fd;
+            margin-bottom: 12px;
+            font-size: 1.3em;
+        }
+
+        .timeline-item p {
+            color: #d1d5db;
+            line-height: 1.7;
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        footer {
+            background-color: #0f172a;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            color: #d1d5db;
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #a78bfa;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            .banner h2 {
+                font-size: 1.8rem;
+            }
+
+            section h2 {
+                font-size: 1.6rem;
+            }
+
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1> Mundo Gamer</h1>
-    <p>
-      Descubre todo sobre los videojuegos: su historia, géneros, consolas,
-      juegos más famosos, impacto en la sociedad, esports y mucho más.
-    </p>
-  </header>
+    
 
-  <nav>
-    <ul>
-      <li><a href="#intro">Introducción</a></li>
-      <li><a href="#historia">Historia</a></li>
-      <li><a href="#tipos">Tipos</a></li>
-      <li><a href="#consolas">Consolas</a></li>
-      <li><a href="#famosos">Juegos Famosos</a></li>
-      <li><a href="#esports">Esports</a></li>
-      <li><a href="#beneficios">Beneficios</a></li>
-      <li><a href="#futuro">Futuro</a></li>
-    </ul>
-  </nav>
-
-  <div class="banner">
-    <h2>El universo de los videojuegos en un solo lugar</h2>
-  </div>
-
-  <section id="intro">
-    <h2>¿Qué son los videojuegos?</h2>
-    <p>
-      Un videojuego es una aplicación interactiva orientada al entretenimiento que, a través de ciertos mandos o controles, permite simular experiencias en la pantalla de un televisor, una computadora u otro dispositivo electrónico.
-
-Los videojuegos se diferencian de otras formas de entretenimiento, como ser las películas, en que deben ser interactivos; en otras palabras, los usuarios deben involucrarse activamente con el contenido. Para ello, es necesario utilizar un mando (también conocido como gamepad o joystick), mediante el cual se envían órdenes al dispositivo principal (un ordenador o una consola especializada) y estas se ven reflejadas en una pantalla con el movimiento y las acciones de los personajes.
-    </p>
-<imgd>
-    <br>
-    <p>
-      Actualmente existen videojuegos para todas las edades y gustos. Algunos ofrecen aventuras épicas, otros competencias deportivas, simulaciones realistas o incluso experiencias educativas.
-    </p>
-  </section>
-
-  <section id="historia">
-    <h2>Historia de los videojuegos</h2>
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>1958 - Primer videojuego</h3>
+    <header>
+        <h1>🎮 Mundo Gamer</h1>
         <p>
-          En 1958, William Higginbotham creó un juego de computadora interactivo llamado Tennis for Two para el día de visita anual del Brookhaven National Laboratory. Esta exhibición, financiada por el Departamento de Energía de los Estados Unidos, estaba destinada a promover la energía atómica, el artefacto usaba una computadora analógica y el sistema de gráficos vectoriales de un osciloscopio.        </p>
-      </div>
-
-      <div class="timeline-item">
-        <h3>1972 - Atari y Pong</h3>
-        <p>
-        Pong (o Tele-Pong) es un videojuego de consolas de primera generación publicado por Atari, creado por Nolan Bushnell y lanzado el 29 de noviembre de 1972.Pong fue el primer videojuego con éxito comercial, y ayudó a establecer la industria de los videojuegos junto con Magnavox Odyssey. Al poco de su lanzamiento, varias empresas empezaron a producir juegos que lo imitaban.          </p>
-      </div>
-
-      <div class="timeline-item">
-        <h3>1985 - Nintendo domina</h3>
-        <p>
-          La Nintendo Entertainment System (NES) es una de las consolas más emblemáticas y significativas en la historia de los videojuegos. Su desarrollo y lanzamiento no solo marcaron un hito en la industria, sino que también desempeñaron un papel crucial en la recuperación del mercado de videojuegos tras la crisis del 1983.        </p>
-      </div>
-
-      <div class="timeline-item">
-        <h3>2000 en adelante</h3>
-        <p>
-          Los gráficos 3D, el juego en línea y los esports transformaron los videojuegos en una experiencia global.
+            Descubre todo sobre los videojuegos: su historia, géneros, consolas,
+            juegos más famosos, impacto en la sociedad, esports y mucho más.
         </p>
-      </div>
+    </header>
+<!-- NAVEGACIÓN AL MENÚ PRINCIPAL -->
+    <div class="nav-principal">
+        <a href="index.html"><i class="fas fa-home"></i> Volver al Menú </a>
     </div>
-  </section>
+    <nav>
+        <ul>
+            <li><a href="#intro">Introducción</a></li>
+            <li><a href="#historia">Historia</a></li>
+            <li><a href="#tipos">Tipos</a></li>
+            <li><a href="#consolas">Consolas</a></li>
+            <li><a href="#famosos">Juegos Famosos</a></li>
+            <li><a href="#esports">Esports</a></li>
+            <li><a href="#beneficios">Beneficios</a></li>
+            <li><a href="#futuro">Futuro</a></li>
+        </ul>
+    </nav>
 
-  <section id="tipos">
-    <h2>Tipos de videojuegos</h2>
-
-    <div class="card-container">
-      <div class="card">
-        <h3> Acción</h3>
-        <p>
-         Los juegos de acción son uno de los géneros más antiguos y populares dentro del mundo de los videojuegos. Se caracterizan por poner al jugador en situaciones que requieren rapidez, reflejos y coordinación, ya sea enfrentando enemigos, superando obstáculos o avanzando por niveles cada vez más desafiantes. Desde sus inicios en los arcades de los años setenta y ochenta, con títulos como Space Invaders y Pac-Man, este género se convirtió en la base de la industria y marcó generaciones enteras.
-
-Durante los años noventa, los juegos de acción evolucionaron con la llegada de los gráficos en 3D y las consolas más potentes. Ejemplos como Super Mario 64 o Tomb Raider mostraron mundos tridimensionales que ofrecían nuevas formas de explorar y combatir. Al mismo tiempo, los juegos de disparos en primera persona, como Doom y Quake, revolucionaron la experiencia al sumergir al jugador directamente en la acción.
-
-Con el avance de la tecnología y el internet, el género se expandió hacia el multijugador en línea, permitiendo que millones de personas se enfrentaran o colaboraran en tiempo real. Títulos como Call of Duty y Halo consolidaron esta tendencia, mientras que los juegos de lucha como Street Fighter y Mortal Kombat se convirtieron en referentes de la competencia directa.
-
-Hoy en día, los juegos de acción abarcan una gran variedad de subgéneros: plataformas, beat ’em ups, shooters, lucha y acción-aventura. Además, muchos de ellos integran narrativas profundas y elementos cinematográficos, como ocurre en The Last of Us o God of War. Esto demuestra que el género no solo busca adrenalina y dinamismo, sino también experiencias inmersivas y emocionales que conectan con jugadores de todo el mundo.        </p>
-      </div>
-
-      <div class="card">
-        <h3> Carreras</h3>
-        <p>
-          Los juegos de carreras son un género clásico y muy popular dentro de los videojuegos, centrado en la conducción de vehículos y la competencia por alcanzar la meta en el menor tiempo posible. Se caracterizan por la velocidad, la precisión en el control y la emoción de superar rivales en pistas cada vez más desafiantes.
-
-En sus inicios, durante los años setenta y ochenta, aparecieron títulos como Night Driver y Pole Position, que marcaron el camino para el género. Con el avance de la tecnología en los noventa, surgieron sagas emblemáticas como Mario Kart y Gran Turismo, que ofrecieron experiencias más variadas: desde carreras divertidas con ítems y personajes hasta simulaciones realistas de automóviles y circuitos.
-
-En la década de los 2000, los juegos de carreras se expandieron hacia el multijugador en línea, permitiendo competir contra jugadores de todo el mundo. Series como Need for Speed y Forza Motorsport se consolidaron como referentes, ofreciendo tanto acción arcade como simulación detallada. 
-Los juegos de carreras no solo ofrecen diversión y competitividad, sino también un espacio para la creatividad, ya que muchos permiten personalizar vehículos, pistas y modos de juego. Además, han dado lugar a comunidades y competiciones profesionales, consolidando su lugar como uno de los géneros más influyentes en la historia del gaming.       </p>
-      </div>
-
-      <div class="card">
-        <h3> Deportes</h3>
-        <p>
-          Los juegos de deportes son un género que busca recrear la práctica de disciplinas deportivas en formato digital, ofreciendo experiencias que van desde la simulación realista hasta propuestas más arcade y accesibles. Se caracterizan por poner al jugador en el papel de atletas, equipos o entrenadores, con el objetivo de competir y alcanzar la victoria en diferentes modalidades.
-
-En sus inicios, durante los años ochenta, aparecieron títulos como Track & Field y Tecmo Bowl, que introdujeron la idea de trasladar deportes tradicionales al videojuego. En los noventa, sagas como FIFA y NBA Live se consolidaron, ofreciendo gráficos más detallados y licencias oficiales de equipos y jugadores.
-
-Con el avance tecnológico, los juegos de deportes se diversificaron en dos grandes vertientes: la simulación realista, que busca reproducir fielmente las reglas, físicas y estrategias de cada disciplina (ejemplo: FIFA, NBA 2K, Madden NFL), y la arcade, que apuesta por la diversión rápida y exagerada, con mecánicas más simples y espectaculares (ejemplo: Mario Strikers, NBA Jam).
-
-Hoy en día, el género no solo se centra en el entretenimiento, sino también en la competición profesional. Los títulos deportivos forman parte de los esports, con ligas oficiales y torneos internacionales que reúnen a millones de espectadores. Además, muchos juegos incluyen modos de gestión y personalización, permitiendo al jugador crear equipos, diseñar estrategias y vivir la experiencia completa del deporte.        </p>
-      </div>
-
-      <div class="card">
-        <h3> Estrategia</h3>
-        <p>
-          Los juegos de estrategia son un género que se centra en la planificación, la toma de decisiones y el uso inteligente de recursos para alcanzar objetivos. A diferencia de otros géneros más rápidos y directos, aquí la clave está en pensar a largo plazo y anticipar los movimientos del rival.
-
-En sus orígenes, durante los años ochenta y noventa, surgieron títulos como Civilization y Warcraft, que marcaron el camino de la estrategia por turnos y en tiempo real. Estos juegos permitían controlar ejércitos, construir ciudades o gestionar civilizaciones completas, dando al jugador un papel de estratega más que de combatiente directo.
-
-Con el paso del tiempo, el género se diversificó en varias vertientes. La estrategia por turnos se caracteriza por dar tiempo al jugador para analizar cada movimiento, como en Civilization o XCOM. La estrategia en tiempo real (RTS), en cambio, exige rapidez y coordinación, como en StarCraft o Age of Empires. También existen los juegos de gestión y simulación estratégica, donde el reto está en administrar recursos y sistemas complejos, como SimCity o Cities: Skylines.
-
-Hoy en día, los juegos de estrategia no solo se juegan en consolas y PC, sino también en dispositivos móviles, con títulos como Clash of Clans que han popularizado el género entre nuevas generaciones. Además, algunos se han convertido en pilares de los esports, especialmente los RTS, que requieren habilidad táctica y reflejos para competir a nivel profesional.        </p>
-      </div>
-
-      <div class="card">
-        <h3> Mundo abierto</h3>
-        <p>
-         Los juegos de mundo abierto son un género que se distingue por ofrecer al jugador una gran libertad de exploración y acción dentro de escenarios amplios y detallados. A diferencia de otros géneros más lineales, aquí no existe un único camino para avanzar: el jugador puede decidir qué misiones realizar, en qué orden y cómo interactuar con el entorno.
-
-Su origen se remonta a títulos pioneros como The Legend of Zelda (1986), que ya ofrecía un mapa extenso y libertad de movimiento. Sin embargo, fue en los años 2000 cuando el género se consolidó con sagas como Grand Theft Auto III, que introdujo ciudades vivas, personajes secundarios y múltiples actividades paralelas a la historia principal. 
-
-Hoy en día, el género abarca experiencias muy diversas: desde mundos realistas como Red Dead Redemption 2 y Assassin’s Creed, hasta propuestas fantásticas como The Witcher 3 o Elden Ring. También existen variantes más ligeras y accesibles, como Minecraft, que combina mundo abierto con creatividad y construcción.       </p>
-      </div>
-
-      <div class="card">
-        <h3> Terror</h3>
-        <p>
-         Los juegos de terror son un género diseñado para provocar miedo, tensión y suspenso en el jugador. Se caracterizan por atmósferas inquietantes, narrativas oscuras y mecánicas que buscan generar vulnerabilidad, como recursos limitados o enemigos impredecibles.
-
-Su origen se remonta a los años ochenta y noventa, con títulos pioneros como Alone in the Dark y Resident Evil, que introdujeron escenarios cerrados, cámaras fijas y la sensación de aislamiento. Posteriormente, Silent Hill profundizó en el terror psicológico, explorando miedos internos y ambientes perturbadores.
-
-Con el avance tecnológico, el género se diversificó en varias vertientes. El survival horror se centra en la supervivencia con recursos escasos, como en Resident Evil o The Evil Within. El terror psicológico busca inquietar al jugador con atmósferas y narrativas perturbadoras, como Silent Hill o Layers of Fear. El terror en primera persona, popularizado por Amnesia: The Dark Descent y Outlast, intensifica la inmersión al situar al jugador directamente en la piel del protagonista.
-
-Hoy en día, los juegos de terror también se han expandido al multijugador, con experiencias como Dead by Daylight o Phasmophobia, que combinan cooperación y tensión. Además, la realidad virtual ha potenciado el género, ofreciendo experiencias aún más inmersivas y aterradoras.        </p>
-      </div>
+    <div class="banner">
+        <h2>El universo de los videojuegos en un solo lugar</h2>
     </div>
-  </section>
 
-  <section id="consolas">
-    <h2>Consolas más importantes</h2>
-
-    <table>
-      <tr>
-        <th>Consola</th>
-        <th>Empresa</th>
-        <th>Año</th>
-        <th>Importancia</th>
-      </tr>
-
-      <tr>
-        <td>NES</td>
-        <td>Nintendo</td>
-        <td>1985</td>
-        <td>Popularizó los videojuegos domésticos.</td>
-      </tr>
-
-      <tr>
-        <td>PlayStation 2</td>
-        <td>Sony</td>
-        <td>2000</td>
-        <td>La consola más vendida de la historia.</td>
-      </tr>
-
-      <tr>
-        <td>Xbox 360</td>
-        <td>Microsoft</td>
-        <td>2005</td>
-        <td>Impulsó el juego online moderno.</td>
-      </tr>
-
-      <tr>
-        <td>Nintendo Switch</td>
-        <td>Nintendo</td>
-        <td>2017</td>
-        <td>Innovó con su sistema híbrido portátil.</td>
-      </tr>
-    </table>
-  </section>
-
-  <section id="famosos">
-  <h2>Videojuegos más famosos</h2>
-
-  <div class="card-container">
-
-    <a class="card-link" href="https://es.wikipedia.org/wiki/Minecraft" target="_blank">
-      <div class="card">
-        <h3> Minecraft</h3>
+    <section id="intro">
+        <h2><i class="fas fa-gamepad"></i> ¿Qué son los videojuegos?</h2>
         <p>
-          Minecraft es uno de los videojuegos más influyentes y populares de la historia reciente.
-          Haz clic para conocer más información detallada sobre el juego.
+            Un videojuego es una aplicación interactiva orientada al entretenimiento que, a través de ciertos mandos o controles, permite simular experiencias en la pantalla de un televisor, una computadora u otro dispositivo electrónico.
         </p>
-      </div>
-    </a>
-
-    <a class="card-link" href="https://es.wikipedia.org/wiki/Grand_Theft_Auto_V" target="_blank">
-      <div class="card">
-        <h3> GTA V</h3>
+        <br>
         <p>
-          Grand Theft Auto V es uno de los juegos de mundo abierto más exitosos.
-          Haz clic para ver información completa del videojuego.
+            Los videojuegos se diferencian de otras formas de entretenimiento, como las películas, en que deben ser interactivos; en otras palabras, los usuarios deben involucrarse activamente con el contenido. Para ello, es necesario utilizar un mando (también conocido como gamepad o joystick), mediante el cual se envían órdenes al dispositivo principal (un ordenador o una consola especializada) y estas se ven reflejadas en una pantalla con el movimiento y las acciones de los personajes.
         </p>
-      </div>
-    </a>
-
-    <a class="card-link" href="https://es.wikipedia.org/wiki/Super_Mario_Bros." target="_blank">
-      <div class="card">
-        <h3> Super Mario Bros.</h3>
+        <br>
         <p>
-          Super Mario Bros revolucionó la industria de los videojuegos.
-          Haz clic para aprender más sobre su historia e impacto.
+            Actualmente existen videojuegos para todas las edades y gustos. Algunos ofrecen aventuras épicas, otros competencias deportivas, simulaciones realistas o incluso experiencias educativas.
         </p>
-      </div>
-    </a>
+    </section>
 
-    <a class="card-link" href="https://es.wikipedia.org/wiki/The_Legend_of_Zelda" target="_blank">
-      <div class="card">
-        <h3> The Legend of Zelda</h3>
+    <section id="historia">
+        <h2><i class="fas fa-history"></i> Historia de los videojuegos</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>1958 - Primer videojuego</h3>
+                <p>
+                    En 1958, William Higginbotham creó un juego de computadora interactivo llamado <strong>Tennis for Two</strong> para el día de visita anual del Brookhaven National Laboratory. Esta exhibición, financiada por el Departamento de Energía de los Estados Unidos, estaba destinada a promover la energía atómica. El artefacto usaba una computadora analógica y el sistema de gráficos vectoriales de un osciloscopio.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>1972 - Atari y Pong</h3>
+                <p>
+                    Pong (o Tele-Pong) es un videojuego de consolas de primera generación publicado por Atari, creado por Nolan Bushnell y lanzado el 29 de noviembre de 1972. Pong fue el <strong>primer videojuego con éxito comercial</strong>, y ayudó a establecer la industria de los videojuegos junto con Magnavox Odyssey. Al poco de su lanzamiento, varias empresas empezaron a producir juegos que lo imitaban.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>1985 - Nintendo domina</h3>
+                <p>
+                    La <strong>Nintendo Entertainment System (NES)</strong> es una de las consolas más emblemáticas y significativas en la historia de los videojuegos. Su desarrollo y lanzamiento no solo marcaron un hito en la industria, sino que también desempeñaron un papel crucial en la recuperación del mercado de videojuegos tras la crisis del 1983.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>2000 en adelante</h3>
+                <p>
+                    Los gráficos 3D, el juego en línea y los esports transformaron los videojuegos en una experiencia global. PlayStation 2 se convirtió en la consola más vendida de la historia con más de 155 millones de unidades.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tipos">
+        <h2><i class="fas fa-th-large"></i> Tipos de videojuegos</h2>
+
+        <div class="card-container">
+            <div class="card">
+                <h3>🎯 Acción</h3>
+                <p>
+                    Los juegos de acción son uno de los géneros más antiguos y populares. Se caracterizan por poner al jugador en situaciones que requieren rapidez, reflejos y coordinación. Desde Space Invaders y Pac-Man hasta Doom, Call of Duty, The Last of Us y God of War, este género abarca plataformas, shooters, lucha y acción-aventura.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🏎️ Carreras</h3>
+                <p>
+                    Centrado en la conducción de vehículos y la competencia por alcanzar la meta. Desde Pole Position hasta Gran Turismo, Mario Kart, Need for Speed y Forza Motorsport. Ofrecen desde simulaciones realistas hasta experiencias arcade divertidas con ítems y personajes.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚽ Deportes</h3>
+                <p>
+                    Recrea disciplinas deportivas en formato digital. Sagas como FIFA, NBA 2K, Madden NFL ofrecen simulación realista con licencias oficiales. Mario Strikers y NBA Jam apuestan por la diversión arcade. Forman parte de los esports con ligas y torneos internacionales.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>♟️ Estrategia</h3>
+                <p>
+                    Se centra en la planificación, toma de decisiones y uso inteligente de recursos. Civilization, Warcraft, StarCraft, Age of Empires y Clash of Clans son ejemplos clave. Incluye estrategia por turnos, tiempo real (RTS) y juegos de gestión como SimCity.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🌍 Mundo abierto</h3>
+                <p>
+                    Ofrece gran libertad de exploración y acción en escenarios amplios. The Legend of Zelda, Grand Theft Auto, Red Dead Redemption 2, The Witcher 3, Elden Ring y Minecraft son referentes del género que permiten decidir qué hacer y en qué orden.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>👻 Terror</h3>
+                <p>
+                    Diseñado para provocar miedo, tensión y suspenso. Desde Alone in the Dark y Resident Evil hasta Silent Hill, Amnesia, Outlast, Dead by Daylight y Phasmophobia. La realidad virtual ha potenciado el género con experiencias aún más inmersivas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="consolas">
+        <h2><i class="fas fa-tv"></i> Consolas más importantes</h2>
+
+        <table>
+            <tr>
+                <th>Consola</th>
+                <th>Empresa</th>
+                <th>Año</th>
+                <th>Importancia</th>
+            </tr>
+            <tr>
+                <td><strong>NES</strong></td>
+                <td>Nintendo</td>
+                <td>1985</td>
+                <td>Popularizó los videojuegos domésticos.</td>
+            </tr>
+            <tr>
+                <td><strong>PlayStation 2</strong></td>
+                <td>Sony</td>
+                <td>2000</td>
+                <td>La consola más vendida de la historia (155M+).</td>
+            </tr>
+            <tr>
+                <td><strong>Xbox 360</strong></td>
+                <td>Microsoft</td>
+                <td>2005</td>
+                <td>Impulsó el juego online moderno con Xbox Live.</td>
+            </tr>
+            <tr>
+                <td><strong>Nintendo Switch</strong></td>
+                <td>Nintendo</td>
+                <td>2017</td>
+                <td>Innovó con su sistema híbrido portátil y de sobremesa.</td>
+            </tr>
+            <tr>
+                <td><strong>PlayStation 5</strong></td>
+                <td>Sony</td>
+                <td>2020</td>
+                <td>Carga ultrarrápida SSD, gráficos 4K y retrocompatibilidad.</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="famosos">
+        <h2><i class="fas fa-star"></i> Videojuegos más famosos</h2>
+
+        <div class="card-container">
+            <a class="card-link" href="https://es.wikipedia.org/wiki/Minecraft" target="_blank">
+                <div class="card">
+                    <h3>⛏️ Minecraft</h3>
+                    <p>
+                        Minecraft es uno de los videojuegos más influyentes y populares de la historia reciente. Con más de 300 millones de copias vendidas, es el juego más vendido de todos los tiempos.
+                    </p>
+                </div>
+            </a>
+
+            <a class="card-link" href="https://es.wikipedia.org/wiki/Grand_Theft_Auto_V" target="_blank">
+                <div class="card">
+                    <h3>🚗 GTA V</h3>
+                    <p>
+                        Grand Theft Auto V es uno de los juegos de mundo abierto más exitosos. Ha vendido más de 190 millones de copias y generado miles de millones en ingresos.
+                    </p>
+                </div>
+            </a>
+
+            <a class="card-link" href="https://es.wikipedia.org/wiki/Super_Mario_Bros." target="_blank">
+                <div class="card">
+                    <h3>🍄 Super Mario Bros.</h3>
+                    <p>
+                        Super Mario Bros revolucionó la industria de los videojuegos en 1985. Es el personaje más icónico de Nintendo y una de las franquicias más exitosas de la historia.
+                    </p>
+                </div>
+            </a>
+
+            <a class="card-link" href="https://es.wikipedia.org/wiki/The_Legend_of_Zelda" target="_blank">
+                <div class="card">
+                    <h3>🗡️ The Legend of Zelda</h3>
+                    <p>
+                        Zelda es una de las sagas más importantes de Nintendo. "Breath of the Wild" y "Tears of the Kingdom" son considerados obras maestras del mundo abierto.
+                    </p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="esports">
+        <h2><i class="fas fa-trophy"></i> Esports y competencias</h2>
+
         <p>
-          Zelda es una de las sagas más importantes de Nintendo.
-          Haz clic para obtener información más detallada.
+            Los <strong>esports</strong> (deportes electrónicos) son competiciones profesionales de videojuegos que han transformado el entretenimiento digital en un fenómeno global. Se caracterizan por reunir a jugadores de alto nivel en torneos organizados, transmitidos en línea y seguidos por millones de espectadores en todo el mundo.
         </p>
-      </div>
-    </a>
-
-  </div>
-</section>
-  <section id="esports">
-    <h2>Esports y competencias</h2>
-
-    <p> Los esports (deportes electrónicos) son competiciones profesionales de videojuegos que han transformado el entretenimiento digital en un fenómeno global. Se caracterizan por reunir a jugadores de alto nivel en torneos organizados, transmitidos en línea y seguidos por millones de espectadores en todo el mundo.
-
-Su origen se remonta a los años noventa y 2000, con títulos como StarCraft en Corea del Sur y Counter‑Strike en Europa y América. Sin embargo, fue en la década de 2010 cuando los esports alcanzaron una dimensión masiva, gracias a juegos como League of Legends, Dota 2 y Overwatch, que introdujeron ligas profesionales y premios millonarios.
-    </p>
-
-    <br>
-
-    <div class="card-container">
-      <div class="card">
-        <h3> Juegos competitivos</h3>
         <p>
-         Los juegos competitivos son aquellos diseñados para enfrentar a jugadores entre sí, poniendo a prueba sus habilidades, reflejos, estrategias y capacidad de adaptación. Se diferencian de otros géneros porque su núcleo está en la competencia directa, ya sea en duelos individuales, equipos o torneos organizados.
-
-En sus orígenes, durante los años ochenta y noventa, los juegos de lucha como Street Fighter II y Mortal Kombat marcaron el inicio de la competencia digital, al igual que los shooters como Quake o Counter‑Strike, que introdujeron enfrentamientos en línea. Con el tiempo, el concepto se expandió a múltiples géneros, desde deportes digitales (FIFA, NBA 2K) hasta MOBAs (League of Legends, Dota 2) y battle royales (Fortnite, PUBG).        </p>
-      </div>
-
-      <div class="card">
-        <h3> Torneos mundiales</h3>
-        <p>Los torneos mundiales de videojuegos son el punto más alto de la competencia en los esports, reuniendo a los mejores jugadores y equipos de todo el planeta en eventos masivos que combinan espectáculo, tecnología y rivalidad profesional.
-
-Su origen se remonta a los años 2000, cuando títulos como StarCraft en Corea del Sur y Counter‑Strike en Europa comenzaron a organizar competencias internacionales. Sin embargo, fue en la década de 2010 cuando los torneos mundiales se consolidaron como fenómenos globales, con ligas profesionales y premios millonarios.
-                  </p>
-      </div>
-
-      <div class="card">
-        <h3> Premios</h3>
-        <p>
-         En los grandes campeonatos internacionales, como el League of Legends World Championship o The International de Dota 2, los premios suelen alcanzar cifras millonarias. En el caso de Dota 2, la comunidad financia gran parte del pozo de premios mediante la compra de contenido especial, lo que ha permitido superar los 40 millones de dólares en una sola edición. Por su parte, el Mundial de League of Legends ofrece recompensas económicas y prestigio, consolidando a los equipos campeones como referentes globales.
-
-Además de los premios monetarios, los jugadores y equipos reciben reconocimiento mediático, contratos de patrocinio y oportunidades profesionales dentro y fuera del ámbito competitivo. En títulos como Fortnite, la World Cup de 2019 otorgó millones de dólares en premios y catapultó a jóvenes jugadores a la fama internacional.        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="beneficios">
-    <h2>Beneficios de los videojuegos</h2>
-
-    <div class="card-container">
-      <div class="card">
-        <h3> Desarrollo mental</h3>
-        <p>
-          Mejoran la memoria, reflejos, concentración y resolución de problemas.
+            Su origen se remonta a los años noventa y 2000, con títulos como StarCraft en Corea del Sur y Counter‑Strike en Europa. En la década de 2010 alcanzaron una dimensión masiva gracias a juegos como League of Legends, Dota 2 y Overwatch.
         </p>
-      </div>
 
-      <div class="card">
-        <h3> Trabajo en equipo</h3>
+        <br>
+
+        <div class="card-container">
+            <div class="card">
+                <h3>🎮 Juegos competitivos</h3>
+                <p>
+                    Diseñados para enfrentar a jugadores entre sí. Desde Street Fighter y Mortal Kombat hasta League of Legends, Dota 2, Counter‑Strike y Fortnite. Ponen a prueba habilidades, reflejos, estrategias y trabajo en equipo.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🏆 Torneos mundiales</h3>
+                <p>
+                    El League of Legends World Championship y The International de Dota 2 son los torneos más prestigiosos. The International ha superado los 40 millones de dólares en premios financiados por la comunidad.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>💰 Premios</h3>
+                <p>
+                    En Fortnite, la World Cup 2019 otorgó 30 millones de dólares en premios. Los jugadores profesionales reciben contratos de patrocinio, reconocimiento mediático y oportunidades profesionales dentro y fuera del ámbito competitivo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="beneficios">
+        <h2><i class="fas fa-heart"></i> Beneficios de los videojuegos</h2>
+
+        <div class="card-container">
+            <div class="card">
+                <h3>🧠 Desarrollo mental</h3>
+                <p>
+                    Mejoran la memoria, reflejos, concentración y resolución de problemas. Estudios demuestran que los gamers tienen mejor coordinación ojo-mano.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🤝 Trabajo en equipo</h3>
+                <p>
+                    Muchos juegos fomentan la cooperación y la comunicación entre jugadores. Títulos como Overwatch o Valorant requieren coordinación de equipos.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🎨 Creatividad</h3>
+                <p>
+                    Juegos como Minecraft, Roblox y Dreams permiten crear construcciones, mundos únicos y hasta programar tus propios juegos.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>📚 Educación</h3>
+                <p>
+                    Existen videojuegos educativos que ayudan a aprender matemáticas, idiomas, historia y ciencias de forma interactiva y divertida.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="futuro">
+        <h2><i class="fas fa-rocket"></i> El futuro de los videojuegos</h2>
+
         <p>
-          Muchos juegos fomentan la cooperación y la comunicación entre jugadores.
+            El futuro de los videojuegos apunta hacia una evolución marcada por la innovación tecnológica, la expansión cultural y la integración en múltiples ámbitos de la vida cotidiana.
         </p>
-      </div>
-
-      <div class="card">
-        <h3> Creatividad</h3>
+        <br>
         <p>
-          Juegos como Minecraft permiten crear construcciones y mundos únicos.
+            También se espera que el metaverso y los videojuegos en la nube cambien la manera en la que jugamos en el futuro.
         </p>
-      </div>
 
-      <div class="card">
-        <h3> Educación</h3>
-        <p>
-          Existen videojuegos educativos que ayudan a aprender matemáticas, idiomas y ciencias.
-        </p>
-      </div>
-    </div>
-  </section>
+        <div class="card-container">
+            <div class="card">
+                <h3>🥽 Realidad virtual</h3>
+                <p>
+                    La VR ofrece experiencias inmersivas que colocan al jugador dentro del mundo digital. Con dispositivos como Oculus Rift, HTC Vive y PlayStation VR, títulos como Beat Saber, Half-Life: Alyx y Resident Evil 7 marcan el camino.
+                </p>
+            </div>
 
-  <section id="futuro">
-    <h2>El futuro de los videojuegos</h2>
+            <div class="card">
+                <h3>☁️ Juego en la nube</h3>
+                <p>
+                    El cloud gaming permite jugar títulos de alta calidad sin necesidad de consolas o PCs potentes. Xbox Cloud Gaming, NVIDIA GeForce Now y Amazon Luna lideran esta tendencia que elimina barreras de hardware.
+                </p>
+            </div>
 
-    <p>
-     El futuro de los videojuegos apunta hacia una evolución marcada por la innovación tecnológica, la expansión cultural y la integración en múltiples ámbitos de la vida cotidiana.
+            <div class="card">
+                <h3>🤖 Inteligencia artificial</h3>
+                <p>
+                    La IA crea enemigos y NPCs con comportamientos realistas, genera historias personalizadas y mundos procedurales infinitos como en Minecraft o No Man's Sky. También ayuda en el desarrollo de videojuegos automatizando animaciones y pruebas.
+                </p>
+            </div>
+        </div>
+    </section>
 
-En el plano tecnológico, veremos un crecimiento en la realidad virtual (VR) y aumentada (AR), que ofrecerán experiencias cada vez más inmersivas. También la inteligencia artificial permitirá mundos más dinámicos, personajes con comportamientos realistas y narrativas adaptativas que respondan a las decisiones del jugador.
-
-En el aspecto social y cultural, los videojuegos seguirán consolidándose como espacios de interacción global. Los esports y las competencias internacionales crecerán en prestigio, con ligas comparables a las de deportes tradicionales. Además, los videojuegos se integrarán más en la educación, la salud y la formación profesional, como herramientas de aprendizaje y simulación.    </p>
-
-    <br>
-
-    <p>
-      También se espera que el metaverso y los videojuegos en la nube cambien la manera en la que jugamos en el futuro.
-    </p>
-
-    <div class="card-container">
-      <div class="card">
-        <h3> Realidad virtual</h3>
-        <p>
-          La realidad virtual (VR) es una de las tecnologías más prometedoras para el futuro de los videojuegos, ya que ofrece experiencias inmersivas que colocan al jugador dentro del mundo digital. A través de visores, sensores de movimiento y controladores especiales, la VR permite interactuar con entornos tridimensionales como si fueran reales.
-
-En sus inicios, la realidad virtual en videojuegos estaba limitada por el costo y la calidad gráfica. Sin embargo, con dispositivos como Oculus Rift, HTC Vive y PlayStation VR, la tecnología se volvió más accesible y comenzó a ofrecer experiencias completas en títulos como Beat Saber, Half-Life: Alyx o Resident Evil 7.        </p>
-      </div>
-
-      <div class="card">
-        <h3> Juego en la nube</h3>
-        <p>
-          El juego en la nube (cloud gaming) es una de las tendencias más innovadoras en la industria de los videojuegos, ya que permite jugar títulos de alta calidad sin necesidad de consolas o PCs potentes. En lugar de ejecutar el juego en el dispositivo del usuario, este se procesa en servidores remotos y se transmite en tiempo real a través de internet, como si fuera un servicio de streaming.
-
-Algunos servicios destacados son Xbox Cloud Gaming (Game Pass Ultimate), NVIDIA GeForce Now, PlayStation Plus Premium y Amazon Luna, que ofrecen catálogos variados y compatibilidad con múltiples dispositivos.
-
-El futuro del juego en la nube apunta hacia una integración más profunda con el metaverso, la realidad virtual y la inteligencia artificial, creando experiencias compartidas y persistentes. Sin embargo, enfrenta desafíos como la necesidad de conexiones estables y rápidas, la latencia y la disponibilidad de servidores en distintas regiones.
-</p>
-      </div>
-
-      <div class="card">
-        <h3> Inteligencia artificial</h3>
-        <p>
-          La inteligencia artificial (IA) está transformando profundamente el mundo de los videojuegos, tanto en su desarrollo como en la experiencia del jugador.
-
-En el plano técnico, la IA se utiliza para crear enemigos y personajes no jugables (NPCs) con comportamientos más realistas y adaptativos. Esto significa que ya no siguen rutinas fijas, sino que pueden reaccionar dinámicamente a las acciones del jugador, ofreciendo desafíos más variados y naturales.
-
-En el aspecto narrativo, la IA permite generar historias personalizadas, diálogos que se adaptan a las decisiones del jugador y mundos que evolucionan de manera única en cada partida. Esto abre la puerta a experiencias más inmersivas y con un alto grado de rejugabilidad.
-
-En cuanto a la jugabilidad, la IA se aplica en sistemas de recomendación, ajuste automático de dificultad y creación de entornos procedurales. Juegos como Minecraft o No Man’s Sky utilizan algoritmos para generar mundos prácticamente infinitos, mientras que títulos competitivos ajustan la dificultad según el nivel del jugador para mantener el equilibrio.
-
-Además, la IA está influyendo en el desarrollo y diseño de videojuegos, ayudando a los creadores a automatizar tareas como animaciones, pruebas de calidad y generación de contenido, lo que acelera la producción y permite mayor creatividad.
-
-El futuro apunta hacia videojuegos con mundos vivos y autónomos, donde la IA no solo controle enemigos, sino también ecosistemas completos, economías internas y narrativas emergentes que se construyen en tiempo real.        </p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>
-      © 2026 Mundo Gamer | Sitio web educativo sobre videojuegos.
-    </p>
-  </footer>
+    <footer>
+        <p>🎮 © 2026 Mundo Gamer | Sitio web educativo sobre videojuegos</p>
+        <p style="margin-top:10px;"><a href="index.html"><i class="fas fa-home"></i> Volver al Menú Principal</a></p>
+    </footer>
 
 </body>
 </html>
