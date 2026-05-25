@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Deportes Élite | Ventana Experta de Fútbol con Historia Extensa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f0f4f8; color: #1a2c3e; line-height: 1.55; scroll-behavior: smooth; }
+        .hero {
+            background: linear-gradient(135deg, #0a2f3f 0%, #1b6b7a 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom-left-radius: 2.5rem;
+            border-bottom-right-radius: 2.5rem;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+        }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 0.75rem; }
+        .hero h1 i { margin-right: 12px; color: #ffdb7e; }
+        .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto; opacity: 0.95; }
+        
+        /* Sports Nav */
+        .sports-nav {
+            position: sticky;
+            top: 0;
+            z-index: 110;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+            padding: 0.8rem 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem;
+            border-bottom: 1px solid #e2edf2;
+        }
+        .nav-btn {
+            background: transparent;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.55rem 1.2rem;
+            border-radius: 2.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #2c4b5c;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-btn:hover { background: #e6edf2; transform: translateY(-2px); }
+        .nav-btn.active { background: #1b6b7a; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 1450px; margin: 2.5rem auto; padding: 0 1.8rem; }
+        .sports-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(440px, 1fr)); gap: 2.2rem; }
+        .card {
+            background: white;
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 15px 32px rgba(0,0,0,0.08);
+            transition: transform 0.25s ease, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .card:hover { transform: translateY(-6px); box-shadow: 0 25px 40px -12px rgba(0,0,0,0.2); }
+        .card-header {
+            padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+            background: #ffffff;
+            border-bottom: 5px solid;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .card-header h2 { font-size: 1.9rem; font-weight: 800; display: flex; align-items: center; gap: 12px; }
+        .btn-window {
+            background: linear-gradient(135deg, #1b6b7a, #0f4c5c);
+            border: none;
+            border-radius: 2rem;
+            padding: 0.5rem 1.2rem;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .btn-window:hover { background: linear-gradient(135deg, #0f5c6b, #0a3e4a); transform: scale(1.02); }
+        .card-content {
+            padding: 1.2rem 1.5rem 1.8rem;
+            flex: 1;
+            max-height: 780px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+        .card-content::-webkit-scrollbar { width: 5px; }
+        .section-block { margin-bottom: 1.3rem; }
+        .section-title {
+            font-weight: 800;
+            font-size: 1rem;
+            margin: 0.8rem 0 0.5rem 0;
+            border-left: 5px solid #2e7d64;
+            padding-left: 12px;
+            color: #0f4c5c;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-text { font-size: 0.92rem; color: #1f3b48; line-height: 1.55; margin-bottom: 0.5rem; }
+        .compact-list {
+            background: #f9fbfd;
+            border-radius: 1rem;
+            padding: 0.8rem 1rem;
+            margin: 0.6rem 0;
+            list-style: none;
+        }
+        .compact-list li { padding: 0.45rem 0; display: flex; gap: 10px; align-items: baseline; border-bottom: 1px solid #e9eff4; font-size: 0.88rem; }
+        .compact-list li:last-child { border-bottom: none; }
+        .curiosity-card {
+            background: #eff6fa;
+            border-radius: 1.2rem;
+            padding: 0.8rem 1rem;
+            margin-top: 1rem;
+            border-left: 5px solid #ffaa44;
+            font-size: 0.88rem;
+        }
+        .mini-table { background: #f8fafc; border-radius: 1rem; padding: 0.6rem; margin: 0.7rem 0; font-size: 0.85rem; overflow-x: auto; }
+        .footer {
+            background: #0f2c34;
+            color: #cddfe6;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+        }
+        /* MODAL MEJORADO */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0.2s, opacity 0.2s;
+        }
+        .modal-overlay.active { visibility: visible; opacity: 1; }
+        .modal-container {
+            background: white;
+            width: 90%;
+            max-width: 950px;
+            max-height: 85vh;
+            border-radius: 2rem;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.3);
+            animation: modalFadeIn 0.25s ease-out;
+        }
+        @keyframes modalFadeIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .modal-header {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 1.2rem 1.8rem;
+            border-bottom: 3px solid;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+        .modal-header h2 { font-size: 1.8rem; display: flex; align-items: center; gap: 12px; }
+        .modal-close { background: none; border: none; font-size: 2rem; cursor: pointer; color: #6c757d; transition: 0.2s; }
+        .modal-close:hover { color: #dc3545; transform: scale(1.1); }
+        .modal-body { padding: 1.5rem 2rem 2rem; }
+        hr { margin: 1rem 0; border: 0; height: 1px; background: linear-gradient(to right, #ccc, transparent); }
+        @media (max-width: 680px) { .modal-header h2 { font-size: 1.3rem; } }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <h1><i class="fas fa-futbol"></i> SITIO DEPORTIVO| Ventana Élite </h1>
+    <p>📖  (capítulos completos, datos históricos únicos, récords, tácticas y más)</p>
+</header>
+
+<div class="sports-nav" id="sportsNavBar"></div>
+
+<div class="container">
+    <div class="sports-grid" id="sportsGrid"></div>
+    <div style="margin: 2.5rem 0 1rem; background: white; border-radius: 2rem; padding: 1.2rem 1.8rem; box-shadow: 0 6px 14px rgba(0,0,0,0.05);">
+        <h3 style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-chart-line"></i> 🏅 Los récords más asombrosos del deporte mundial</h3>
+        <div class="mini-table" style="background: #fff7eb;"><table style="width:100%"><thead><tr><th>Deporte</th><th>Récord Extremo</th><th>Marca / Logro</th></thead><tbody id="resumenRecords"></tbody></table></div>
+    </div>
+</div>
+<footer class="footer">
+    <p><i class="fas fa-dumbbell"></i> SITIO Deportivo — Ventana especial de FÚTBOL con crónica histórica definitiva.<br>© 2025 · Datos ampliados | <i class="fas fa-heart" style="color:#ffaaa5;"></i> El conocimiento deportivo une culturas</p>
+    <p style="margin-top: 0.6rem;"><a href="#" style="color:#ffdb7e;"><i class="fas fa-arrow-up"></i> Subir</a></p>
+</footer>
+
+<div id="dynamicModal" class="modal-overlay">
+    <div class="modal-container">
+        <div class="modal-header" id="modalHeader">
+            <h2 id="modalTitle">Deporte</h2>
+            <button class="modal-close" id="closeModalBtn">&times;</button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+    </div>
+</div>
+
+<script>
+    // ********** BASE DE DATOS ENRIQUECIDA (FÚTBOL CON HISTORIA EXTENSA) **********
+    const sportsFull = [
+        { // ÍNDICE 0: FÚTBOL - VERSIÓN HISTORIA ÉPICA (mucho más detalle)
+            id: "futbol", name: "⚽ FÚTBOL", icon: "fas fa-futbol", color: "#2e7d64",
+            historiaExtendida: `
+                <div style="font-size:0.93rem; line-height:1.55;">
+                <p><strong>📜 ORÍGENES ANCESTRALES:</strong> El deseo humano de patear un objeto redondo es milenario. El <strong>cuju chino</strong> (siglo III a.C.) se jugaba con balón de cuero, el <strong>harpastum</strong> romano y el <strong>calcio florentino</strong> renacentista. Sin embargo, el fútbol moderno nació en <strong>Inglaterra victoriana</strong>. En 1848 las <strong>Cambridge Rules</strong> unificaron criterios, prohibiendo correr con el balón en la mano. El <strong>Sheffield FC</strong> (1857) es el club más antiguo del mundo.<br><br>
+II. EL NACIMIENTO EN INGLATERRA (1840-1863)<br>
+Las escuelas públicas inglesas
+Cada escuela (Eton, Harrow, Rugby, Winchester, etc.) tenía su propio código de fútbol. Algunas permitían correr con el balón en la mano (pre-rugby), otras solo patadas. La gran diversidad impedía partidos inter-escolares.
+<br>
+El momento clave: 1848 – Cambridge Rules
+En el Trinity College de Cambridge, estudiantes de distintas escuelas se reunieron para redactar un reglamento unificado. Las Cambridge Rules establecían:
+<br>
+El balón se movía principalmente con los pies.
+<br>
+Se permitía cogerlo solo para detenerlo.
+<br>
+No se podía correr con el balón en la mano.
+<br>
+El hacking (dar patadas en las espinillas al rival) estaba prohibido.
+<br><br>
+Estas reglas sentaron las bases del dribbling game (juego de regate) que caracteriza al fútbol asociación.
+<br><br>
+1857 – Nace el club más antiguo
+ <br>
+Se funda el Sheffield FC, el club de fútbol más antiguo del mundo que aún existe. Las Sheffield Rules influyeron mucho: introdujeron el córner, los tiros libres indirectos y la idea de que un gol se marca cuando el balón pasa totalmente la línea.
+<br><br>
+26 de octubre de 1863 – La fundación de la FA
+<br>
+Representantes de 11 clubes y escuelas londinenses se reunieron en la Freemasons' Tavern de Londres para crear la Football Association (FA). Tras varias reuniones, el 8 de diciembre de 1863 se publicaron las primeras 14 reglas oficiales:
+<br>
+Prohibían correr con el balón en la mano.
+<br>
+Prohibían el hacking (patadas a las piernas).
+<br>
+Se establecía un campo rectangular y dos postes sin travesaño inicialmente.
+<br>
+Este fue el parto definitivo del fútbol asociación (soccer, del inglés association football).
+<br><br>
+
+III. LA EXPANSIÓN INICIAL Y LAS PRIMERAS COMPETICIONES 
+<br><br>
+1871: Se crea la FA Cup, la competición de clubes más antigua del mundo. El primer ganador fue el Wanderers FC.
+<br>
+1872: Primer partido internacional oficial: Escocia 0-0 Inglaterra (Hamilton Crescent, Glasgow). Los escoceses usaban un estilo de pases cortos (combination game), mientras que los ingleses preferían el dribbling individual.
+<br>
+1877: Las Sheffield Rules y las FA Rules se unifican definitivamente.
+<br>
+1885: El profesionalismo es legalizado en Inglaterra, lo que provoca controversia porque muchos clubes del norte empezaban a pagar a sus jugadores.
+<br>
+1888: Se funda The Football League, la primera liga profesional del mundo. El Preston North End fue el primer campeón, ganando además la FA Cup sin perder un solo partido (el legendario "Invincibles" original).
+<br><br>
+
+IV. EL FÚTBOL CRUZA FRONTERAS (Fines S.XIX – Principios S.XX)<br><br>
+
+El imperio británico y los trabajadores emigrantes llevaron el fútbol a todos los continentes:
+<br><br>
+Región	Año aproximado	Cómo llegó	Primer club
+<br>
+Europa continental	1890s	Estudiantes y comerciantes ingleses	FC Barcelona (1899), Real Madrid (1902), Juventus (1897), AC Milan (1899)
+<br>
+Sudamérica	1860-80	Marineros y ferroviarios británicos	Buenos Aires FC (1867 – hoy Alumni), Montevideo Cricket Club (1861)
+<br>
+África	1880-1900	Colonos británicos y misioneros	Alexandria SC (Egipto, 1890)
+<br>
+Asia	1870-1900	Funcionarios británicos	Yokohama FC (Japón, 1890s)
+<br>
+Oceanía	1880	Inmigrantes	Wanderers FC (Nueva Zelanda, 1889)
+<br><br>
+
+Casos emblemáticos:
+<br><br>
+Argentina: El fútbol llegó por el puerto de Buenos Aires. En 1891 se fundó la primera liga fuera del Reino Unido.
+<br>
+Uruguay: El fútbol se hizo tan popular que ganó la medalla de oro olímpica en 1924 y 1928 antes de organizar y ganar el primer Mundial en 1930.
+<br>
+Bélgica, Países Bajos, Suiza: Fueron los primeros países europeos continentales en adoptar el fútbol de forma masiva.
+<br><br>
+
+V. LA FIFA Y EL SUEÑO OLÍMPICO
+<br><br>
+La FIFA (Fédération Internationale de Football Association) se fundó el 21 de mayo de 1904 en París por representantes de Bélgica, Dinamarca, Francia, Países Bajos, España, Suecia y Suiza. Inglaterra se unió más tarde (1905).
+<br>
+Los Juegos Olímpicos se convirtieron en el primer torneo internacional importante, pero la FIFA quería un campeonato propio. En 1928, el congreso de la FIFA en Ámsterdam decidió organizar su propio torneo.
+<br><br>
+VI. LA COPA DEL MUNDO: NACIMIENTO Y CRECIMIENTO
+<br><br>
+
+1930 – Uruguay: El primer Mundial
+<br>
+Sede: Uruguay (elegido porque era campeón olímpico y celebraba su centenario de independencia).
+<br>
+Participantes: 13 equipos (mayoría de América, solo 4 europeos: Bélgica, Francia, Rumania, Yugoslavia).
+<br>
+Final: Uruguay 4-2 Argentina, en el Estadio Centenario de Montevideo.
+<br>
+Anécdota: Cada país usó un balón diferente en cada tiempo de la final. Uruguay ganó con el suyo.
+<br><br>
+
+Las décadas doradas
+<br><br>
+1934 (Italia): Italia gana bajo el régimen fascista de Mussolini, que presionó duramente. Fue el primer Mundial con fase de clasificación.
+<br>
+1938 (Francia): Italia repite título, pese a las tensiones previas a la Segunda Guerra Mundial.
+<br>
+1950 (Brasil): El "Maracanazo". Uruguay vence a Brasil en el Maracaná con 199,854 espectadores, la mayor asistencia de la historia.
+<br>
+1958 (Suecia): Aparece Pelé (17 años, el más joven en ganar un Mundial). Brasil gana su primer título.
+<br>
+1966 (Inglaterra): El polémico gol fantasma de Geoff Hurst en la final contra Alemania Federal.
+<br>
+1970 (México): Brasil gana por tercera vez y se queda definitivamente con el trofeo Jules Rimet (que luego fue robado y fundido por ladrones).
+<br>
+1986 (México): La "Mano de Dios" y el "Gol del Siglo" de Maradona contra Inglaterra.
+<br>
+1998 (Francia): Zidane lidera a Francia a su primer título.
+<br>
+2002 (Corea-Japón): Brasil gana su quinto título; Ronaldo "Fenómeno" se redime tras la final de 1998.
+<br>
+2010 (Sudáfrica): Primer Mundial en África. España gana su primer título con el tiki-taka.
+<br>
+2014 (Brasil): El 7-1 de Alemania a Brasil en semifinales, la mayor humillación de la Canarinha.
+<br>
+2018 (Rusia): Francia gana su segundo título.
+<br>
+2022 (Qatar): Argentina gana su tercer título con Lionel Messi como figura absoluta.
+<br>
+El futuro
+2026: México, Estados Unidos y Canadá serán anfitriones conjuntos, con 48 equipos en lugar de 32.</p>
+<br><br>
+EN RESUMEN:
+<br><br>
+
+                <p><strong>⚡ 26 DE OCTUBRE DE 1863 - FUNDACIÓN DE LA FA:</strong> En la Freemasons' Tavern de Londres, 11 clubes crearon la Football Association y redactaron 14 reglas. Se prohibió el 'hacking' (patadas a las piernas) y se separó definitivamente el fútbol del rugby.</p>
+                <p><strong>🏆 PRIMERAS COMPETICIONES:</strong> FA Cup (1871), primer partido internacional (Escocia vs Inglaterra, 1872) y la Football League (1888). El profesionalismo se legalizó en 1885, impulsando el crecimiento.</p>
+                <p><strong>🌍 EXPANSIÓN MUNDIAL:</strong> Ferroviarios, marineros y comerciantes británicos llevaron el balón a Sudamérica (Buenos Aires, 1867), Europa continental (Barcelona 1899, Madrid 1902), África y Asia. La FIFA se fundó en París en 1904.</p>
+                <p><strong>🥇 LA COPA DEL MUNDO:</strong> El primer Mundial fue en Uruguay 1930, con 13 equipos y victoria charrúa. Momentos icónicos: Maracanazo (1950), Pelé (1958), Mano de Dios (1986), el 7-1 de Alemania a Brasil (2014) y la consagración de Messi en Qatar 2022. En 2026 será en USA-México-Canadá con 48 selecciones.</p>
+                <p><strong>📈 TÁCTICA Y TECNOLOGÍA:</strong> Desde el sistema WM hasta el fútbol total, el tiki-taka y el pressing alto. El VAR se implementó en 2018 y el fuera de juego semiautomático en 2022. El fútbol femenino tuvo su primer Mundial en 1991 (EE.UU.) y en 2023 España se coronó campeona.</p>
+                <p><strong>📊 IMPACTO SOCIAL:</strong> El fútbol mueve más de 10 mil millones de dólares anuales. Es herramienta de inclusión social en favelas y campos de refugiados. Partidos legendarios como la 'Guerra del Fútbol' (El Salvador vs Honduras, 1969) muestran su poder político.</p>
+                <p><strong>✨ DATOS HISTÓRICOS SORPRENDENTES:</strong> El árbitro del primer partido internacional no llevaba silbato. El gol más rápido en un Mundial: 11 segundos (Hakan Şükür, 2002). Brasil es la única selección que participó en todos los mundiales. El trofeo Jules Rimet fue robado en 1983 y nunca se recuperó.</p>
+                </div>
+            `,
+            reglasCompletas: "• 11 jugadores por equipo. • Duración: 2 tiempos de 45 min + agregado. • Fuera de juego: atacante no puede estar más cerca de la línea que el penúltimo defensor. • Tarjetas amarilla/roja. • VAR: revisa goles, penaltis, rojas directas. • 5 cambios por partido. • Mano deliberada es falta. • El penalti se ejecuta a 11 metros.",
+            mejoresJugadores: "Lionel Messi (8 Balones de Oro, Mundial 2022), Pelé (3 mundiales), Diego Maradona, Cristiano Ronaldo, Johan Cruyff, Zinedine Zidane, Alfredo Di Stéfano, Franz Beckenbauer. En femenino: Alexia Putellas, Marta, Megan Rapinoe.",
+            records: "• Más goles oficiales: Cristiano Ronaldo (970+). • Más Mundiales ganados: Brasil (5). • Gol más rápido: 2.4 segundos (amistoso). • Mayor asistencia: 199,854 (Uruguay vs Brasil, 1950). • Más partidos: Peter Shilton (1,490). • Más Champions: Real Madrid (14). • Más Balones de Oro: Messi (8).",
+            curiosidad: "Pierluigi Collina fue elegido mejor árbitro 6 veces seguidas. La pelota del Mundial 2022 viajó a 86 km/h. El Sheffield FC fundado en 1857 aún existe. El fútbol femenino estuvo prohibido en Inglaterra entre 1921 y 1971."
+        },
+        // Otros deportes con su informacion completa
+        { id: "baloncesto", name: "🏀 BALONCESTO", icon: "fas fa-basketball-ball", color: "#e96c2a",
+            historiaExtendida: "Inventado en 1891 por James Naismith en Springfield. Usó una canasta de melocotones. NBA fundada en 1946. El Dream Team de 1992 revolucionó el baloncesto mundial. Grandes figuras: Jordan, LeBron, Magic, Bird.",
+            reglasCompletas: "Puntuación: triple, doble, libre. 4 cuartos de 12 min (NBA). 24 segundos de posesión. 5 faltas (FIBA) o 6 (NBA) = expulsión.",
+            mejoresJugadores: "LeBron James, Michael Jordan, Kareem Abdul-Jabbar, Magic Johnson, Larry Bird, Kobe Bryant, Stephen Curry.",
+            records: "Más puntos NBA: LeBron 48k+. Más triples partido: Klay Thompson 14. Mayor anotación equipo: 186 pts.",
+            curiosidad: "Jordan fue cortado del equipo de secundaria. Las primeras canastas tenían fondo." },
+        { id: "tenis", name: "🎾 TENIS", icon: "fas fa-table-tennis", color: "#d4af37",
+            historiaExtendida: "Evolución del jeu de paume francés. Wimbledon abrió en 1877. Era Abierta desde 1968. Grandes rivalidades Federer-Nadal-Djokovic y Serena Williams.",
+            reglasCompletas: "Puntuación 15-30-40, juego. Sets al mejor de 3 o 5. Tie-break a 7. Saque debe caer en cuadro opuesto. Hawk-eye.",
+            mejoresJugadores: "Novak Djokovic, Roger Federer, Rafael Nadal, Serena Williams, Steffi Graf.",
+            records: "Grand Slams: Djokovic 24. Partido más largo: 11h 5min. Saque más rápido: 253 km/h (Isner).",
+            curiosidad: "Las pelotas eran blancas hasta 1972, se cambiaron al amarillo óptico." },
+        { id: "f1", name: "🏎️ FÓRMULA 1", icon: "fas fa-car", color: "#d44c2f",
+            historiaExtendida: "Campeonato Mundial desde 1950. Motores híbridos V6 desde 2014. Equipos legendarios: Ferrari, Mercedes, Red Bull.",
+            reglasCompletas: "Clasificación Q1/Q2/Q3. Puntos: 25,18,15,... +1 vuelta rápida. DRS a menos de 1s. Neumáticos blandos, medios, duros.",
+            mejoresJugadores: "Hamilton (7 títulos), Schumacher (7), Fangio (5), Senna, Verstappen.",
+            records: "Más victorias: Hamilton (103). Velocidad máxima: 372.5 km/h. Pole positions: Hamilton 104.",
+            curiosidad: "Un F1 genera carga para circular pegado al techo." },
+        { id: "natacion", name: "🏊 NATACIÓN", icon: "fas fa-swimmer", color: "#189ab4",
+            historiaExtendida: "Competición moderna desde s.XIX en Gran Bretaña. Estilos: crol, espalda, braza, mariposa. Michael Phelps ícono olímpico.",
+            reglasCompletas: "Piscina 50m olímpica. Virajes específicos. Descalificación por salida falsa. Trajes aprobados por FINA.",
+            mejoresJugadores: "Michael Phelps, Katie Ledecky, Caeleb Dressel, Ian Thorpe.",
+            records: "Más medallas olímpicas: Phelps 28. 100m libre: 46.86s (Pan Zhanle).",
+            curiosidad: "Phelps tiene 2.01m de envergadura y produce menos ácido láctico." },
+        { id: "voley", name: "🏐 VOLEIBOL", icon: "fas fa-volleyball-ball", color: "#d62828",
+            historiaExtendida: "Creado por Morgan en 1895 como 'Mintonette'. Voleibol playa olímpico desde 1996.",
+            reglasCompletas: "6 jugadores, rotación horaria. Máximo 3 toques. Sets a 25 (diferencia 2), quinto set a 15.",
+            mejoresJugadores: "Karch Kiraly, Giba, Wilfredo León, Bruno Rezende.",
+            records: "Remate más rápido: 145 km/h (Simón). Partido más largo: 6h26min.",
+            curiosidad: "Kiraly único oro en sala y playa." },
+        { id: "atletismo", name: "🏃 ATLETISMO", icon: "fas fa-running", color: "#2b7e3a",
+            historiaExtendida: "Deporte más antiguo de los JJOO (776 a.C.). Resurgió s.XIX en Inglaterra.",
+            reglasCompletas: "Salidas en tacos, falso arranque descalificación. Saltos: tabla de batida. Lanzamientos: caer dentro del sector.",
+            mejoresJugadores: "Usain Bolt, Carl Lewis, Eliud Kipchoge, Jackie Joyner-Kersee.",
+            records: "100m: 9.58s Bolt. Maratón: 2:00:35 (Kiptum). Salto longitud: 8.95m.",
+            curiosidad: "Bolt perdió eliminatoria por falso arranque y aún ganó oro." },
+        { id: "ciclismo", name: "🚴 CICLISMO", icon: "fas fa-bicycle", color: "#f3a712",
+            historiaExtendida: "Primeras competiciones en 1868. Tour de Francia desde 1903.",
+            reglasCompletas: "Modalidades ruta, contrarreloj, montaña. Mallots amarillo (líder), verde (puntos).",
+            mejoresJugadores: "Eddy Merckx, Bernard Hinault, Miguel Induráin, Tadej Pogacar.",
+            records: "Más Tours: 5 (Merckx, Hinault, Induráin, Anquetil). Más etapas Tour: Cavendish 34.",
+            curiosidad: "Tour de Francia 1914 duró 45 días, subían puertos sin cambios." }
+    ];
+
+    // Mapeo global de páginas relacionadas por deporte
+    const pageMap = {
+        futbol: 'Futbol2.html',
+        baloncesto: 'Basketball1.html',
+        tenis: 'Tenis1.html',
+        f1: 'Formula12.html',
+        natacion: 'Natacion1.html',
+        voley: 'Voleiball1.html',
+        atletismo: 'Atletismo1.html',
+        ciclismo: 'ciclismo1.html'
+    };
+
+    // Ventana modal reutilizable
+    const modalOverlay = document.getElementById('dynamicModal');
+    const modalTitleSpan = document.getElementById('modalTitle');
+    const modalBodyDiv = document.getElementById('modalBody');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    function closeModal() { modalOverlay.classList.remove('active'); }
+    function openModalForSport(sport, isFootballSpecial = false) {
+        // Construir contenido: si es fútbol, usamos historiaExtendida especial (mucho más larga)
+        let historiaHTML = '';
+        if (sport.id === 'futbol') {
+            historiaHTML = `<div class="section-block"><div class="section-title"><i class="fas fa-book-open"></i> 📜 HISTORIA ÉPICA Y COMPLETA</div>${sport.historiaExtendida}</div>`;
+        } else {
+            historiaHTML = `<div class="section-block"><div class="section-title"><i class="fas fa-book-open"></i> 📜 HISTORIA COMPLETA</div><div class="info-text">${sport.historiaExtendida}</div></div>`;
+        }
+        const recordsItems = sport.records ? sport.records.split('•').filter(r => r.trim().length > 0).map(r => `<li><i class="fas fa-trophy"></i> ${r.trim()}</li>`).join('') : '<li>Récords destacados</li>';
+        modalTitleSpan.innerHTML = `<i class="${sport.icon}" style="color:${sport.color};"></i> ${sport.name} · Enciclopedia Completa`;
+        modalBodyDiv.innerHTML = `
+            ${historiaHTML}
+            <div class="section-block"><div class="section-title"><i class="fas fa-clipboard-list"></i> 📏 REGLAS COMPLETAS</div><div class="info-text">${sport.reglasCompletas}</div></div>
+            <div class="section-block"><div class="section-title"><i class="fas fa-star"></i> 🌟 MEJORES JUGADORES / LEYENDAS</div><div class="info-text"><strong>🏆 Ídolos históricos:</strong> ${sport.mejoresJugadores}</div></div>
+            <div class="section-block"><div class="section-title"><i class="fas fa-chart-line"></i> 📊 RÉCORDS ABSOLUTOS</div><ul class="compact-list">${recordsItems}</ul></div>
+            <div class="section-block"><div class="section-title"><i class="fas fa-lightbulb"></i> ⚡ CURIOSIDADES & DATOS ÚNICOS</div><div class="curiosity-card"><i class="fas fa-comment-dots"></i> ${sport.curiosidad}</div></div>
+            <div class="mini-table"><div style="font-size:0.85rem;"><i class="fas fa-globe-americas"></i> <strong>Impacto global:</strong> ${sport.name} es uno de los deportes más seguidos, con millones de aficionados y competiciones internacionales de élite.</div></div>
+        `;
+        const modalHeaderElem = document.querySelector('#dynamicModal .modal-header');
+        modalHeaderElem.style.borderBottomColor = sport.color;
+        // botón para abrir la página relacionada (si existe)
+        const existingBtn = document.getElementById('openRelatedPageBtn');
+        if (existingBtn) existingBtn.remove();
+        const related = pageMap[sport.id];
+        if (related) {
+            const openBtn = document.createElement('button');
+            openBtn.className = 'btn-window';
+            openBtn.id = 'openRelatedPageBtn';
+            openBtn.style.marginRight = '10px';
+            openBtn.innerHTML = `<i class="fas fa-external-link-alt"></i> Abrir página relacionada`;
+            openBtn.addEventListener('click', (ev) => { ev.stopPropagation(); window.open(related, '_blank'); });
+            // insertar antes del botón de cerrar
+            const closeBtn = document.getElementById('closeModalBtn');
+            if (closeBtn && closeBtn.parentNode) closeBtn.parentNode.insertBefore(openBtn, closeBtn);
+        }
+        modalOverlay.classList.add('active');
+    }
+
+    // Renderizar tarjetas con botón personalizado (en fútbol resaltamos ventana especial)
+    function renderCardsWithModal() {
+        const grid = document.getElementById('sportsGrid');
+        grid.innerHTML = '';
+        sportsFull.forEach((sport, idx) => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            const header = document.createElement('div');
+            header.className = 'card-header';
+            header.style.borderBottomColor = sport.color;
+            header.innerHTML = `
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <i class="${sport.icon}" style="color:${sport.color}; font-size:2.4rem;"></i>
+                    <h2 class="card-title" data-sport-idx="${idx}" style="cursor:pointer; user-select:none;">${sport.name}</h2>
+                </div>
+                <button class="btn-window" data-sport-idx="${idx}"><i class="fas fa-external-link-alt"></i> Abrir página completa</button>
+            `;
+            const content = document.createElement('div');
+            content.className = 'card-content';
+            // Preview apropiada
+            let previewHistoria = sport.id === 'futbol' ? (sport.historiaExtendida.replace(/<[^>]*>/g, '').substring(0, 280) + '...') : (sport.historiaExtendida.substring(0, 260) + '...');
+            content.innerHTML = `
+                <div class="section-block"><div class="section-title"><i class="fas fa-book-open"></i> 📜 HISTORIA</div><div class="info-text">${previewHistoria}</div></div>
+                <div class="section-block"><div class="section-title"><i class="fas fa-clipboard-list"></i> 📏 REGLAS DESTACADAS</div><div class="info-text">${sport.reglasCompletas.substring(0, 160)}...</div></div>
+                <div class="section-block"><div class="section-title"><i class="fas fa-star"></i> 🌟 LEYENDAS</div><div class="info-text"><strong>🏆 ${sport.mejoresJugadores.substring(0, 120)}...</strong></div></div>
+                <div class="curiosity-card"><i class="fas fa-lightbulb"></i> ${sport.curiosidad.substring(0, 130)}...</div>
+                <div style="margin-top: 10px; text-align:center; color:#1b6b7a;"><i class="fas fa-window-maximize"></i> Pulsa "Abrir página completa" para todos los detalles históricos y estadísticos</div>
+            `;
+            // Hacer el título clicable para abrir la página relacionada
+            const titleElem = header.querySelector('.card-title');
+            if (titleElem) {
+                titleElem.addEventListener('click', (ev) => {
+                    ev.stopPropagation();
+                    const target = pageMap[sport.id];
+                    if (target) window.open(target, '_blank');
+                });
+            }
+
+            card.append(header, content);
+            grid.appendChild(card);
+        });
+        
+
+        document.querySelectorAll('.btn-window').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const idx = parseInt(btn.getAttribute('data-sport-idx'));
+                const selectedSport = sportsFull[idx];
+                const target = pageMap[selectedSport.id];
+                if (target) {
+                    window.open(target, '_blank');
+                } else {
+                    openModalForSport(selectedSport, selectedSport.id === 'futbol');
+                }
+            });
+        });
+
+        // Tabla Resumen
+        const tbody = document.getElementById('resumenRecords');
+        if(tbody) {
+            const resumenArray = [
+                { deporte: "⚽ Fútbol", record: "Más goles oficiales", marca: "970+ Cristiano Ronaldo" },
+                { deporte: "🏀 Baloncesto", record: "Más puntos NBA", marca: "LeBron 48k+" },
+                { deporte: "🎾 Tenis", record: "Máximo Grand Slams", marca: "Novak Djokovic (24)" },
+                { deporte: "🏎️ F1", record: "Más victorias", marca: "Hamilton (103)" },
+                { deporte: "🏊 Natación", record: "Más medallas olímpicas", marca: "Michael Phelps (28)" },
+                { deporte: "🏐 Voleibol", record: "Remate más rápido", marca: "145 km/h" },
+                { deporte: "🏃 Atletismo", record: "100m masculino", marca: "9.58s Usain Bolt" },
+                { deporte: "🚴 Ciclismo", record: "Más Tours", marca: "5 victorias" }
+            ];
+            tbody.innerHTML = resumenArray.map(item => `<tr><td><strong>${item.deporte}</strong>${'<'}/td><tr>${item.record}</td><td>${item.marca}</tr>`).join('');
+        }
+    }
+
+    function buildNavBar() {
+        const nav = document.getElementById('sportsNavBar');
+        nav.innerHTML = '';
+        // Botón Inicio
+        const homeBtn = document.createElement('button');
+        homeBtn.className = 'nav-btn';
+        homeBtn.innerHTML = `<i class="fas fa-home"></i> Inicio`;
+        homeBtn.addEventListener('click', () => { location.href = '../index.html'; });
+        nav.appendChild(homeBtn);
+        sportsFull.forEach((sport, idx) => {
+            const btn = document.createElement('button');
+            btn.className = 'nav-btn';
+            let shortName = "";
+            if(sport.id === 'futbol') shortName = "Fútbol";
+            else if(sport.id === 'baloncesto') shortName = "Baloncesto";
+            else if(sport.id === 'tenis') shortName = "Tenis";
+            else if(sport.id === 'f1') shortName = "F1";
+            else if(sport.id === 'natacion') shortName = "Natación";
+            else if(sport.id === 'voley') shortName = "Voleibol";
+            else if(sport.id === 'atletismo') shortName = "Atletismo";
+            else shortName = "Ciclismo";
+            btn.innerHTML = `<i class="${sport.icon}"></i> ${shortName}`;
+            btn.addEventListener('click', () => {
+                const cards = document.querySelectorAll('.card');
+                if(cards[idx]) cards[idx].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                setTimeout(() => btn.classList.remove('active'), 800);
+            });
+            nav.appendChild(btn);
+        });
+    }
+
+    closeModalBtn.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', (e) => { if(e.target === modalOverlay) closeModal(); });
+    renderCardsWithModal();
+    buildNavBar();
+</script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>🏐 Voleibol Total | Historia, Reglas, Leyendas y Curiosidades</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(145deg, #fefce8 0%, #fef9e0 100%); color: #1e293b; line-height: 1.5; scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #e2e8f0; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: #e67e22; border-radius: 10px; }
+        .hero { background: linear-gradient(135deg, #1e3a8a 0%, #f59e0b 100%); color: white; padding: 2rem 1.5rem 3rem 1.5rem; text-align: center; position: relative; overflow: hidden; border-bottom: 6px solid #fbbf24; }
+        .hero::before { content: "🏐"; font-size: 280px; opacity: 0.08; position: absolute; bottom: -40px; right: -30px; pointer-events: none; transform: rotate(10deg); }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 0.5rem; background: linear-gradient(135deg, #fff, #fde047); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto; opacity: 0.9; }
+        .nav-bar { background: white; box-shadow: 0 8px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem; padding: 0.7rem 1rem; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .nav-btn { background: transparent; border: none; font-size: 0.8rem; font-weight: 600; padding: 0.5rem 0.85rem; border-radius: 40px; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; color: #1e293b; }
+        .nav-btn i { margin-right: 5px; }
+        .nav-btn:hover { background: #fef3c7; color: #e67e22; }
+        .nav-btn.active { background: #e67e22; color: white; box-shadow: 0 4px 10px rgba(230,126,34,0.3); }
+        .container { max-width: 1300px; margin: 2rem auto; padding: 0 1.5rem; }
+        .section { display: none; animation: fadeUp 0.4s ease-out forwards; }
+        .section.active-section { display: block; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 1.8rem; }
+        .card { background: white; border-radius: 28px; padding: 1.6rem; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s; border: 1px solid rgba(245,158,11,0.2); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 25px 40px -15px rgba(0,0,0,0.15); }
+        .card-icon { font-size: 2rem; background: #fef3c7; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; border-radius: 30px; margin-bottom: 1.2rem; color: #e67e22; }
+        .card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.75rem; color: #1e3a8a; }
+        .card p, .card li { color: #334155; line-height: 1.5; }
+        .list-style { list-style: none; padding-left: 0; }
+        .list-style li { margin-bottom: 0.8rem; display: flex; align-items: baseline; gap: 12px; }
+        .list-style li i { color: #e67e22; width: 24px; margin-top: 3px; }
+        .players-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 1.5rem; }
+        .player-card { background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.08); transition: all 0.25s; text-align: center; border: 1px solid #fde68a; }
+        .player-card:hover { transform: scale(1.02); }
+        .player-img { background: linear-gradient(145deg, #1e3a8a, #f59e0b); padding: 1.5rem 0 0.8rem; color: white; font-size: 3rem; }
+        .player-info { padding: 1.2rem 1rem 1.5rem; }
+        .player-name { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.25rem; }
+        .player-stats { font-size: 0.75rem; color: #e67e22; font-weight: 700; margin: 0.5rem 0; }
+        .footer { background: #0f172a; color: #cbd5e1; text-align: center; padding: 2rem; margin-top: 3rem; border-top: 1px solid #fbbf24; }
+        @media (max-width: 760px) { .hero h1 { font-size: 1.8rem; } .nav-btn { padding: 0.3rem 0.6rem; font-size: 0.7rem; } }
+        .highlight { background: linear-gradient(120deg, #fef3c7 0%, #fde68a 40%, transparent 60%); font-weight: 600; padding: 0 4px; }
+        .records-table { width: 100%; border-collapse: collapse; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin: 1rem 0; }
+        th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th { background: #e67e22; color: white; font-weight: 600; }
+        tr:hover { background: #fffbeb; }
+        hr { margin: 1.8rem 0; border: 0; height: 2px; background: linear-gradient(90deg, transparent, #e67e22, transparent); }
+        .badge-volley { background: #fef3c7; border-left: 5px solid #f59e0b; padding: 0.8rem 1rem; border-radius: 20px; margin: 1rem 0; }
+        .role-badge { display: inline-block; background: #e0f2fe; padding: 2px 12px; border-radius: 30px; font-size: 0.7rem; font-weight: 600; margin: 0.2rem; color: #0369a1; }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1><i class="fas fa-volleyball-ball"></i> VOLEIBOL TOTAL <i class="fas fa-volleyball-ball"></i></h1>
+    <p>Historia completa, reglas FIVB, posiciones, leyendas en sala y playa, récords, curiosidades y competiciones</p>
+</div>
+
+<div class="nav-bar">
+    <button class="nav-btn" onclick="location.href='Deportes6.html'"><i class="fas fa-home"></i> Inicio</button>
+    <button class="nav-btn active" data-section="historia"><i class="fas fa-landmark"></i> Historia</button>
+    <button class="nav-btn" data-section="reglas"><i class="fas fa-clipboard-list"></i> Reglas & Posiciones</button>
+    <button class="nav-btn" data-section="mejores"><i class="fas fa-medal"></i> Leyendas</button>
+    <button class="nav-btn" data-section="records"><i class="fas fa-chart-line"></i> Récords</button>
+    <button class="nav-btn" data-section="curiosidades"><i class="fas fa-lightbulb"></i> Curiosidades</button>
+    <button class="nav-btn" data-section="competiciones"><i class="fas fa-trophy"></i> Competiciones</button>
+</div>
+
+<div class="container">
+    <!-- HISTORIA COMPLETA (documento) -->
+    <div id="historia" class="section active-section">
+        <h2><i class="fas fa-timeline"></i> Historia del voleibol: desde Holyoke hasta el mundo</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-history"></i></div>
+                <h3>📅 1895: El nacimiento en Holyoke</h3>
+                <p><span class="highlight">William G. Morgan</span>, director de educación física en la YMCA de Holyoke (Massachusetts), creó el <strong>"Mintonette"</strong> como un deporte de interior menos violento que el baloncesto. La primera red tenía 1.98 m. Un espectador sugirió "Volley Ball" porque la pelota "volaba" sobre la red.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+                <h3>🌍 Expansión mundial (1900-1947)</h3>
+                <p>Llegó a Canadá (1900), Cuba (1905), Japón (1908). En <strong>1916</strong> se estableció la limitación de 3 toques. En <strong>1934</strong> se fundó la <strong>FIVB</strong> en Praga. El primer Campeonato Mundial fue en 1949 (hombres) y 1952 (mujeres).</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-olympic"></i></div>
+                <h3>🥇 Era olímpica (1964 - actualidad)</h3>
+                <p>Debut olímpico en <strong>Tokio 1964</strong>. URSS ganó oro masculino; Japón femenino. <strong>1996</strong> se introdujo el voleibol playa. <strong>1998</strong>: líbero y rally point system (25 puntos). Francia campeón olímpico 2020 y 2024.</p>
+            </div>
+        </div>
+        <div class="badge-volley">
+            <i class="fas fa-trophy"></i> <strong>Dato histórico:</strong> El Dr. Alfred T. Halstead sugirió el nombre "Volley Ball" porque el juego consistía en enviar la pelota de un lado a otro sin dejarla tocar el suelo (to volley).
+        </div>
+    </div>
+
+    <!-- REGLAS Y POSICIONES (documento FIVB) -->
+    <div id="reglas" class="section">
+        <h2><i class="fas fa-clipboard-list"></i> Reglas oficiales (FIVB 2025) y posiciones</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-chalkboard"></i></div>
+                <h3>📏 La cancha y el balón</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-ruler-combined"></i> <strong>Cancha:</strong> 18m x 9m.</li>
+                    <li><i class="fas fa-arrow-up"></i> <strong>Red:</strong> 2.43m (hombres), 2.24m (mujeres).</li>
+                    <li><i class="fas fa-circle"></i> <strong>Balón Mikasa:</strong> 65-67 cm, 260-280g. Presión 0.30-0.325 kg/cm².</li>
+                    <li><i class="fas fa-chalkboard"></i> <strong>Zona de ataque:</strong> Línea a 3m de la red.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-users"></i></div>
+                <h3>🏐 Posiciones y rotación</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-user-friends"></i> <strong>6 jugadores</strong> en cancha.</li>
+                    <li><i class="fas fa-arrow-right"></i> <strong>Rotación horaria:</strong> Al recuperar el saque.</li>
+                    <li><i class="fas fa-hand-peace"></i> <strong>Posiciones:</strong> Colocador, Opuesto, Centrales (2), Receptores/Puntas (2), Líbero.</li>
+                </ul>
+                <div style="margin-top: 10px;">
+                    <span class="role-badge"><i class="fas fa-hand-peace"></i> Colocador</span>
+                    <span class="role-badge"><i class="fas fa-bolt"></i> Opuesto</span>
+                    <span class="role-badge"><i class="fas fa-chart-line"></i> Central</span>
+                    <span class="role-badge"><i class="fas fa-user"></i> Punta/Receptor</span>
+                    <span class="role-badge"><i class="fas fa-shield-alt"></i> Líbero</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-whistle"></i></div>
+                <h3>⚡ Reglas clave de juego</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-clock"></i> <strong>Sets:</strong> Al mejor de 5. 4 primeros a 25 puntos, 5º a 15 (diferencia de 2).</li>
+                    <li><i class="fas fa-hand-fist"></i> <strong>Toques:</strong> Máx. 3 por equipo (bloqueo no cuenta).</li>
+                    <li><i class="fas fa-chalkboard"></i> <strong>Faltas:</strong> Doble toque, retención, toque de red, 4 toques.</li>
+                    <li><i class="fas fa-video"></i> <strong>Desafío:</strong> 2 por set desde 2015.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="badge-volley">
+            <i class="fas fa-chalkboard"></i> <strong>Regla especial:</strong> El <strong>líbero</strong> (camiseta diferente) juega solo en defensa, no puede atacar ni sacar. Sustituciones ilimitadas.
+        </div>
+    </div>
+
+    <!-- LEYENDAS DEL VOLEIBOL (documento) -->
+    <div id="mejores" class="section">
+        <h2><i class="fas fa-medal"></i> Las leyendas del voleibol mundial</h2>
+        <div class="players-grid">
+            <div class="player-card"><div class="player-img">🇧🇷 🐐</div><div class="player-info"><div class="player-name">Karch Kiraly</div><div class="player-stats">2 oros sala (1984,88) + 1 oro playa (1996) | Campeón mundial</div><div class="player-desc">El único en ganar oro olímpico en sala y playa. Mejor jugador del siglo XX.</div></div></div>
+            <div class="player-card"><div class="player-img">🇨🇺 🔥</div><div class="player-info"><div class="player-name">Mireya Luis</div><div class="player-stats">3 oros olímpicos (1992,96,2000) | 2 mundiales</div><div class="player-desc">La "Leona del Caribe". Salto de 330 cm, ataque imparable.</div></div></div>
+            <div class="player-card"><div class="player-img">🇧🇷 🦵</div><div class="player-info"><div class="player-name">Giba</div><div class="player-stats">2 oros olímpicos (2004,2008) | 3 mundiales | MVP mundial 2006</div><div class="player-desc">Símbolo de la generación dorada brasileña. Potencia y liderazgo.</div></div></div>
+            <div class="player-card"><div class="player-img">🇷🇺 🦒</div><div class="player-info"><div class="player-name">Ekaterina Gamova</div><div class="player-stats">2 oros olímpicos | 2 mundiales | 2.05 m altura</div><div class="player-desc">Una de las mejores atacantes de la historia. Dominante en la red.</div></div></div>
+            <div class="player-card"><div class="player-img">🇧🇷 🎯</div><div class="player-info"><div class="player-name">Sergio "Pescadito"</div><div class="player-stats">2 oros olímpicos (2004,2008) | Mejor líbero de la historia</div><div class="player-desc">Recepción y defensa perfectas. Referente mundial.</div></div></div>
+            <div class="player-card"><div class="player-img">🇨🇳 🏆</div><div class="player-info"><div class="player-name">Lang Ping</div><div class="player-stats">Oro como jugadora (1984) + oro como entrenadora (2016)</div><div class="player-desc">Ícono del voleibol chino. Revolucionó el ataque femenino.</div></div></div>
+        </div>
+        <hr>
+        <div class="badge-volley">
+            <i class="fas fa-star"></i> <strong>Otras grandes leyendas:</strong> <strong>Masculino:</strong> Lorenzo Bernardi (Italia), Andrea Giani (Italia), Peter Blangé (Países Bajos), Sergey Tetyukhin (Rusia, 4 oros olímpicos), Emanuel Rego (playa), Wilfredo León (Polonia). <strong>Femenino:</strong> Regla Torres (Cuba, 3 oros), Fernanda Venturini (Brasil), Tijana Bošković (Serbia), Paola Egonu (Italia), Zhu Ting (China), Kerri Walsh Jennings (3 oros playa), Misty May-Treanor (3 oros playa).
+        </div>
+    </div>
+
+    <!-- RÉCORDS ABSOLUTOS (documento) -->
+    <div id="records" class="section">
+        <h2><i class="fas fa-chart-line"></i> Récords absolutos (FIVB, actualizados 2025)</h2>
+        <table class="records-table">
+            <thead><tr><th>Récord</th><th>Marca</th><th>Titular</th></tr></thead>
+            <tbody>
+                <tr><td>Más oros olímpicos (masculino)</td><td>3</td><td>Brasil, EE.UU., URSS (empatados)</td></tr>
+                <tr><td>Más oros olímpicos (femenino)</td><td>4</td><td>URSS (1968,1972,1980,1988)</td></tr>
+                <tr><td>Más mundiales (masculino)</td><td>3</td><td>Brasil (2002,2006,2010)</td></tr>
+                <tr><td>Remate más rápido en competición oficial</td><td>145 km/h</td><td>Robertlandy Simón (Cuba), Wilfredo León (Polonia)</td></tr>
+                <tr><td>Saque más rápido</td><td>136 km/h</td><td>Ivan Zaytsev (Italia)</td></tr>
+                <tr><td>Salto vertical máximo (toque de ataque)</td><td>3.60 m</td><td>Yuji Nishida (Japón)</td></tr>
+                <tr><td>Partido más largo</td><td>6h 26min</td><td>Japón vs Italia (Mundial 2002)</td></tr>
+                <tr><td>Set más largo</td><td>48-46</td><td>Finlandia vs Grecia (2007, entre otros)</td></tr>
+                <tr><td>Mayor racha de victorias olímpicas</td><td>24 partidos</td><td>Brasil masculino (2004-2012)</td></tr>
+                <tr><td>Mejor racha de sets ganados</td><td>42</td><td>Cuba femenino (1990s)</td></tr>
+            </tbody>
+        </table>
+        <div class="badge-volley">
+            <i class="fas fa-bolt"></i> <strong>Dato récord:</strong> Karch Kiraly es el único atleta con oros olímpicos en voleibol de sala (1984,1988) y voleibol playa (1996). Además fue entrenador de EE.UU. femenino (oro 2020).
+        </div>
+    </div>
+
+    <!-- CURIOSIDADES ASOMBROSAS (documento) -->
+    <div id="curiosidades" class="section">
+        <h2><i class="fas fa-lightbulb"></i> Curiosidades fascinantes del voleibol</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-tachometer-alt"></i></div>
+                <h3>🚀 Datos récord</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-clock"></i> <strong>Partido más largo:</strong> 6h 26min (Japón vs Italia, Mundial 2002). El cuarto set duró más de una hora.</li>
+                    <li><i class="fas fa-bolt"></i> <strong>Remate más rápido:</strong> 145 km/h (Robertlandy Simón, Cuba).</li>
+                    <li><i class="fas fa-chart-line"></i> <strong>Salto más alto:</strong> Yuji Nishida (Japón) alcanza 350 cm en ataque.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-glasses"></i></div>
+                <h3>🎽 Datos culturales</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-users"></i> El voleibol es el deporte más practicado en escuelas de Brasil, Japón y Polonia.</li>
+                    <li><i class="fas fa-tv"></i> En Japón, el voleibol femenino es el segundo deporte más popular tras el béisbol.</li>
+                    <li><i class="fas fa-chart-line"></i> El líbero fue introducido en 1998 para mejorar la defensa.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-hand-spock"></i></div>
+                <h3>🏖️ Voleibol playa</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-sun"></i> Nació en las playas de Santa Mónica (California) en los años 20.</li>
+                    <li><i class="fas fa-trophy"></i> Debutó en Atlanta 1996.</li>
+                    <li><i class="fas fa-user-friends"></i> Se juega en parejas (sin líbero) en cancha de arena 16x8m.</li>
+                    <li><i class="fas fa-star"></i> Leyendas: Kerri Walsh Jennings (3 oros), Misty May-Treanor (3 oros), Emanuel Rego (2 oros).</li>
+                </ul>
+            </div>
+        </div>
+        <div class="badge-volley">
+            <i class="fas fa-dice-d6"></i> <strong>Dato freak:</strong> El famoso entrenador japonés Hirofumi Daimatsu usaba las "bolas de fuego" (miles de recepciones diarias) para llevar a Japón al oro olímpico en 1964.
+        </div>
+    </div>
+
+    <!-- COMPETICIONES PRINCIPALES (documento) -->
+    <div id="competiciones" class="section">
+        <h2><i class="fas fa-trophy"></i> Grandes competiciones internacionales</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-olympic"></i></div>
+                <h3>🥇 Juegos Olímpicos</h3>
+                <p><strong>Masculino:</strong> URSS (3), Brasil (3), EE.UU. (3). Último oro: Francia 2024.<br>
+                <strong>Femenino:</strong> URSS (4), Cuba (3), China (3), EE.UU. (3). Último oro: Italia 2024.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+                <h3>🏆 Campeonato Mundial (FIVB)</h3>
+                <p>Cada 2 años (años impares). <strong>Masculino:</strong> Brasil (3 títulos), Italia (3), Polonia (2). Último: Italia 2022.<br>
+                <strong>Femenino:</strong> URSS (5), Cuba (3), China (2), Serbia (2). Último: Serbia 2022.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>🏐 Liga de Naciones (VNL)</h3>
+                <p>Competición anual desde 2018 (reemplazó a Liga Mundial y Grand Prix). Formato: fase de grupos + final four. Campeones 2024: Francia (M), Italia (F).</p>
+            </div>
+        </div>
+        <div class="card">
+            <h3><i class="fas fa-trophy"></i> Clubes y torneos destacados</h3>
+            <ul class="list-style">
+                <li><i class="fas fa-star"></i> <strong>Mundial de Clubes FIVB:</strong> Zenit Kazán (Rusia) y Trentino (Italia) dominan en hombres; Eczacıbaşı y VakıfBank (Turquía) en mujeres.</li>
+                <li><i class="fas fa-champions"></i> <strong>Champions League (CEV):</strong> Máxima competición de clubes europea.</li>
+                <li><i class="fas fa-map"></i> <strong>Campeonatos Continentales:</strong> Europeo (Italia 7 títulos M, URSS 13 F), Sudamericano (Brasil 33 títulos M), Asiático (Japón 9 M, China 15 F).</li>
+            </ul>
+        </div>
+        <div class="badge-volley">
+            <i class="fas fa-chart-line"></i> <strong>Ranking FIVB actual (2025):</strong> Masculino: 1. Polonia, 2. Francia, 3. EE.UU. Femenino: 1. Italia, 2. Brasil, 3. EE.UU.
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p><i class="fas fa-volleyball-ball"></i> Voleibol Total - Pasión, salto y trabajo en equipo <i class="fas fa-volleyball-ball"></i></p>
+    <p style="font-size: 0.8rem; margin-top: 8px;">Historia, reglas FIVB, posiciones, leyendas en sala y playa, récords, curiosidades y competiciones internacionales.</p>
+</div>
+
+<script>
+    const sections = ['historia', 'reglas', 'mejores', 'records', 'curiosidades', 'competiciones'];
+    const sectionsMap = {};
+    sections.forEach(id => { sectionsMap[id] = document.getElementById(id); });
+    const buttons = document.querySelectorAll('.nav-btn');
+    
+    function activateSection(sectionId) {
+        sections.forEach(id => { if(sectionsMap[id]) sectionsMap[id].classList.remove('active-section'); });
+        if(sectionsMap[sectionId]) sectionsMap[sectionId].classList.add('active-section');
+        buttons.forEach(btn => {
+            const btnSection = btn.getAttribute('data-section');
+            if(btnSection === sectionId) btn.classList.add('active');
+            else btn.classList.remove('active');
+        });
+        window.scrollTo({ top: document.querySelector('.container').offsetTop - 70, behavior: 'smooth' });
+    }
+    
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const sectionId = btn.getAttribute('data-section');
+            if(sectionId && sectionsMap[sectionId]) activateSection(sectionId);
+        });
+    });
+    activateSection('historia');
+</script>
+</body>
+</html>
+```

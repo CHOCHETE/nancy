@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Historia del Cine - Nancy</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#111;
+    color:white;
+    line-height:1.6;
+}
+
+header{
+    background:linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    padding:40px;
+    text-align:center;
+    border-bottom:3px solid #ffcc00;
+}
+
+header h1{
+    font-size:50px;
+    color:#ffcc00;
+    margin-bottom:10px;
+}
+
+nav{
+    background:#1f1f1f;
+    padding:15px;
+    text-align:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-size:16px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ffcc00;
+}
+
+section{
+    padding:40px 10%;
+}
+
+h2{
+    color:#ffcc00;
+    margin:40px 0 20px 0;
+    font-size:35px;
+}
+
+h3{
+    color:#ffcc00;
+    margin:20px 0 10px 0;
+    font-size:22px;
+}
+
+p{
+    font-size:17px;
+    margin-bottom:15px;
+}
+
+.timeline{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+    margin-top:30px;
+}
+
+.timeline-item{
+    background:#1d1d1d;
+    padding:25px;
+    border-radius:10px;
+    border-left:5px solid #ffcc00;
+    transition:0.3s;
+}
+
+.timeline-item:hover{
+    background:#252525;
+    transform:translateX(10px);
+}
+
+.timeline-item .year{
+    color:#ffcc00;
+    font-weight:bold;
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.curiosidad{
+    background:#1b1b1b;
+    padding:20px;
+    border-radius:10px;
+    margin:15px 0;
+    border-left:4px solid #ffcc00;
+}
+
+footer{
+    background:#000;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+    color:#aaa;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>📖 Historia del Cine</h1>
+    <p>Un viaje a través de las épocas que transformaron el entretenimiento</p>
+</header>
+
+<nav>
+    <a href="cine.html">🏠 Volver al Cine</a>
+    <a href="cine_directores.html">👥 Directores Legendarios</a>
+    <a href="cine_premios.html">🏆 Premios</a>
+    <a href="cine_efectos.html">💫 Efectos Especiales</a>
+    <a href="index.html">Inicio</a>
+</nav>
+
+<section>
+    <h2>Los Orígenes del Cine</h2>
+    <p>
+        El cine nace en el siglo XIX con los hermanos Lumière, quienes inventaron 
+        el cinematógrafo en 1895. Esta máquina revolucionaria permitió capturar movimiento 
+        por primera vez en la historia, creando la ilusión de vida a través de imágenes 
+        proyectadas. El 28 de diciembre de 1895, en el Grand Café de París, se exhibió 
+        la primera película del mundo: "La llegada de un tren a la estación de Ciotat".
+    </p>
+</section>
+
+<section>
+    <h2>🎬 Línea del Tiempo Cinematográfica</h2>
+    
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="year">1895 - Era del Cine Mudo</div>
+            <h3>Los Lumière y el Cinematógrafo</h3>
+            <p>
+                Se presentan las primeras películas de los hermanos Lumière. El cine mudo 
+                dominará las primeras tres décadas. Directores como Georges Méliès crean 
+                el primer cine de fantasía con "Viaje a la Luna" (1902).
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year">1927 - La Revolución del Sonido</div>
+            <h3>Nace el Cine Sonoro</h3>
+            <p>
+                "El Cantante de Jazz" revoluciona la industria al introducir el sonido sincronizado. 
+                Esto marca el fin del cine mudo y abre nuevas posibilidades narrativas. Los actores 
+                ahora deben tener voces adecuadas para el cine.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year">1939 - Era Dorada de Hollywood</div>
+            <h3>El Apogeo del Cine Clásico</h3>
+            <p>
+                Se estrenan obras maestras como "Lo que el viento se llevó" y "El Mago de Oz". 
+                Hollywood se establece como el centro mundial del cine. El sistema de estudios 
+                es dominante y produce cientos de películas anuales.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year">1952 - El Cinemascope</div>
+            <h3>La Pantalla Panorámica</h3>
+            <p>
+                Se introduce el CinemaScope para competir con la televisión. Las películas ahora 
+                tienen proporciones más amplias, ofreciendo una experiencia visual superior. 
+                Esto cambia permanentemente la forma de filmar.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year">1970s - Nuevo Cine Americano</div>
+            <h3>La Revolución de los Directores</h3>
+            <p>
+                Directores como Spielberg, Scorsese, Coppola y Lucas transforman el cine. 
+                Se estrenan películas icónicas como "Tiburón", "La Guerra de las Galaxias" 
+                y "El Padrino". El blockbuster moderno nace en esta era.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year">1990s - Era Digital</div>
+            <h3>La Revolución de los Efectos Digitales</h3>
+            <p>
+                "Jurassic Park" (1993) revoluciona la industria con CGI realista. 
+                "Titanic" (1997) se convierte en un fenómeno global. La tecnología digital 
+                comienza a transformar todo aspecto de la producción cinematográfica.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year">2000s - Transformación Digital</div>
+            <h3>La Era del Cine Digital</h3>
+            <p>
+                Las cámaras digitales reemplazan al celuloide. Se crean universos cinematográficos 
+                expandidos. El cine en 3D vuelve con "Avatar" (2009), revolucionando la experiencia 
+                visual nuevamente.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year">2010s-Hoy - Era del Streaming</div>
+            <h3>Democratización del Cine</h3>
+            <p>
+                Netflix, Amazon Prime y otras plataformas cambian la forma de consumir contenido. 
+                El cine se vuelve más accesible. Los efectos especiales alcanzan niveles fotorealistas. 
+                Nuevos géneros y historias emergen de culturas de todo el mundo.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>📚 Eras del Cine</h2>
+    
+    <h3>Cine Mudo (1895-1927)</h3>
+    <div class="curiosidad">
+        <p>
+            El cine mudo se basaba en la expresión facial y corporal de los actores. 
+            La música en vivo acompañaba las proyecciones. Actores como Charlie Chaplin, 
+            Buster Keaton y Mary Pickford se convirtieron en leyendas con sus gestos y movimientos.
+        </p>
+    </div>
+
+    <h3>Clásico (1930-1960)</h3>
+    <div class="curiosidad">
+        <p>
+            La edad dorada de Hollywood produjo películas de género: westerns, musicales, 
+            dramas. Actores icónicos como Humphrey Bogart, Audrey Hepburn y Marlon Brando 
+            definieron la era. El sistema de estudios controlaba a los actores mediante contratos.
+        </p>
+    </div>
+
+    <h3>Moderno (1970-1990)</h3>
+    <div class="curiosidad">
+        <p>
+            La liberalización artística permitió historias más complejas. Directores tuvieron 
+            más libertad creativa. El cine se convierte en arte y entretenimiento simultáneamente. 
+            Surgen nuevas formas de narrativa y experimentación visual.
+        </p>
+    </div>
+
+    <h3>Digital (1995-Presente)</h3>
+    <div class="curiosidad">
+        <p>
+            La tecnología digital revoluciona la producción. Los efectos especiales permiten 
+            historias que antes eran imposibles. El cine se distribuye por múltiples canales. 
+            La interactividad y los universos transmedia se vuelven comunes.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2>🌍 Cines del Mundo</h2>
+    
+    <h3>Hollywood (USA)</h3>
+    <p>
+        El centro indiscutible de la industria cinematográfica. Produce la mayoría de 
+        blockbusters globales. Establecido en Los Ángeles, genera miles de millones anuales.
+    </p>
+
+    <h3>Bollywood (India)</h3>
+    <p>
+        La industria cinematográfica más prolífica del mundo por número de películas. 
+        Mezcla danza, música y drama. Es una parte central de la cultura india.
+    </p>
+
+    <h3>Cine Europeo</h3>
+    <p>
+        Francia, Italia, España y otros países europeos producen cine de arte y ensayo. 
+        Festivales como Cannes y Berlín son centros culturales del cine mundial.
+    </p>
+
+    <h3>Cine Asiático</h3>
+    <p>
+        Japón, Corea del Sur y China producen películas de calidad cinematográfica 
+        reconocida mundialmente. El cine asiático influencia tendencias globales.
+    </p>
+</section>
+
+<footer>
+    <p>© 2026 Historia del Cine | Página creada por Uriel</p>
+</footer>
+
+</body>
+</html>

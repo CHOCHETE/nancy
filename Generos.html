@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎵 Géneros Musicales | Música</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .header {
+            background: rgba(0,0,0,0.75);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            backdrop-filter: blur(10px);
+        }
+        .header h1 { font-size: 3.5em; margin-bottom: 10px; }
+        .header p { font-size: 1.3em; opacity: 0.9; }
+        .nav {
+            background: white;
+            padding: 15px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+        }
+        .nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 8px;
+            background: #f0f4f8;
+        }
+        .nav a:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px);
+        }
+        .generos-bar {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 70px;
+            z-index: 999;
+        }
+        .generos-bar a {
+            background: #f0f0f0;
+            color: #333;
+            text-decoration: none;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            transition: all 0.3s;
+        }
+        .generos-bar a:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .genero-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            scroll-margin-top: 130px;
+            transition: transform 0.3s;
+        }
+        .genero-card:hover { transform: translateY(-5px); }
+        .genero-card h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 5px solid #667eea;
+            padding-left: 20px;
+        }
+        .genero-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .genero-origen {
+            background: #667eea20;
+            padding: 5px 15px;
+            border-radius: 20px;
+            color: #667eea;
+            font-weight: bold;
+        }
+        .genero-descripcion {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .info-box {
+            background: #f8f9fa;
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 3px solid #667eea;
+        }
+        .info-box h4 { color: #667eea; margin-bottom: 10px; font-size: 1.1em; }
+        .info-box p { line-height: 1.6; color: #555; }
+        .artistas-lista {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .artista-tag {
+            background: #e0e0e0;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+        }
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+        .footer a { color: #93c5fd; text-decoration: none; }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2em; }
+            .genero-card { padding: 20px; }
+            .generos-bar { top: 60px; }
+            .generos-bar a { font-size: 0.7em; padding: 4px 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>🎵 Géneros Musicales</h1>
+        <p>Explora todos los géneros musicales con datos, artistas y ejemplos</p>
+    </header>
+
+    <!-- NAVEGACIÓN PRINCIPAL (Solo regreso a Música y Menú Principal) -->
+    <nav class="nav">
+        <a href="Musica.html"><i class="fas fa-arrow-left"></i> Volver a Música</a>
+        <a href="index.html"><i class="fas fa-home"></i> Menú Principal</a>
+    </nav>
+
+    <!-- BARRA DE GÉNEROS (Navegación rápida dentro de la misma página) -->
+    <div class="generos-bar">
+        <a href="#reggaeton">🔥 Reggaetón</a>
+        <a href="#rock">🎸 Rock</a>
+        <a href="#hiphop">🎤 Hip Hop</a>
+        <a href="#pop">🌟 Pop</a>
+        <a href="#electronica">🎛️ Electrónica</a>
+        <a href="#jazz">🎷 Jazz</a>
+        <a href="#salsa">🕺 Salsa</a>
+        <a href="#bachata">💃 Bachata</a>
+        <a href="#merengue">🥁 Merengue</a>
+        <a href="#cumbia">🪘 Cumbia</a>
+        <a href="#blues">🎙️ Blues</a>
+        <a href="#rnb">🎤 R&B</a>
+        <a href="#country">🤠 Country</a>
+        <a href="#clasica">🎻 Clásica</a>
+        <a href="#flamenco">💃 Flamenco</a>
+        <a href="#reggae">🌿 Reggae</a>
+        <a href="#metal">🤘 Metal</a>
+        <a href="#kp">🇰🇷 K-Pop</a>
+        <a href="#tango">💃 Tango</a>
+        <a href="#corrido">🇲🇽 Corridos</a>
+        <a href="#banda">🎺 Banda</a>
+        <a href="#regional">🤠 Regional Mexicano</a>
+    </div>
+
+    <div class="container">
+
+        <!-- REGGAETÓN -->
+        <div id="reggaeton" class="genero-card">
+            <div class="genero-header">
+                <h2><i class="fas fa-fire"></i> Reggaetón</h2>
+                <span class="genero-origen"><i class="fas fa-map-marker-alt"></i> Puerto Rico • 1990s</span>
+            </div>
+            <p class="genero-descripcion">El reggaetón es un género urbano latino que fusiona el reggae jamaiquino con el hip-hop y la música latina. Su característica principal es el ritmo "dembow" (un patrón rítmico pegajoso y repetitivo). Nació en Puerto Rico en los 90 y en la década del 2020 se convirtió en el género dominante del streaming global, con artistas como Bad Bunny rompiendo récords mundiales. En 2026, el reggaetón representa el 29% de toda la música reproducida en plataformas latinoamericanas.</p>
+            <div class="info-grid">
+                <div class="info-box"><h4>🎤 Características</h4><p>Ritmo dembow • Letras de fiesta, amor y calle • Bajo pesado • Estructura de coro pegajoso • Influencia del dancehall y rap</p></div>
+                <div class="info-box"><h4>⭐ Artistas Destacados</h4><div class="artistas-lista"><span class="artista-tag">Bad Bunny</span><span class="artista-tag">Daddy Yankee</span><span class="artista-tag">Karol G</span><span class="artista-tag">J Balvin</span><span class="artista-tag">Rauw Alejandro</span><span class="artista-tag">Feid</span><span class="artista-tag">Don Omar</span><span class="artista-tag">Ivy Queen</span></div></div>
+                <div class="info-box"><h4>🎵 Éxitos Clásicos</h4><p>Gasolina - Daddy Yankee • Safaera - Bad Bunny • Tusa - Karol G • Mi Gente - J Balvin • Todo de Ti - Rauw Alejandro</p></div>
+                <div class="info-box"><h4>📊 Dato 2026</h4><p>Bad Bunny es el artista más escuchado del mundo en Spotify con más de 65 millones de oyentes mensuales. El reggaetón generó más de $8 mil millones en ingresos en 2025.</p></div>
+            </div>
+        </div>
+
+        <!-- ROCK -->
+        <div id="rock" class="genero-card">
+            <div class="genero-header">
+                <h2><i class="fas fa-guitar"></i> Rock</h2>
+                <span class="genero-origen"><i class="fas fa-map-marker-alt"></i> Estados Unidos • 1950s</span>
+            </div>
+            <p class="genero-descripcion">El rock es un género musical que revolucionó la cultura del siglo XX. Nacido del blues y el country, se caracteriza por el uso protagónico de guitarras eléctricas, bajo, batería y una actitud rebelde. Sus subgéneros incluyen hard rock, punk, metal, grunge e indie rock. The Beatles, Queen, Led Zeppelin y Nirvana son algunas de las bandas más influyentes de la historia. Aunque su dominio comercial disminuyó, el rock mantiene un sólido 10% de las reproducciones globales y sigue siendo el género favorito para conciertos en vivo.</p>
+            <div class="info-grid">
+                <div class="info-box"><h4>🎸 Características</h4><p>Guitarras distorsionadas • Batería potente • Estructura verso-coro-verso • Actitud rebelde • Conciertos masivos</p></div>
+                <div class="info-box"><h4>⭐ Bandas Legendarias</h4><div class="artistas-lista"><span class="artista-tag">The Beatles</span><span class="artista-tag">Queen</span><span class="artista-tag">Led Zeppelin</span><span class="artista-tag">Pink Floyd</span><span class="artista-tag">Nirvana</span><span class="artista-tag">The Rolling Stones</span><span class="artista-tag">AC/DC</span><span class="artista-tag">Metallica</span></div></div>
+                <div class="info-box"><h4>🎵 Himnos del Rock</h4><p>Bohemian Rhapsody - Queen • Stairway to Heaven - Led Zeppelin • Smells Like Teen Spirit - Nirvana • Hotel California - Eagles</p></div>
+                <div class="info-box"><h4>📊 Dato 2026</h4><p>The Beatles siguen siendo la banda más vendida de la historia con más de 600 millones de discos. Queen fue la primera banda en tener un videojuego oficial (Queen: Rock Tour).</p></div>
+            </div>
+        </div>
+
+        <!-- HIP HOP -->
+        <div id="hiphop" class="genero-card">
+            <div class="genero-header">
+                <h2><i class="fas fa-microphone-alt"></i> Hip Hop / Rap</h2>
+                <span class="genero-origen"><i class="fas fa-map-marker-alt"></i> Bronx, NYC • 1970s</span>
+            </div>
+            <p class="genero-descripcion">El hip hop es más que música: es una cultura que incluye rap (MCing), DJing, breakdance y graffiti. Nació en las fiestas callejeras del Bronx y hoy es el género más escuchado del mundo. El rap se caracteriza por rimas rítmicas habladas sobre beats. En 2026, el hip hop genera más de $18 mil millones anuales globalmente en música, moda y cultura. Kendrick Lamar ganó el Premio Pulitzer en 2018, siendo el primer rapero en lograrlo.</p>
+            <div class="info-grid">
+                <div class="info-box"><h4>🎤 Características</h4><p>Rimas y juegos de palabras • Beats sampleados • Groove pesado • Narrativa callejera • Batallas de rap</p></div>
+                <div class="info-box"><h4>⭐ Artistas Icónicos</h4><div class="artistas-lista"><span class="artista-tag">Kendrick Lamar</span><span class="artista-tag">Eminem</span><span class="artista-tag">Drake</span><span class="artista-tag">Jay-Z</span><span class="artista-tag">Tupac</span><span class="artista-tag">Notorious B.I.G.</span><span class="artista-tag">Nicki Minaj</span><span class="artista-tag">Travis Scott</span></div></div>
+                <div class="info-box"><h4>🎵 Clásicos del Rap</h4><p>Lose Yourself - Eminem • HUMBLE. - Kendrick Lamar • Juicy - Notorious B.I.G. • God's Plan - Drake</p></div>
+                <div class="info-box"><h4>📊 Dato 2026</h4><p>Drake tiene el récord de más canciones en el top 10 de Billboard (más de 70). El hip hop es el género más escuchado en Estados Unidos por séptimo año consecutivo.</p></div>
+            </div>
+        </div>
+
+        <!-- POP -->
+        <div id="pop" class="genero-card">
+            <div class="genero-header">
+                <h2><i class="fas fa-star"></i> Pop</h2>
+                <span class="genero-origen"><i class="fas fa-map-marker-alt"></i> Global • 1950s</span>
+            </div>
+            <p class="genero-descripcion">La música pop es la música popular comercial por excelencia. Se caracteriza por melodías pegadizas, estribillos fáciles de recordar y producción pulida. Es el género con mayor audiencia mundial y constantemente evoluciona absorbiendo influencias de otros estilos. Michael Jackson es el "Rey del Pop" con el álbum más vendido de la historia: "Thriller" (70M+ copias). Taylor Swift es la artista más exitosa del siglo XXI con 14 Grammys y 4 premios a Álbum del Año.</p>
+            <div class="info-grid">
+                <div class="info-box"><h4>🎤 Características</h4><p>Melodías pegadizas • Estructura verso-coro-puente • Producción pulida • Éxitos radiales • Videoclips elaborados</p></div>
+                <div class="info-box"><h4>⭐ Superestrellas</h4><div class="artistas-lista"><span class="artista-tag">Taylor Swift</span><span class="artista-tag">Michael Jackson</span><span class="artista-tag">Madonna</span><span class="artista-tag">Ariana Grande</span><span class="artista-tag">The Weeknd</span><span class="artista-tag">Dua Lipa</span><span class="artista-tag">Harry Styles</span><span class="artista-tag">Lady Gaga</span></div></div>
+                <div class="info-box"><h4>🎵 Megahits</h4><p>Thriller - Michael Jackson • Shake It Off - Taylor Swift • Blinding Lights - The Weeknd • Levitating - Dua Lipa</p></div>
+                <div class="info-box"><h4>📊 Dato 2026</h4><p>Taylor Swift es la única artista en ganar 4 veces el Grammy a Álbum del Año. Su gira "The Eras Tour" es la más taquillera de la historia con más de $2 mil millones recaudados.</p></div>
+            </div>
+        </div>
+
+        <!-- ELECTRÓNICA -->
+        <div id="electronica" class="genero-card">
+            <div class="genero-header">
+                <h2><i class="fas fa-sliders-h"></i> Música Electrónica</h2>
+                <span class="genero-origen"><i class="fas fa-map-marker-alt"></i> Alemania / USA • 1970s</span>
+            </div>
+            <p class="genero-descripcion">La música electrónica se crea utilizando sintetizadores, cajas de ritmos y software digital. Subgéneros como House (Chicago), Techno (Detroit), Trance, Dubstep y EDM dominan clubes y festivales mundiales. Es la banda sonora de la cultura rave y los festivales masivos. Tomorrowland (Bélgica) es el festival más grande del mundo con 400,000 asistentes anuales. En 2026, la IA generativa está creando nuevas formas de producir música electrónica en tiempo real.</p>
+            <div class="info-grid">
+                <div class="info-box"><h4>🎛️ Características</h4><p>Beats programados • Sintetizadores • Drop o quiebre • Bajo profundo • Producción digital</p></div>
+                <div class="info-box"><h4>⭐ DJs Estrella</h4><div class="artistas-lista"><span class="artista-tag">David Guetta</span><span class="artista-tag">Calvin Harris</span><span class="artista-tag">Martin Garrix</span><span class="artista-tag">Tiësto</span><span class="artista-tag">Deadmau5</span><span class="artista-tag">Skrillex</span><span class="artista-tag">Marshmello</span><span class="artista-tag">Kygo</span></div></div>
+                <div class="info-box"><h4>🎵 Anthem EDM</h4><p>Titanium - David Guetta • Levels - Avicii • Strobe - Deadmau5 • Scary Monsters - Skrillex</p></div>
+                <div class="info-box"><h4>📊 Dato 2026</h4><p>El mercado global de la música electrónica supera los $8 mil millones anuales. Avicii es el DJ más recordado con más de 20 mil millones de streams póstumos.</p></div>
+            </div>
+        </div>
+
+        <!-- JAZZ -->
+        <div id="jazz" class="genero-card">
+            <div class="genero-header">
+                <h2><i class="fas fa-saxophone"></i> Jazz</h2>
+                <span class="genero-origen"><i class="fas fa-map-marker-alt"></i> Nueva Orleans • 1900s</span>
+            </div>
+            <p class="genero-descripcion">El jazz es un género nacido en comunidades afroamericanas de Nueva Orleans. Su característica principal es la improvisación, el ritmo swing y las notas "blue". Ha evolucionado desde el jazz tradicional al bebop, cool jazz, free jazz y fusiones contemporáneas. Miles Davis, John Coltrane y Louis Armstrong son leyendas indiscutibles. El jazz influenció prácticamente todos los géneros musicales modernos y fue declarado "Tesoro Nacional" por el Congreso de Estados Unidos en 1987.</p>
+            <div class="info-grid">
+                <div class="info-box"><h4>🎷 Características</h4><p>Improvisación • Ritmo swing • Síncopa • Notas blue • Jam sessions</p></div>
+                <div class="info-box"><h4>⭐ Leyendas</h4><div class="artistas-lista"><span class="artista-tag">Miles Davis</span><span class="artista-tag">John Coltrane</span><span class="artista-tag">Louis Armstrong</span><span class="artista-tag">Ella Fitzgerald</span><span class="artista-tag">Charlie Parker</span><span class="artista-tag">Duke Ellington</span></div></div>
+                <div class="info-box"><h4>🎵 Estándares</h4><p>Take Five - Dave Brubeck • So What - Miles Davis • My Favorite Things - John Coltrane • Summertime - Ella Fitzgerald</p></div>
+                <div class="info-box"><h4>📊 Dato 2026</h4><p>Cada 30 de abril se celebra el Día Internacional del Jazz por la UNESCO. El jazz generó más de $2 mil millones en ingresos globales en 2025.</p></div>
+            </div>
+        </div>
+
+        <!-- SALSA -->
+        <div id="salsa" class="genero-card">
+            <div class="genero-header">
+                <h2><i class="fas fa-drumstick-bite"></i> Salsa</h2>
+                <span class="genero-origen"><i class="fas fa-map-marker-alt"></i> Cuba / Puerto Rico / NYC • 1960s</span>
+            </div>
+            <p class="genero-descripcion">La salsa es una fusión de son cubano, mambo, jazz latino y ritmos afrocaribeños. Nació en Nueva York con músicos latinos y se convirtió en el ritmo bailable por excelencia de Latinoamérica. Sus instrumentos clave son el piano, la conga, el bongó, las timbales y los metales. Celia Cruz, Héctor Lavoe y Marc Anthony son íconos de la salsa. Cali (Colombia) es considerada la capital mundial de la salsa con su festival anual.</p>
+            <div class="info-grid">
+                <div class="info-box"><h4>🕺 Características</h4><p>Ritmo bailable • Metales potentes • Clave cubana • Llamada y respuesta • Coros pegajosos</p></div>
+                <div class="info-box"><h4>⭐ Salseros Legendarios</h4><div class="artistas-lista"><span class="artista-tag">Héctor Lavoe</span><span class="artista-tag">Celia Cruz</span><span class="artista-tag">Rubén Blades</span><span class="artista-tag">Marc Anthony</span><span class="artista-tag">Willie Colón</span><span class="artista-tag">Oscar D'León</span><span class="artista-tag">Gilberto Santa Rosa</span></div></div>
+                <div class="info-box"><h4>🎵 Clásicos Salseros</h4><p>Pedro Navaja - Rubén Blades • El Cantante - Héctor Lavoe • La Vida Es Un Carnaval - Celia Cruz • Vivir Mi Vida - Marc Anthony</p></div>
+                <div class="info-box"><h4>📊 Dato 2026</h4><p>El Festival de Salsa de Cali reúne más de 500,000 asistentes cada año. Marc Anthony es el salsero más exitoso de la historia con más de 30 millones de discos vendidos.</p></div>
+            </div>
+        </di

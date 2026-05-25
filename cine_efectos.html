@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Efectos Especiales - Nancy</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#111;
+    color:white;
+    line-height:1.6;
+}
+
+header{
+    background:linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    padding:40px;
+    text-align:center;
+    border-bottom:3px solid #ffcc00;
+}
+
+header h1{
+    font-size:50px;
+    color:#ffcc00;
+    margin-bottom:10px;
+}
+
+nav{
+    background:#1f1f1f;
+    padding:15px;
+    text-align:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-size:16px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ffcc00;
+}
+
+section{
+    padding:40px 10%;
+}
+
+h2{
+    color:#ffcc00;
+    margin:40px 0 20px 0;
+    font-size:35px;
+}
+
+h3{
+    color:#ffcc00;
+    margin:20px 0 10px 0;
+    font-size:22px;
+}
+
+p{
+    font-size:17px;
+    margin-bottom:15px;
+}
+
+.efectos-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:25px;
+    margin-top:30px;
+}
+
+.efecto-card{
+    background:#1d1d1d;
+    padding:25px;
+    border-radius:15px;
+    border-left:4px solid #ffcc00;
+    transition:0.3s;
+}
+
+.efecto-card:hover{
+    transform:translateX(10px);
+    background:#252525;
+}
+
+.efecto-card .emoji{
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.efecto-card h3{
+    margin-top:0;
+}
+
+.tecnica{
+    background:#1b1b1b;
+    padding:20px;
+    border-radius:10px;
+    margin:15px 0;
+    border-left:4px solid #ffcc00;
+}
+
+.tecnica strong{
+    color:#ffcc00;
+}
+
+.timeline-tecnica{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    margin-top:30px;
+}
+
+.timeline-tecnica-item{
+    background:#1d1d1d;
+    padding:20px;
+    border-radius:10px;
+    border-left:5px solid #ffcc00;
+}
+
+.timeline-tecnica-item .titulo{
+    color:#ffcc00;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+footer{
+    background:#000;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+    color:#aaa;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>💫 Efectos Especiales y Tecnología</h1>
+    <p>La magia detrás de la pantalla cinematográfica</p>
+</header>
+
+<nav>
+    <a href="cine.html">🏠 Volver al Cine</a>
+    <a href="cine_historia.html">📖 Historia</a>
+    <a href="cine_directores.html">👥 Directores</a>
+    <a href="cine_estudios.html">🏢 Estudios</a>
+    <a href="index.html">Inicio</a>
+</nav>
+
+<section>
+    <h2>La Evolución de los Efectos Especiales</h2>
+    <p>
+        Los efectos especiales son la columna vertebral del cine moderno. Desde trucos 
+        mecánicos hasta CGI fotorealista, la tecnología ha permitido contar historias 
+        cada vez más ambiciosas y visualmente impactantes.
+    </p>
+</section>
+
+<section>
+    <h2>🎬 Tipos de Efectos Especiales</h2>
+    
+    <div class="efectos-grid">
+        <div class="efecto-card">
+            <div class="emoji">🔧</div>
+            <h3>Efectos Prácticos</h3>
+            <p>
+                Trucos realizados en el set de filmación. Explosiones, pirotecnia, 
+                maquillaje elaborado. Aportan realismo físico tangible.
+            </p>
+        </div>
+
+        <div class="efecto-card">
+            <div class="emoji">💻</div>
+            <h3>CGI (Imágenes Generadas por Computadora)</h3>
+            <p>
+                Efectos digitales creados en computadora. Desde criaturas hasta 
+                ambientes completos. Permite creatividad ilimitada.
+            </p>
+        </div>
+
+        <div class="efecto-card">
+            <div class="emoji">🎨</div>
+            <h3>Matte Painting</h3>
+            <p>
+                Pinturas digitales o físicas que extenden escenarios. Técnica clásica 
+                aún usada para crear fondos realistas.
+            </p>
+        </div>
+
+        <div class="efecto-card">
+            <div class="emoji">🖼️</div>
+            <h3>Composición Visual</h3>
+            <p>
+                Combinación de múltiples capas de imagen. Fusiona efectos prácticos 
+                y digitales en postproducción.
+            </p>
+        </div>
+
+        <div class="efecto-card">
+            <div class="emoji">🎭</div>
+            <h3>Maquillaje y Prótesis</h3>
+            <p>
+                Transformación de actores para caracteres fantásticos. Máscaras, 
+                cicatrices, cambios físicos elaborados.
+            </p>
+        </div>
+
+        <div class="efecto-card">
+            <div class="emoji">📹</div>
+            <h3>Motion Capture</h3>
+            <p>
+                Captura del movimiento de actores para crear personajes digitales 
+                realistas. Revolucionó la animación cinematográfica.
+            </p>
+        </div>
+
+        <div class="efecto-card">
+            <div class="emoji">🌐</div>
+            <h3>3D Virtual</h3>
+            <p>
+                Creación de mundos completamente digitales. Permite exploración de 
+                espacios imposibles en el mundo real.
+            </p>
+        </div>
+
+        <div class="efecto-card">
+            <div class="emoji">⚡</div>
+            <h3>Sonido y Efectos Acústicos</h3>
+            <p>
+                Diseño de audio para crear atmósfera. Sonidos creados digitalmente 
+                o grabados en estudio.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>📊 Evolución Tecnológica</h2>
+    
+    <div class="timeline-tecnica">
+        <div class="timeline-tecnica-item">
+            <div class="titulo">🎞️ 1895-1920: Efectos Ópticos Primitivos</div>
+            <p>
+                Georges Méliès inventa técnicas de cámara. Stop-motion, doble exposición 
+                y transiciones crean magia cinematográfica de forma manual.
+            </p>
+        </div>
+
+        <div class="timeline-tecnica-item">
+            <div class="titulo">🎬 1920-1960: Era de Matte Paintings</div>
+            <p>
+                Combinación de pintura y fotografía. Actores filmados contra escenarios 
+                pintados extendían el mundo visible.
+            </p>
+        </div>
+
+        <div class="timeline-tecnica-item">
+            <div class="titulo">🚀 1960-1980: Avances en Efectos Prácticos</div>
+            <p>
+                Modelos a escala avanzados. 2001: Odisea del Espacio revoluciona 
+                con efectos prácticos espectaculares.
+            </p>
+        </div>
+
+        <div class="timeline-tecnica-item">
+            <div class="titulo">🦖 1980-1995: Primeros Efectos Digitales</div>
+            <p>
+                Computadoras comienzan a generar gráficos. Tron (1982) explora realidad 
+                digital. Los dinosaurios de Jurassic Park marcan un punto de inflexión.
+            </p>
+        </div>
+
+        <div class="timeline-tecnica-item">
+            <div class="titulo">🌊 1995-2010: Revolución CGI</div>
+            <p>
+                Titanic (1997) y Avatar (2009) demuestran el potencial ilimitado del CGI. 
+                Personajes digitales completamente convincentes.
+            </p>
+        </div>
+
+        <div class="timeline-tecnica-item">
+            <div class="titulo">🎮 2010-Presente: Fotorrealismo Digital</div>
+            <p>
+                Inteligencia artificial mejora efectos. Ray tracing y renderizado en tiempo 
+                real. Mundos virtuales indistinguibles de la realidad.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>🏆 Películas Pioneras en Efectos</h2>
+    
+    <div class="tecnica">
+        <strong>2001: Odisea del Espacio (1968)</strong>
+        <p>Kubrick crea efectos prácticos revolucionarios para ciencia ficción fotorealista.</p>
+    </div>
+
+    <div class="tecnica">
+        <strong>La Guerra de las Galaxias (1977)</strong>
+        <p>George Lucas crea efectos visuales que transforman la industria cinematográfica.</p>
+    </div>
+
+    <div class="tecnica">
+        <strong>Tron (1982)</strong>
+        <p>Primera película con uso extensivo de gráficos por computadora.</p>
+    </div>
+
+    <div class="tecnica">
+        <strong>Jurassic Park (1993)</strong>
+        <p>CGI fotorealista de dinosaurios. Punto de quiebre en la industria de efectos.</p>
+    </div>
+
+    <div class="tecnica">
+        <strong>The Matrix (1999)</strong>
+        <p>Bullet-time y movimiento de cámara virtual revolucionan efectos digitales.</p>
+    </div>
+
+    <div class="tecnica">
+        <strong>Avatar (2009)</strong>
+        <p>Motion capture y mundo completamente digital. Presupuesto gigantesco, ganancias récord.</p>
+    </div>
+
+    <div class="tecnica">
+        <strong>Avengers: Endgame (2019)</strong>
+        <p>Combina 11 años de universo cinematográfico con efectos complejos de postproducción.</p>
+    </div>
+
+    <div class="tecnica">
+        <strong>Dune (2021)</strong>
+        <p>Efectos visuales épicos fusionando práctico y digital para crear un mundo alienígena.</p>
+    </div>
+</section>
+
+<section>
+    <h2>🔮 Futuro de los Efectos</h2>
+    
+    <h3>Inteligencia Artificial en Efectos</h3>
+    <p>
+        La IA genera automáticamente fondos, personajes y efectos. Reduce tiempo de 
+        producción y costos. Permite más creatividad a directores.
+    </p>
+
+    <h3>Realidad Aumentada en Cine</h3>
+    <p>
+        Nuevas formas de contar historias interactivas. Los límites entre cine y 
+        videojuegos se desdibujan.
+    </p>
+
+    <h3>Renderizado en Tiempo Real</h3>
+    <p>
+        El cine se filma como un videojuego. Permite cambios en tiempo real durante 
+        la producción, revolucionando el flujo de trabajo.
+    </p>
+
+    <h3>Deep Fake y Ética</h3>
+    <p>
+        Actores digitales y de-aging con IA. Plantea preguntas éticas sobre propiedad 
+        intelectual y autorización.
+    </p>
+</section>
+
+<footer>
+    <p>© 2026 Efectos Especiales | Página creada por Uriel</p>
+</footer>
+
+</body>
+</html>

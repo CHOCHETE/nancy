@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>🏎️ Fórmula 1 Total | Historia, Reglas, Récords y Leyendas de la Máxima Categoría</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(145deg, #0a0a0f 0%, #1a1a2a 100%); color: #e2e8f0; line-height: 1.5; scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #2a2a3a; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: #e10600; border-radius: 10px; }
+        .hero { background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%); color: white; padding: 2rem 1.5rem 3rem 1.5rem; text-align: center; position: relative; overflow: hidden; border-bottom: 6px solid #e10600; }
+        .hero::before { content: "🏎️"; font-size: 280px; opacity: 0.05; position: absolute; bottom: -40px; right: -30px; pointer-events: none; transform: rotate(10deg); }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 0.5rem; background: linear-gradient(135deg, #fff, #e10600); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto; opacity: 0.9; }
+        .nav-bar { background: #0f0f1a; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: sticky; top: 0; z-index: 100; display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem; padding: 0.7rem 1rem; border-bottom: 1px solid #e10600; }
+        .nav-btn { background: transparent; border: none; font-size: 0.8rem; font-weight: 600; padding: 0.5rem 0.85rem; border-radius: 40px; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; color: #cbd5e1; }
+        .nav-btn i { margin-right: 5px; }
+        .nav-btn:hover { background: #e10600; color: white; }
+        .nav-btn.active { background: #e10600; color: white; box-shadow: 0 4px 10px rgba(225,6,0,0.4); }
+        .container { max-width: 1300px; margin: 2rem auto; padding: 0 1.5rem; }
+        .section { display: none; animation: fadeUp 0.4s ease-out forwards; }
+        .section.active-section { display: block; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 1.8rem; }
+        .card { background: #1e1e2e; border-radius: 28px; padding: 1.6rem; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.4); transition: transform 0.2s, box-shadow 0.2s; border: 1px solid #e10600; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 25px 40px -15px rgba(0,0,0,0.5); }
+        .card-icon { font-size: 2rem; background: #e10600; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; border-radius: 30px; margin-bottom: 1.2rem; color: white; }
+        .card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.75rem; color: #e10600; }
+        .card p, .card li { color: #cbd5e6; line-height: 1.5; }
+        .list-style { list-style: none; padding-left: 0; }
+        .list-style li { margin-bottom: 0.8rem; display: flex; align-items: baseline; gap: 12px; }
+        .list-style li i { color: #e10600; width: 24px; margin-top: 3px; }
+        .drivers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 1.5rem; }
+        .driver-card { background: #1e1e2e; border-radius: 30px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.3); transition: all 0.25s; text-align: center; border: 1px solid #e10600; }
+        .driver-card:hover { transform: scale(1.02); }
+        .driver-img { background: linear-gradient(145deg, #e10600, #8b0000); padding: 1.5rem 0 0.8rem; color: white; font-size: 3rem; }
+        .driver-info { padding: 1.2rem 1rem 1.5rem; }
+        .driver-name { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.25rem; color: white; }
+        .driver-stats { font-size: 0.75rem; color: #fbbf24; font-weight: 700; margin: 0.5rem 0; }
+        .footer { background: #0a0a0f; color: #94a3b8; text-align: center; padding: 2rem; margin-top: 3rem; border-top: 1px solid #e10600; }
+        @media (max-width: 760px) { .hero h1 { font-size: 1.8rem; } .nav-btn { padding: 0.3rem 0.6rem; font-size: 0.7rem; } }
+        .highlight { background: linear-gradient(120deg, #e1060022 0%, #e1060044 40%, transparent 60%); font-weight: 600; padding: 0 4px; color: #e10600; }
+        .records-table { width: 100%; border-collapse: collapse; background: #1e1e2e; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.3); margin: 1rem 0; }
+        th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #3a3a4a; }
+        th { background: #e10600; color: white; font-weight: 600; }
+        tr:hover { background: #2a2a3a; }
+        hr { margin: 1.8rem 0; border: 0; height: 2px; background: linear-gradient(90deg, transparent, #e10600, transparent); }
+        .badge-f1 { background: #1e1e2e; border-left: 5px solid #e10600; padding: 0.8rem 1rem; border-radius: 20px; margin: 1rem 0; border: 1px solid #e10600; }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1><i class="fas fa-flag-checkered"></i> FÓRMULA 1 TOTAL <i class="fas fa-flag-checkered"></i></h1>
+    <p>Historia completa, reglas técnicas FIA, récords, leyendas, curiosidades y el calendario de la máxima categoría</p>
+</div>
+
+<div class="nav-bar">
+    <button class="nav-btn" onclick="location.href='Deportes6.html'"><i class="fas fa-home"></i> Inicio</button>
+    <button class="nav-btn active" data-section="historia"><i class="fas fa-landmark"></i> Historia</button>
+    <button class="nav-btn" data-section="reglas"><i class="fas fa-clipboard-list"></i> Reglas & Técnica</button>
+    <button class="nav-btn" data-section="records"><i class="fas fa-chart-line"></i> Récords</button>
+    <button class="nav-btn" data-section="mejores"><i class="fas fa-medal"></i> Leyendas</button>
+    <button class="nav-btn" data-section="curiosidades"><i class="fas fa-lightbulb"></i> Curiosidades</button>
+    <button class="nav-btn" data-section="calendario"><i class="fas fa-calendar-alt"></i> Calendario & Circuitos</button>
+</div>
+
+<div class="container">
+    <!-- HISTORIA COMPLETA (documento) -->
+    <div id="historia" class="section active-section">
+        <h2><i class="fas fa-timeline"></i> Historia de la Fórmula 1: desde los orígenes hasta la era moderna</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-flag-checkered"></i></div>
+                <h3>🏁 Orígenes (1894-1949)</h3>
+                <p><span class="highlight">1894:</span> París-Rouen, primera competición. <strong>1906:</strong> Primer Gran Premio de Francia. <strong>1929:</strong> GP de Mónaco. <strong>1946:</strong> La FIA crea la Fórmula 1. <strong>13 de mayo de 1950:</strong> Primer GP del Mundo en Silverstone, ganado por Giuseppe Farina (Alfa Romeo).</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-trophy"></i></div>
+                <h3>🏆 Épocas doradas (1950-2000)</h3>
+                <p><strong>1950s:</strong> Fangio (5 títulos). <strong>1960s:</strong> Jim Clark, Lotus y el motor trasero. <strong>1970s:</strong> Lauda vs Hunt, efecto suelo. <strong>1980s:</strong> Senna vs Prost, turbos. <strong>1990s:</strong> Schumacher inicia su reinado. <strong>1994:</strong> Muerte de Senna en Imola.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-car"></i></div>
+                <h3>⚡ Era moderna (2000-actualidad)</h3>
+                <p><strong>2000-2004:</strong> Dominio Schumacher/Ferrari. <strong>2010-2013:</strong> Vettel/Red Bull. <strong>2014-2020:</strong> Hamilton/Mercedes (6 títulos). <strong>2021-2024:</strong> Verstappen/Red Bull (4 títulos consecutivos, 19 victorias en 2023 - récord).</p>
+            </div>
+        </div>
+        <div class="badge-f1">
+            <i class="fas fa-trophy"></i> <strong>Dato histórico:</strong> El piloto más laureado es Lewis Hamilton con 7 títulos (empatado con Schumacher). El equipo con más campeonatos es Ferrari (16 títulos de constructores).
+        </div>
+    </div>
+
+    <!-- REGLAS TÉCNICAS Y DEPORTIVAS (documento FIA 2025) -->
+    <div id="reglas" class="section">
+        <h2><i class="fas fa-clipboard-list"></i> Reglas técnicas y deportivas (FIA - Temporada 2025)</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-microchip"></i></div>
+                <h3>🏎️ Especificaciones técnicas</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-engine"></i> <strong>Motor:</strong> V6 turbo híbrido 1.6L + MGU-K (160 CV) + MGU-H. Potencia total ~1000 CV.</li>
+                    <li><i class="fas fa-weight-hanging"></i> <strong>Peso mínimo:</strong> 798 kg (incluyendo piloto). Piloto+asiento mínimo 80 kg.</li>
+                    <li><i class="fas fa-gas-pump"></i> <strong>Combustible:</strong> 110 kg máx. por carrera. E10 (10% etanol).</li>
+                    <li><i class="fas fa-shield-alt"></i> <strong>Halo:</strong> Protección de cabeza obligatoria desde 2018. Resistencia 12 toneladas.</li>
+                    <li><i class="fas fa-tire"></i> <strong>Neumáticos Pirelli:</strong> 5 compuestos (C0-C5). 13 juegos por GP, usar al menos 2 compuestos en carrera.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-flag-checkered"></i></div>
+                <h3>🏁 Sistema de puntuación</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-star"></i> <strong>1º: 25 pts</strong> | 2º: 18 | 3º: 15 | 4º: 12 | 5º: 10 | 6º: 8 | 7º: 6 | 8º: 4 | 9º: 2 | 10º: 1</li>
+                    <li><i class="fas fa-bolt"></i> <strong>Vuelta rápida:</strong> 1 punto extra (si termina entre los 10 primeros).</li>
+                    <li><i class="fas fa-chart-line"></i> <strong>Carreras sprint:</strong> Puntos para los 8 primeros (8,7,6,5,4,3,2,1).</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-chalkboard"></i></div>
+                <h3>⚙️ Formato fin de semana</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-calendar-day"></i> <strong>Viernes:</strong> FP1 (60 min), FP2 (60 min)</li>
+                    <li><i class="fas fa-calendar-day"></i> <strong>Sábado:</strong> FP3 (60 min) + Clasificación (Q1/Q2/Q3)</li>
+                    <li><i class="fas fa-calendar-day"></i> <strong>Domingo:</strong> Carrera (305 km o 2 horas máx.)</li>
+                    <li><i class="fas fa-flag"></i> <strong>Banderas:</strong> Verde (normal), Amarilla (peligro), Roja (detenida), Azul (doblaje), Ajedrez (final).</li>
+                    <li><i class="fas fa-tachometer-alt"></i> <strong>DRS:</strong> Ala trasera móvil, activación a menos de 1s del coche delantero.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="badge-f1"><i class="fas fa-chalkboard"></i> <strong>Penalizaciones:</strong> Cambio de componentes de la unidad de potencia más allá de la cuota = pérdida de posiciones en parrilla. Conducción peligrosa = 5/10 segundos o drive-through.</div>
+    </div>
+
+    <!-- RÉCORDS ABSOLUTOS (documento actualizado) -->
+    <div id="records" class="section">
+        <h2><i class="fas fa-chart-line"></i> Récords absolutos de la Fórmula 1 (actualizados 2025)</h2>
+        <table class="records-table">
+            <thead><tr><th>Récord</th><th>Marca</th><th>Piloto/Equipo</th></tr></thead>
+            <tbody>
+                <tr><td style="font-weight:600;">Más campeonatos (piloto)</td><td>7</td><td>Lewis Hamilton, Michael Schumacher</td></tr>
+                <tr><td style="font-weight:600;">Más campeonatos de constructores</td><td>16</td><td>Ferrari</td></tr>
+                <tr><td style="font-weight:600;">Más Grandes Premios ganados</td><td>103</td><td>Lewis Hamilton</td></tr>
+                <tr><td style="font-weight:600;">Más poles position</td><td>104</td><td>Lewis Hamilton</td></tr>
+                <tr><td style="font-weight:600;">Más podios</td><td>196</td><td>Lewis Hamilton</td></tr>
+                <tr><td style="font-weight:600;">Más puntos en una temporada</td><td>575</td><td>Max Verstappen (2023)</td></tr>
+                <tr><td style="font-weight:600;">Más victorias en una temporada</td><td>19</td><td>Max Verstappen (2023)</td></tr>
+                <tr><td style="font-weight:600;">Mayor % victorias temporada</td><td>86.36% (19/22)</td><td>Max Verstappen (2023)</td></tr>
+                <tr><td style="font-weight:600;">Campeón más joven</td><td>23 años, 134 días</td><td>Sebastian Vettel (2010)</td></tr>
+                <tr><td style="font-weight:600;">Campeón más veterano</td><td>46 años, 41 días</td><td>Luigi Fagioli (1951) / Fangio 46 años (1957)</td></tr>
+                <tr><td style="font-weight:600;">Más GP disputados</td><td>404+ (activo)</td><td>Lewis Hamilton (2025)</td></tr>
+                <tr><td style="font-weight:600;">Piloto con más GP sin ganar</td><td>215</td><td>Andrea de Cesaris</td></tr>
+            </tbody>
+        </table>
+        <div class="badge-f1"><i class="fas fa-bolt"></i> <strong>Récord destacado:</strong> Max Verstappen logró en 2023 la temporada más dominante de la historia: 19 victorias en 22 carreras (86.3% de efectividad).</div>
+    </div>
+
+    <!-- LEYENDAS DE LA F1 (documento) -->
+    <div id="mejores" class="section">
+        <h2><i class="fas fa-medal"></i> Las leyendas de la Fórmula 1</h2>
+        <div class="drivers-grid">
+            <div class="driver-card"><div class="driver-img">🇬🇧 🐐</div><div class="driver-info"><div class="driver-name">Lewis Hamilton</div><div class="driver-stats">7 títulos | 103 victorias | 104 poles | 196 podios</div><div class="driver-desc">Récord de victorias, poles y podios. Igualó a Schumacher en títulos.</div></div></div>
+            <div class="driver-card"><div class="driver-img">🇩🇪 👑</div><div class="driver-info"><div class="driver-name">Michael Schumacher</div><div class="driver-stats">7 títulos | 91 victorias | 68 poles | 155 podios</div><div class="driver-desc">5 títulos consecutivos con Ferrari (2000-2004). Revolucionó la F1.</div></div></div>
+            <div class="driver-card"><div class="driver-img">🇦🇷 🦅</div><div class="driver-info"><div class="driver-name">Juan Manuel Fangio</div><div class="driver-stats">5 títulos | 24 victorias | 29 poles | 46% victorias</div><div class="driver-desc">Dominó la primera década. Campeón con 4 equipos distintos.</div></div></div>
+            <div class="driver-card"><div class="driver-img">🇳🇱 🔴</div><div class="driver-info"><div class="driver-name">Max Verstappen</div><div class="driver-stats">4 títulos (2021-2024) | 62+ victorias | 112 podios</div><div class="player-desc">La nueva era. Temporada 2023: 19 victorias (récord).</div></div></div>
+            <div class="driver-card"><div class="driver-img">🇫🇷 🏎️</div><div class="driver-info"><div class="driver-name">Alain Prost</div><div class="driver-stats">4 títulos | 51 victorias | 33 poles | "El Profesor"</div><div class="driver-desc">Rivalidad histórica con Senna. Inteligencia táctica pura.</div></div></div>
+            <div class="driver-card"><div class="driver-img">🇧🇷 🔥</div><div class="driver-info"><div class="driver-name">Ayrton Senna</div><div class="driver-stats">3 títulos | 41 victorias | 65 poles</div><div class="driver-desc">El más talentoso. Legendario en clasificación. Falleció en Imola 1994.</div></div></div>
+            <div class="driver-card"><div class="driver-img">🇩🇪 🚀</div><div class="driver-info"><div class="driver-name">Sebastian Vettel</div><div class="driver-stats">4 títulos (2010-2013) | 53 victorias | 57 poles</div><div class="driver-desc">Campeón más joven (23 años). Dominó la era Red Bull.</div></div></div>
+            <div class="driver-card"><div class="driver-img">🇦🇹 🎩</div><div class="driver-info"><div class="driver-name">Niki Lauda</div><div class="driver-stats">3 títulos | 25 victorias | 54 podios</div><div class="driver-desc">Sobrevivió a accidente grave (1976). Figura de seguridad y leyenda.</div></div></div>
+        </div>
+        <hr>
+        <div class="badge-f1"><i class="fas fa-star"></i> <strong>Otras leyendas:</strong> Jackie Stewart (3 títulos, pionero seguridad), Jim Clark (2 títulos), Fernando Alonso (2 títulos), Nelson Piquet (3 títulos), Mika Häkkinen (2 títulos), Kimi Räikkönen (1 título), Nigel Mansell, Jenson Button, Nico Rosberg.</div>
+    </div>
+
+    <!-- CURIOSIDADES ASOMBROSAS (documento) -->
+    <div id="curiosidades" class="section">
+        <h2><i class="fas fa-lightbulb"></i> Curiosidades fascinantes de la Fórmula 1</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-tachometer-alt"></i></div>
+                <h3>🚀 Datos de velocidad</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-bolt"></i> <strong>0-100 km/h:</strong> 2.4 segundos. <strong>0-200 km/h:</strong> 4.5 segundos.</li>
+                    <li><i class="fas fa-g-force"></i> Frenada de 200 a 0 km/h en 2.0 segundos (5G).</li>
+                    <li><i class="fas fa-fire"></i> Récord de velocidad: 372.5 km/h (Bottas, México 2016).</li>
+                    <li><i class="fas fa-tachometer-alt"></i> Temperatura en cabina >50°C. Los pilotos pierden 3-4 kg por carrera.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-glasses"></i></div>
+                <h3>🎽 Datos históricos</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-shield-alt"></i> <strong>Halo:</strong> Ha salvado al menos 5 vidas desde 2018 (Hamilton en Monza 2021).</li>
+                    <li><i class="fas fa-chart-line"></i> <strong>Única mujer en puntuar:</strong> Lella Lombardi (0.5 puntos, 1975).</li>
+                    <li><i class="fas fa-hand-spock"></i> <strong>Brawn GP (2009):</strong> Compró Honda por £1 y ganó el campeonato.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-hand-spock"></i></div>
+                <h3>🏁 Datos insólitos</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-clock"></i> Carrera más larga: Canadá 2011 (4h 4m 44s).</li>
+                    <li><i class="fas fa-snowflake"></i> Más fría: Las Vegas 2023 (~4°C).</li>
+                    <li><i class="fas fa-volume-up"></i> Ruido V10 >145 dB, actual V6 híbrido ~100 dB.</li>
+                    <li><i class="fas fa-dollar-sign"></i> Coche más caro: Mercedes W11 (~$20M).</li>
+                </ul>
+            </div>
+        </div>
+        <div class="badge-f1"><i class="fas fa-dice-d6"></i> <strong>Dato freak:</strong> El único campeón póstumo fue Jochen Rindt (1970). Nick Heidfeld tiene el récord de más podios sin victorias (13).</div>
+    </div>
+
+    <!-- CALENDARIO Y CIRCUITOS (documento) -->
+    <div id="calendario" class="section">
+        <h2><i class="fas fa-calendar-alt"></i> Calendario 2025 y circuitos legendarios</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-calendar-week"></i></div>
+                <h3>📅 Temporada 2025 (24 carreras)</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-flag-checkered"></i> <strong>Marzo:</strong> Australia, China, Japón, Baréin</li>
+                    <li><i class="fas fa-flag-checkered"></i> <strong>Abril-Mayo:</strong> Arabia Saudí, Miami, Imola, Mónaco, España, Canadá</li>
+                    <li><i class="fas fa-flag-checkered"></i> <strong>Junio-Julio:</strong> Austria, Gran Bretaña (Silverstone), Bélgica, Hungría</li>
+                    <li><i class="fas fa-flag-checkered"></i> <strong>Agosto-Septiembre:</strong> Países Bajos (Zandvoort), Italia (Monza), Azerbaiyán, Singapur</li>
+                    <li><i class="fas fa-flag-checkered"></i> <strong>Octubre:</strong> Estados Unidos (Austin), México, Brasil (Interlagos)</li>
+                    <li><i class="fas fa-flag-checkered"></i> <strong>Noviembre-Diciembre:</strong> Las Vegas, Qatar, Abu Dhabi (final)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-road"></i></div>
+                <h3>🏁 Circuitos legendarios</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-flag-checkered"></i> <strong>Mónaco:</strong> El más prestigioso, urbano, media ~160 km/h.</li>
+                    <li><i class="fas fa-flag-checkered"></i> <strong>Monza (Italia):</strong> "El Templo de la Velocidad", el más rápido.</li>
+                    <li><i class="fas fa-flag-checkered"></i> <strong>Spa-Francorchamps (Bélgica):</strong> Eau Rouge-Raidillon.</li>
+                    <li><i class="fas fa-flag-checkered"></i> <strong>Silverstone (GB):</strong> Curvas rápidas, cuna de la F1.</li>
+                    <li><i class="fas fa-flag-checkered"></i> <strong>Singapur:</strong> Primer circuito nocturno (2008).</li>
+                    <li><i class="fas fa-flag-checkered"></i> <strong>Interlagos (Brasil):</strong> Sorpresas y gran ambiente.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>📊 Datos de escuderías</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-trophy"></i> <strong>Más títulos constructores:</strong> Ferrari (16), Williams (9), McLaren (8).</li>
+                    <li><i class="fas fa-trophy"></i> <strong>Más victorias para un constructor:</strong> Ferrari (242).</li>
+                    <li><i class="fas fa-chart-line"></i> <strong>Presupuestos (2025):</strong> Tope de 135M USD (excluye pilotos).</li>
+                </ul>
+            </div>
+        </div>
+        <div class="badge-f1">
+            <i class="fas fa-chart-line"></i> <strong>El futuro de la F1:</strong> Reglamento 2026 con 50% potencia eléctrica (MGU-K 350 kW), combustible 100% sostenible. Nuevos GP: Madrid (2026), Sudáfrica.
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p><i class="fas fa-flag-checkered"></i> Fórmula 1 Total - La máxima categoría del automovilismo <i class="fas fa-flag-checkered"></i></p>
+    <p style="font-size: 0.8rem; margin-top: 8px;">Historia, reglas técnicas FIA, récords, leyendas, curiosidades y calendario de la F1.</p>
+</div>
+
+<script>
+    const sections = ['historia', 'reglas', 'records', 'mejores', 'curiosidades', 'calendario'];
+    const sectionsMap = {};
+    sections.forEach(id => { sectionsMap[id] = document.getElementById(id); });
+    const buttons = document.querySelectorAll('.nav-btn');
+    
+    function activateSection(sectionId) {
+        sections.forEach(id => { if(sectionsMap[id]) sectionsMap[id].classList.remove('active-section'); });
+        if(sectionsMap[sectionId]) sectionsMap[sectionId].classList.add('active-section');
+        buttons.forEach(btn => {
+            const btnSection = btn.getAttribute('data-section');
+            if(btnSection === sectionId) btn.classList.add('active');
+            else btn.classList.remove('active');
+        });
+        window.scrollTo({ top: document.querySelector('.container').offsetTop - 70, behavior: 'smooth' });
+    }
+    
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const sectionId = btn.getAttribute('data-section');
+            if(sectionId && sectionsMap[sectionId]) activateSection(sectionId);
+        });
+    });
+    activateSection('historia');
+</script>
+</body>
+</html>
+```

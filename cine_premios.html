@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premios Cinematográficos - Nancy</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#111;
+    color:white;
+    line-height:1.6;
+}
+
+header{
+    background:linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    padding:40px;
+    text-align:center;
+    border-bottom:3px solid #ffcc00;
+}
+
+header h1{
+    font-size:50px;
+    color:#ffcc00;
+    margin-bottom:10px;
+}
+
+nav{
+    background:#1f1f1f;
+    padding:15px;
+    text-align:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-size:16px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ffcc00;
+}
+
+section{
+    padding:40px 10%;
+}
+
+h2{
+    color:#ffcc00;
+    margin:40px 0 20px 0;
+    font-size:35px;
+}
+
+h3{
+    color:#ffcc00;
+    margin:20px 0 10px 0;
+    font-size:22px;
+}
+
+p{
+    font-size:17px;
+    margin-bottom:15px;
+}
+
+.premios-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    gap:25px;
+    margin-top:30px;
+}
+
+.premio-card{
+    background:#1d1d1d;
+    padding:25px;
+    border-radius:15px;
+    border-top:4px solid #ffcc00;
+    transition:0.3s;
+    text-align:center;
+}
+
+.premio-card:hover{
+    transform:translateY(-10px);
+    background:#252525;
+}
+
+.premio-card .emoji{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.premio-card h3{
+    margin-top:0;
+}
+
+.ganadores{
+    background:#1b1b1b;
+    padding:20px;
+    border-radius:10px;
+    margin:15px 0;
+    border-left:4px solid #ffcc00;
+}
+
+.ganadores h4{
+    color:#ffcc00;
+    margin-bottom:10px;
+}
+
+.ganadores p{
+    margin-left:20px;
+    margin-bottom:8px;
+}
+
+.datos{
+    background:#1d1d1d;
+    padding:20px;
+    border-radius:10px;
+    margin:20px 0;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:15px;
+}
+
+.dato{
+    background:#252525;
+    padding:15px;
+    border-radius:8px;
+    border-left:4px solid #ffcc00;
+}
+
+.dato strong{
+    color:#ffcc00;
+}
+
+footer{
+    background:#000;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+    color:#aaa;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>🏆 Premios Cinematográficos</h1>
+    <p>Los reconocimientos más prestigiosos del cine mundial</p>
+</header>
+
+<nav>
+    <a href="cine.html">🏠 Volver al Cine</a>
+    <a href="cine_historia.html">📖 Historia</a>
+    <a href="cine_directores.html">👥 Directores</a>
+    <a href="index.html">Inicio</a>
+</nav>
+
+<section>
+    <h2>Premios Internacionales del Cine</h2>
+    <p>
+        Los premios cinematográficos reconocen la excelencia en el arte y la técnica del cine. 
+        Desde los prestigiosos Oscar hasta festivales locales, estos galardones impulsan la 
+        industria cinematográfica y celebran la creatividad.
+    </p>
+</section>
+
+<section>
+    <h2>🌟 Los Principales Premios Mundiales</h2>
+    
+    <div class="premios-grid">
+        <div class="premio-card">
+            <div class="emoji">🎭</div>
+            <h3>Premios Oscar</h3>
+            <p>
+                Los más prestigiosos del cine. Otorgados desde 1929 por la Academia 
+                de Artes y Ciencias Cinematográficas. Cubren todas las categorías 
+                de la producción cinematográfica.
+            </p>
+        </div>
+
+        <div class="premio-card">
+            <div class="emoji">🎬</div>
+            <h3>Festival de Cannes</h3>
+            <p>
+                Uno de los festivales más importantes del mundo, celebrado en Francia. 
+                La Palma de Oro es el máximo reconocimiento. Exhibición de cine de 
+                arte y autor.
+            </p>
+        </div>
+
+        <div class="premio-card">
+            <div class="emoji">⭐</div>
+            <h3>Festival de Berlín</h3>
+            <p>
+                Festival europeo con prestigio mundial. El Oso de Oro es su principal 
+                galardón. Reconoce talento cinematográfico internacional de todas 
+                las cinematografías.
+            </p>
+        </div>
+
+        <div class="premio-card">
+            <div class="emoji">🎪</div>
+            <h3>Festival de Venecia</h3>
+            <p>
+                El más antiguo del mundo, fundado en 1932. El León de Oro premia 
+                la mejor película. Combina arte, tradición y cine contemporáneo.
+            </p>
+        </div>
+
+        <div class="premio-card">
+            <div class="emoji">🏅</div>
+            <h3>BAFTA</h3>
+            <p>
+                Premios británicos de gran prestigio internacional. Influyen en las 
+                predicciones de los Oscar. Celebran la excelencia cinematográfica 
+                con 20+ categorías.
+            </p>
+        </div>
+
+        <div class="premio-card">
+            <div class="emoji">🎯</div>
+            <h3>Globos de Oro</h3>
+            <p>
+                Premios estadounidenses que reconocen cine y televisión. Preceden a 
+                los Oscar y tienen gran influencia mediática. Cubren drama, comedia 
+                y televisión.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>🏆 Categorías Principales en los Oscar</h2>
+    
+    <div class="datos">
+        <div class="dato">
+            <strong>Mejor Película:</strong> El máximo reconocimiento cinematográfico.
+        </div>
+        <div class="dato">
+            <strong>Mejor Director:</strong> Reconoce la visión y dirección.
+        </div>
+        <div class="dato">
+            <strong>Mejor Actor/Actriz:</strong> Actuaciones protagonistas.
+        </div>
+        <div class="dato">
+            <strong>Mejor Guión:</strong> Original o adaptado.
+        </div>
+        <div class="dato">
+            <strong>Mejor Cinematografía:</strong> Fotografía y composición visual.
+        </div>
+        <div class="dato">
+            <strong>Mejores Efectos:</strong> Especiales e ilusiones visuales.
+        </div>
+        <div class="dato">
+            <strong>Mejor Sonido:</strong> Diseño y mezcla de audio.
+        </div>
+        <div class="dato">
+            <strong>Mejor Edición:</strong> Montaje y coherencia narrativa.
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>📊 Datos Curiosos sobre los Premios</h2>
+    
+    <div class="ganadores">
+        <h4>🎬 La película más nominada</h4>
+        <p>
+            "La La Land" fue nominada en 14 categorías en 2017, aunque ganó solo 6. 
+            Otros candidatos con múltiples nominaciones incluyen "Titanic" y "Schindler's List".
+        </p>
+    </div>
+
+    <div class="ganadores">
+        <h4>👥 El actor/actriz con más Oscars</h4>
+        <p>
+            Meryl Streep es la actriz más nominada con 21 nominaciones. Katharine Hepburn 
+            ganó 4 Oscars, el máximo para interpretación.
+        </p>
+    </div>
+
+    <div class="ganadores">
+        <h4>🎥 Directores legendarios premiados</h4>
+        <p>
+            Steven Spielberg, Martin Scorsese, Francis Ford Coppola y Alejandro González 
+            Iñárritu son directores con reconocimiento internacional.
+        </p>
+    </div>
+
+    <div class="ganadores">
+        <h4>🌍 Películas no inglesas premiadas</h4>
+        <p>
+            "Parasite" (2020) de Corea del Sur ganó Mejor Película, rompiendo barreras. 
+            Otras: "La Vida es Bella", "Rashomon" y "Crouching Tiger, Hidden Dragon".
+        </p>
+    </div>
+
+    <div class="ganadores">
+        <h4>📺 Transmisión de premios</h4>
+        <p>
+            Los Oscar se transmiten a nivel mundial a más de 200 países. La ceremonia 
+            durá típicamente 3-4 horas. Es uno de los eventos televisivos más vistos.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2>🎭 Otros Premios Importantes</h2>
+    
+    <h3>Premios Nacionales</h3>
+    <p>
+        Cada país tiene sus propios premios: Goya (España), César (Francia), 
+        Óscar Técnico (Italia), FIPRESCI (Italia). Estos reconocen talento local y nacional.
+    </p>
+
+    <h3>Premios Especializados</h3>
+    <p>
+        Festival de Sundance (cine independiente), SXSW (innovación), Palm Springs 
+        International Film Festival y muchos más dedicados a géneros específicos.
+    </p>
+
+    <h3>Premios de Público</h3>
+    <p>
+        Muchos festivales incluyen premios votados por el público, dando voz a los 
+        espectadores. Las redes sociales también permiten que los fans voten en línea.
+    </p>
+</section>
+
+<footer>
+    <p>© 2026 Premios Cinematográficos | Página creada por Uriel</p>
+</footer>
+
+</body>
+</html>

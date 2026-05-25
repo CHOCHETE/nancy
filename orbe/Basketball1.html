@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>🏀 Baloncesto | Historia, Reglas, Récords y Leyendas</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #f8f9fc 0%, #eef2f7 100%);
+            color: #1a2c3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #dce3ec;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f39c12;
+            border-radius: 10px;
+        }
+        /* Header */
+        .hero {
+            background: linear-gradient(135deg, #0a1f2e 0%, #0c2a3b 100%);
+            color: white;
+            padding: 2rem 1.5rem 3rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 6px solid #f39c12;
+        }
+        .hero::before {
+            content: "🏀";
+            font-size: 280px;
+            opacity: 0.06;
+            position: absolute;
+            bottom: -40px;
+            right: -30px;
+            pointer-events: none;
+            transform: rotate(15deg);
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff, #ffdd99);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        /* Navegación sticky */
+        .nav-bar {
+            background: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .nav-btn {
+            background: transparent;
+            border: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+            color: #1e3a4d;
+        }
+        .nav-btn i {
+            margin-right: 8px;
+        }
+        .nav-btn:hover {
+            background: #fef3e2;
+            color: #e67e22;
+        }
+        .nav-btn.active {
+            background: #f39c12;
+            color: white;
+            box-shadow: 0 4px 10px rgba(243,156,18,0.3);
+        }
+        .container {
+            max-width: 1300px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        .section {
+            display: none;
+            animation: fadeUp 0.4s ease-out forwards;
+        }
+        .section.active-section {
+            display: block;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        /* Tarjetas */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1.8rem;
+        }
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.6rem;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid rgba(243,156,18,0.15);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 40px -15px rgba(0,0,0,0.15);
+        }
+        .card-icon {
+            font-size: 2rem;
+            background: #fef5e7;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            margin-bottom: 1.2rem;
+            color: #e67e22;
+        }
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #0a2f44;
+        }
+        .reglas-list, .curiosidades-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .reglas-list li, .curiosidades-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+        .reglas-list li i, .curiosidades-list li i {
+            color: #f39c12;
+            width: 22px;
+            margin-top: 3px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 1rem 0;
+        }
+        th, td {
+            padding: 12px 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background: #f39c12;
+            color: white;
+            font-weight: 600;
+        }
+        tr:hover {
+            background: #fef9f0;
+        }
+        .players-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.5rem;
+        }
+        .player-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            transition: all 0.25s;
+            text-align: center;
+        }
+        .player-card:hover {
+            transform: scale(1.02);
+        }
+        .player-img {
+            background: linear-gradient(145deg, #1f3e48, #0e2a36);
+            padding: 1.5rem 0;
+            color: white;
+            font-size: 3rem;
+        }
+        .player-info {
+            padding: 1.3rem 1rem 1.5rem;
+        }
+        .player-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+        .player-stats {
+            font-size: 0.8rem;
+            color: #e67e22;
+            font-weight: 600;
+            margin: 0.3rem 0;
+        }
+        .highlight {
+            background: linear-gradient(120deg, #ffe6c7 0%, #ffe6c7 40%, transparent 60%);
+            font-weight: 600;
+            padding: 0 4px;
+        }
+        .footer {
+            background: #0a1f2e;
+            color: #cddde9;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid #f39c12;
+        }
+        @media (max-width: 680px) {
+            .hero h1 { font-size: 1.8rem; }
+            .nav-btn { padding: 0.4rem 0.9rem; font-size: 0.75rem; }
+            th, td { font-size: 0.75rem; padding: 8px; }
+        }
+        hr {
+            margin: 1.8rem 0;
+            border: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #f39c12, transparent);
+        }
+        .badge-curiosidad {
+            background: #fef3e2;
+            border-left: 5px solid #f39c12;
+            padding: 0.7rem 1rem;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1><i class="fas fa-basketball-ball"></i> BALONCESTO <i class="fas fa-basketball-ball"></i></h1>
+    <p>La guía definitiva del deporte de la canasta: Historia completa, reglas NBA vs FIBA, récords, leyendas, curiosidades y evolución táctica</p>
+</div>
+
+<div class="nav-bar">
+    <button class="nav-btn" onclick="location.href='Deportes6.html'"><i class="fas fa-home"></i> Inicio</button>
+    <button class="nav-btn active" data-section="historia"><i class="fas fa-landmark"></i> Historia</button>
+    <button class="nav-btn" data-section="reglas"><i class="fas fa-clipboard-list"></i> Reglas</button>
+    <button class="nav-btn" data-section="curiosidades"><i class="fas fa-lightbulb"></i> Curiosidades</button>
+    <button class="nav-btn" data-section="mejores"><i class="fas fa-trophy"></i> Leyendas</button>
+    <button class="nav-btn" data-section="records"><i class="fas fa-chart-line"></i> Récords</button>
+    <button class="nav-btn" data-section="cultura"><i class="fas fa-globe"></i> Cultura</button>
+</div>
+
+<div class="container">
+    <!-- HISTORIA COMPLETA -->
+    <div id="historia" class="section active-section">
+        <h2><i class="fas fa-timeline"></i> Historia completa del baloncesto</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-apple-alt"></i></div>
+                <h3>1891: El invento de Naismith</h3>
+                <p>En Springfield, Massachusetts, el profesor canadiense <strong>James Naismith</strong> creó el baloncesto usando canastas de melocotones a 3.05m. Redactó <strong>13 reglas originales</strong> y el primer partido terminó 1-0. Las canastas tenían fondo, había que subir una escalera para recuperar el balón.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Expansión y NBA</h3>
+                <p>En 1946 nace la BAA, que en 1949 se convierte en la <strong>NBA</strong>. El reloj de 24 segundos (1954) revolucionó el juego. En 1960s, Bill Russell ganó 11 anillos y Wilt Chamberlain anotó 100 puntos en un partido.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-dreamteam"></i></div>
+                <h3>Era global (1992 - presente)</h3>
+                <p>El <strong>Dream Team</strong> de Barcelona 1992 globalizó el baloncesto. Jordan, luego LeBron, Curry y la nueva generación internacional (Jokić, Giannis, Dončić) dominan la era moderna.</p>
+            </div>
+        </div>
+        <div class="card">
+            <i class="fas fa-quote-left"></i> <strong>Dato clave:</strong> El aro está a 3.05 metros porque esa era la altura de la barandilla del gimnasio donde Naismith colgó las primeras canastas.
+        </div>
+    </div>
+
+    <!-- REGLAS NBA vs FIBA -->
+    <div id="reglas" class="section">
+        <h2><i class="fas fa-book-open"></i> Reglas completas: NBA vs FIBA</h2>
+        <p>Diferencias clave entre el baloncesto estadounidense y el internacional.</p>
+        <table>
+            <thead>
+                <tr><th>Aspecto</th><th>NBA</th><th>FIBA</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Duración</td><td>4 cuartos de 12 min (48 min)</td><td>4 cuartos de 10 min (40 min)</td></tr>
+                <tr><td>Línea de 3 pt</td><td>7.24 m (esquina 6.71 m)</td><td>6.75 m (esquina 6.60 m)</td></tr>
+                <tr><td>Faltas para expulsión</td><td>6 faltas personales</td><td>5 faltas personales</td></tr>
+                <tr><td>Zona de 3 seg</td><td>Defensiva y ofensiva</td><td>Solo ofensiva</td></tr>
+                <tr><td>Toque balón sobre aro</td><td>Permitido</td><td>Prohibido (interferencia)</td></tr>
+                <tr><td>Tiempos muertos</td><td>7 por equipo</td><td>5 totales (2+3)</td></tr>
+            </tbody>
+        </table>
+        <div class="card-grid">
+            <div class="card"><h3>⚖️ Reglas fundamentales</h3><ul class="reglas-list"><li><i class="fas fa-walking"></i> Pasos (caminar sin driblar)</li><li><i class="fas fa-hand-paper"></i> Dobles drible</li><li><i class="fas fa-clock"></i> 24 segundos de posesión</li><li><i class="fas fa-chalkboard"></i> 3 segundos en zona (ofensivo)</li><li><i class="fas fa-foul"></i> Bonus: 5ª falta equipo en FIBA, 4ª en NBA (últimos 2 min)</li></ul></div>
+            <div class="card"><h3>🏆 Competiciones principales</h3><ul class="reglas-list"><li><i class="fas fa-trophy"></i> <strong>NBA</strong> (anual) - Celtics y Lakers 17 títulos c/u</li><li><i class="fas fa-globe"></i> <strong>Mundial FIBA</strong> (c/4 años) - EE.UU. y Serbia 5 títulos</li><li><i class="fas fa-olympic"></i> <strong>Juegos Olímpicos</strong> - EE.UU. 16 oros</li><li><i class="fas fa-futbol"></i> <strong>Euroliga</strong> - Real Madrid 11 títulos</li><li><i class="fas fa-female"></i> <strong>WNBA</strong> - Liga femenina desde 1996</li></ul></div>
+        </div>
+    </div>
+
+    <!-- CURIOSIDADES ASOMBROSAS (del documento) -->
+    <div id="curiosidades" class="section">
+        <h2><i class="fas fa-star-of-life"></i> Curiosidades asombrosas</h2>
+        <div class="card-grid">
+            <div class="card"><div class="card-icon"><i class="fas fa-ladder"></i></div><h3>Canastas con fondo</h3><p>Las primeras canastas tenían fondo. ¡Había que subir una escalera tras cada punto para recuperar la pelota!</p></div>
+            <div class="card"><div class="card-icon"><i class="fas fa-times-circle"></i></div><h3>Jordan "cortado"</h3><p>Michael Jordan fue cortado del equipo de su secundaria en noveno grado. Entrenó todo el verano y el resto es historia.</p></div>
+            <div class="card"><div class="card-icon"><i class="fas fa-ruler-combined"></i></div><h3>El más alto y el más bajo</h3><p>Más alto: Gheorghe Mureșan y Manute Bol (2.31 m). Más bajo: Muggsy Bogues (1.60 m).</p></div>
+            <div class="card"><div class="card-icon"><i class="fas fa-chart-simple"></i></div><h3>Triple-doble récord</h3><p>Russell Westbrook logró un triple-doble en solo 17 minutos jugados (2021).</p></div>
+            <div class="card"><div class="card-icon"><i class="fas fa-burn"></i></div><h3>Calorías quemadas</h3><p>Un jugador quema 600-900 calorías por partido, hasta 1200 en playoffs intensos.</p></div>
+            <div class="card"><div class="card-icon"><i class="fas fa-shirt"></i></div><h3>Camiseta más cara</h3><p>Camiseta de Jordan (1984-85) vendida por $1.38 millones en 2020.</p></div>
+        </div>
+        <div class="badge-curiosidad"><i class="fas fa-basketball-ball"></i> <strong>El balón naranja</strong> se introdujo en los 50 para que fuera más visible contra la madera de las pistas.</div>
+        <div class="badge-curiosidad"><i class="fas fa-dice-d6"></i> <strong>Hack-a-Shaq:</strong> Shaquille O'Neal tuvo una temporada con 34% en tiros libres, naciendo la táctica de enviarlo intencionalmente a la línea.</div>
+    </div>
+
+    <!-- MEJORES JUGADORES (Lista extendida del documento) -->
+    <div id="mejores" class="section">
+        <h2><i class="fas fa-medal"></i> Mejores jugadores de la historia</h2>
+        <div class="players-grid">
+            <div class="player-card"><div class="player-img">🐐</div><div class="player-info"><div class="player-name">Michael Jordan</div><div class="player-stats">6 campeonatos | 5 MVPs | GOAT</div><div class="player-desc">Dos tripletes con Bulls, 10 títulos de anotación. Air Jordan.</div></div></div>
+            <div class="player-card"><div class="player-img">👑</div><div class="player-info"><div class="player-name">LeBron James</div><div class="player-stats">4 campeonatos | 4 MVPs | 40,000+ pts</div><div class="player-desc">Máximo anotador histórico, longevidad récord.</div></div></div>
+            <div class="player-card"><div class="player-img">☄️</div><div class="player-info"><div class="player-name">Kareem Abdul-Jabbar</div><div class="player-stats">6 campeonatos | 6 MVPs | Skyhook</div><div class="player-desc">38,387 puntos, 19 All-Stars.</div></div></div>
+            <div class="player-card"><div class="player-img">✨</div><div class="player-info"><div class="player-name">Magic Johnson</div><div class="player-stats">5 campeonatos | 3 MVPs | 2.06m base</div><div class="player-desc">Showtime Lakers, pases imposibles.</div></div></div>
+            <div class="player-card"><div class="player-img">🍀</div><div class="player-info"><div class="player-name">Larry Bird</div><div class="player-stats">3 campeonatos | 3 MVPs consecutivos</div><div class="player-desc">Clutch, trash-talk, rivalidad con Magic.</div></div></div>
+            <div class="player-card"><div class="player-img">🎯</div><div class="player-info"><div class="player-name">Stephen Curry</div><div class="player-stats">4 campeonatos | 2 MVPs | 3,500+ triples</div><div class="player-desc">Revolucionó el tiro de tres puntos.</div></div></div>
+            <div class="player-card"><div class="player-img">💪</div><div class="player-info"><div class="player-name">Bill Russell</div><div class="player-stats">11 campeonatos en 13 años</div><div class="player-desc">Primer entrenador afroamericano NBA.</div></div></div>
+            <div class="player-card"><div class="player-img">🏀</div><div class="player-info"><div class="player-name">Wilt Chamberlain</div><div class="player-stats">100 pts un partido | 50.4 pts promedio</div><div class="player-desc">Dominio absoluto en los 60s.</div></div></div>
+        </div>
+        <hr>
+        <p><strong>👩‍🏀 Femenino destacado:</strong> Diana Taurasi (máxima anotadora WNBA), Sue Bird (4 campeonatos, 5 oros olímpicos), Lisa Leslie, Candace Parker, A'ja Wilson.</p>
+    </div>
+
+    <!-- RÉCORDS ABSOLUTOS NBA -->
+    <div id="records" class="section">
+        <h2><i class="fas fa-chart-simple"></i> Récords absolutos de la NBA</h2>
+        <table>
+            <thead><tr><th>Récord</th><th>Marca</th><th>Titular</th></tr></thead>
+            <tbody>
+                <tr><td>Más puntos carrera (incl. playoffs)</td><td>48,000+</td><td>LeBron James (activo)</td></tr>
+                <tr><td>Más puntos un partido</td><td>100</td><td>Wilt Chamberlain (1962)</td></tr>
+                <tr><td>Más puntos era moderna</td><td>81</td><td>Kobe Bryant (2006)</td></tr>
+                <tr><td>Más triples un partido</td><td>14</td><td>Klay Thompson (2018)</td></tr>
+                <tr><td>Más triples carrera</td><td>3,500+</td><td>Stephen Curry (activo)</td></tr>
+                <tr><td>Más asistencias carrera</td><td>15,806</td><td>John Stockton</td></tr>
+                <tr><td>Más triples-dobles carrera</td><td>200+</td><td>Russell Westbrook</td></tr>
+                <tr><td>Más campeonatos jugador</td><td>11</td><td>Bill Russell</td></tr>
+                <tr><td>Más MVPs</td><td>6</td><td>Kareem Abdul-Jabbar</td></tr>
+                <tr><td>Mayor racha victorias</td><td>33</td><td>Lakers (1971-72)</td></tr>
+                <tr><td>Victoria más abultada</td><td>73 pts</td><td>Grizzlies 152-79 Thunder (2021)</td></tr>
+            </tbody>
+        </table>
+        <div class="card"><i class="fas fa-database"></i> <strong>Datos únicos:</strong> LeBron es el primero en superar los 40,000 puntos. Curry el primero en superar los 3,000 triples. Wilt promedió 48.5 minutos por partido (con prórrogas).</div>
+    </div>
+
+    <!-- CULTURA, EVOLUCIÓN TÁCTICA E IMPACTO SOCIAL -->
+    <div id="cultura" class="section">
+        <h2><i class="fas fa-globe"></i> Evolución táctica, tecnología e impacto cultural</h2>
+        <div class="card-grid">
+            <div class="card"><h3>📈 Evolución táctica por décadas</h3><ul class="reglas-list"><li><i class="fas fa-1950s"></i> <strong>1950s:</strong> Pívot dominante (Mikan)</li><li><i class="fas fa-1980s"></i> <strong>1980s:</strong> Showtime Lakers (transición rápida)</li><li><i class="fas fa-1990s"></i> <strong>1990s:</strong> Triángulo ofensivo (Phil Jackson)</li><li><i class="fas fa-2010s"></i> <strong>2010s:</strong> Pace & space, máximos triples (Curry, Warriors)</li><li><i class="fas fa-2020s"></i> <strong>2020s:</strong> Positionless basketball, centers que dirigen (Jokić)</li></ul></div>
+            <div class="card"><h3>🔧 Tecnología en el baloncesto</h3><ul class="reglas-list"><li><i class="fas fa-camera"></i> Sistema SportVU (cámaras tracking)</li><li><i class="fas fa-shoe-prints"></i> Zapatillas inteligentes con sensores</li><li><i class="fas fa-vr-cardboard"></i> Realidad virtual para entrenamiento</li><li><i class="fas fa-chart-pie"></i> Analytics avanzado (más allá de pts/rebs)</li></ul></div>
+            <div class="card"><h3>🌍 Impacto social</h3><ul class="reglas-list"><li><i class="fas fa-fist-raised"></i> 1950: Primeros afroamericanos en NBA (Earl Lloyd)</li><li><i class="fas fa-dreamteam"></i> 1992: Dream Team globaliza el deporte</li><li><i class="fas fa-female"></i> WNBA (1996) y lucha por igualdad salarial</li><li><i class="fas fa-wheelchair"></i> Baloncesto en silla de ruedas (Paralímpico)</li><li><i class="fas fa-film"></i> "Space Jam", "The Last Dance", "Hoop Dreams"</li></ul></div>
+        </div>
+        <div class="card">
+            <h3><i class="fas fa-graduation-cap"></i> Fundamentos técnicos</h3>
+            <p><strong>Dribbling</strong> (botar), <strong>Pase</strong> (pecho, picado, béisbol), <strong>Tiro</strong> (suspensión, gancho, triple, bandeja), <strong>Rebote</strong> (ofensivo/defensivo), <strong>Defensa</strong> (individual/zona/presión), <strong>Pivote</strong> (pie fijo).</p>
+        </div>
+        <div class="card">
+            <h3><i class="fas fa-film"></i> Documentales y libros recomendados</h3>
+            <p><strong>Documentales:</strong> "The Last Dance", "Once Brothers", "Hoop Dreams", "The Redeem Team".<br>
+            <strong>Libros:</strong> "El juego de mi vida" (Russell), "The Jordan Rules", "Eleven Rings" (Phil Jackson).</p>
+        </div>
+        <div class="card">
+            <h3><i class="fas fa-rocket"></i> El futuro del baloncesto</h3>
+            <p>Expansión NBA (Seattle, Vegas, México, Europa). Baloncesto 3x3 en JJOO. Más del 25% de jugadores internacionales. Wearables e IA para análisis. Posible regla "Elam Ending" para finales.</p>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p><i class="fas fa-basketball-ball"></i> Guía definitiva del baloncesto - Basada en datos históricos, NBA, FIBA y cultura del deporte de la canasta <i class="fas fa-basketball-ball"></i></p>
+    <p style="font-size: 0.8rem; margin-top: 8px;">James Naismith | NBA | Dream Team | Récords | Leyendas | Baloncesto global</p>
+</div>
+
+<script>
+    const sectionsIds = ['historia', 'reglas', 'curiosidades', 'mejores', 'records', 'cultura'];
+    const sections = {};
+    sectionsIds.forEach(id => { sections[id] = document.getElementById(id); });
+    const buttons = document.querySelectorAll('.nav-btn');
+    function activateSection(sectionId) {
+        sectionsIds.forEach(id => { if(sections[id]) sections[id].classList.remove('active-section'); });
+        if(sections[sectionId]) sections[sectionId].classList.add('active-section');
+        buttons.forEach(btn => {
+            const btnSection = btn.getAttribute('data-section');
+            if(btnSection === sectionId) btn.classList.add('active');
+            else btn.classList.remove('active');
+        });
+        window.scrollTo({ top: document.querySelector('.container').offsetTop - 70, behavior: 'smooth' });
+    }
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const sectionId = btn.getAttribute('data-section');
+            if(sectionId && sections[sectionId]) activateSection(sectionId);
+        });
+    });
+    activateSection('historia');
+</script>
+</body>
+</html>
+```

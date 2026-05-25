@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine: Actores y Directores</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: Arial, Helvetica, sans-serif; background:#0f172a; color:#f8fafc; line-height:1.6; }
+        nav { background:#111827; padding:14px 20px; display:flex; flex-wrap:wrap; gap:12px; justify-content:center; position:sticky; top:0; z-index:1000; }
+        nav a { color:#f8fafc; text-decoration:none; padding:10px 16px; border-radius:999px; background:rgba(255,255,255,0.05); transition:background 0.2s; }
+        nav a:hover { background:#f8fafc; color:#111827; }
+        header { padding:80px 20px 40px; text-align:center; background:linear-gradient(135deg, #111827 0%, #1e293b 100%); }
+        header h1 { font-size:3rem; margin-bottom:10px; color:#facc15; }
+        header p { max-width:760px; margin:0 auto; font-size:1.1rem; color:#e2e8f0; }
+        .container { max-width:1100px; margin:40px auto; padding:0 20px; }
+        .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; }
+        .card { background:#111827; border:1px solid rgba(255,255,255,0.07); border-radius:20px; overflow:hidden; box-shadow:0 20px 40px rgba(15,23,42,0.35); }
+        .card img { width:100%; height:240px; object-fit:cover; }
+        .card-body { padding:22px; }
+        .card-body h3 { margin-bottom:12px; color:#facc15; }
+        .card-body p { color:#cbd5e1; font-size:0.98rem; }
+        .section { margin-top:40px; }
+        .section h2 { color:#fbbf24; margin-bottom:18px; text-align:center; }
+        .section p { color:#e2e8f0; margin-bottom:14px; }
+        .grid-list { display:grid; gap:16px; }
+        .grid-list div { background:#111827; border:1px solid rgba(255,255,255,0.07); border-radius:18px; padding:18px; }
+        .grid-list div h4 { margin-bottom:8px; color:#fde047; }
+        footer { text-align:center; color:#94a3b8; padding:24px 20px; margin-top:48px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+        <a href="cine.html"><i class="fas fa-film"></i> Mundo del Cine</a>
+        <a href="cine_generos.html"><i class="fas fa-clapperboard"></i> Géneros</a>
+        <a href="cine_estrenos.html"><i class="fas fa-star"></i> Estrenos</a>
+    </nav>
+    <header>
+        <h1>Actores y Directores del Cine</h1>
+        <p>Descubre las figuras más relevantes del cine, desde leyendas de la actuación hasta directores que cambiaron la forma de contar historias en pantalla grande.</p>
+    </header>
+    <main class="container">
+        <section class="section">
+            <h2>Grandes Actores</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="https://celebmafia.com/wp-content/uploads/2018/01/meryl-streep-golden-globe-awards-2018-9.jpg" alt="Meryl Streep">
+                    <div class="card-body">
+                        <h3>Meryl Streep</h3>
+                        <p>Una de las actrices más premiadas de la historia, reconocida por su versatilidad y sus personajes memorables en dramas y comedias.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://editorialtelevisa.brightspotcdn.com/dims4/default/4472c3d/2147483647/strip/true/crop/730x411+0+9/resize/1000x563!/quality/90/?url=https:%2F%2Fk2-prod-editorial-televisa.s3.amazonaws.com%2Fbrightspot%2Fmx%2Fwp-content%2Fuploads%2F2020%2F07%2FEugenioDerbez.jpg" alt="Al Pacino">
+                    <div class="card-body">
+                        <h3>Eugenio Derbez</h3>
+                        <p>Eugenio Derbez es un actor, comediante, director y productor mexicano, reconocido internacionalmente por su talento en cine y televisión.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Pedro_Almod%C3%B3var-69720_%28cropped%29.jpg/500px-Pedro_Almod%C3%B3var-69720_%28cropped%29.jpg" alt="Pedro Almodóvar">
+                    <div class="card-body">
+                        <h3>Pedro Almodóvar</h3>
+                        <p>Director español cuyas películas combinan emoción, color y personajes complejos. Uno de los cineastas más influyentes del cine contemporáneo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Directores que marcaron una era</h2>
+            <div class="grid-list">
+                <div>
+                    <h4>Steven Spielberg</h4>
+                    <p>Director y productor estadounidense creador de clásicos como E.T., Jurassic Park e Indiana Jones. Su estilo combina aventura, emoción y cinematografía inolvidable.</p>
+                </div>
+                <div>
+                    <h4>Alfred Hitchcock</h4>
+                    <p>El maestro del suspense. Sus películas, como Psicosis y Vértigo, redefinieron el género del thriller y elevaron la tensión cinematográfica.</p>
+                </div>
+                <div>
+                    <h4>Hayao Miyazaki</h4>
+                    <p>Director de animación japonés, creador de estudios Ghibli. Famoso por historias mágicas, personajes tiernos y mundos únicos como en El viaje de Chihiro.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Actores que siguen inspirando</h2>
+            <div class="grid-list">
+                <div>
+                    <h4>Tom Hanks</h4>
+                    <p>Reconocido por su emotividad y autenticidad en películas como Forrest Gump, Náufrago y Salvar al soldado Ryan.</p>
+                </div>
+                <div>
+                    <h4>Scarlett Johansson</h4>
+                    <p>Estrella del cine moderno, destaca en papeles de acción y drama, incluyendo su rol como Black Widow en el MCU.</p>
+                </div>
+                <div>
+                    <h4>Gael García Bernal</h4>
+                    <p>Actor mexicano que ha llevado el cine latinoamericano a audiencias globales con actuaciones en Amores Perros, Babel y muchas más.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2026 Cine en detalle | Actores y directores que hicieron historia</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⭐ Artistas Musicales | Música</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .header {
+            background: rgba(0,0,0,0.75);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            backdrop-filter: blur(10px);
+        }
+        .header h1 { font-size: 3.5em; margin-bottom: 10px; }
+        .header p { font-size: 1.3em; opacity: 0.9; }
+        .nav {
+            background: white;
+            padding: 15px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+        }
+        .nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 8px;
+            background: #f0f4f8;
+        }
+        .nav a:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .seccion {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .seccion h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .grid-artistas {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        .artista-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+        .artista-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+            border-color: #667eea;
+        }
+        .artista-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .artista-card h3 {
+            color: #1e3a5f;
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+        .artista-pais {
+            color: #667eea;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .artista-desc {
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+        .artista-logros {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.6;
+            border-left: 4px solid #667eea;
+        }
+        .artista-logros i { color: #667eea; margin-right: 6px; }
+        .artista-canciones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .cancion-tag {
+            background: #667eea15;
+            color: #667eea;
+            padding: 3px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+        .footer a { color: #93c5fd; text-decoration: none; }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2em; }
+            .seccion { padding: 20px; }
+            .grid-artistas { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>⭐ Artistas Musicales</h1>
+        <p>Leyendas mundiales, grandes mexicanos y estrellas latinas que hicieron historia</p>
+    </header>
+
+    <nav class="nav">
+        <a href="Musica.html"><i class="fas fa-arrow-left"></i> Volver a Música</a>
+        <a href="index.html"><i class="fas fa-home"></i> Menú Principal</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- LEYENDAS MUNDIALES -->
+        <div class="seccion">
+            <h2><i class="fas fa-globe-americas"></i> Leyendas Mundiales</h2>
+            <div class="grid-artistas">
+                <div class="artista-card">
+                    <span class="artista-icon">👑</span>
+                    <h3>Michael Jackson</h3>
+                    <span class="artista-pais">🇺🇸 Estados Unidos (1958-2009)</span>
+                    <p class="artista-desc">El "Rey del Pop". Revolucionó los videos musicales, el baile y los espectáculos en vivo. "Thriller" (1982) es el álbum más vendido de la historia con más de 70 millones de copias. Su moonwalk es uno de los pasos de baile más icónicos. Rompió barreras raciales en MTV y reinventó el pop moderno.</p>
+                    <div class="artista-canciones"><span class="cancion-tag">Thriller</span><span class="cancion-tag">Billie Jean</span><span class="cancion-tag">Beat It</span><span class="cancion-tag">Smooth Criminal</span></div>
+                    <div class="artista-logros"><i class="fas fa-trophy"></i> 13 Grammys • 400M discos vendidos • Salón de la Fama del Rock • Álbum más vendido de la historia</div>
+                </div>
+                <div class="artista-card">
+                    <span class="artista-icon">🎸</span>
+                    <h3>The Beatles</h3>
+                    <span class="artista-pais">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Reino Unido (1960-1970)</span>
+                    <p class="artista-desc">La banda más influyente de todos los tiempos. John Lennon, Paul McCartney, George Harrison y Ringo Starr revolucionaron la música popular y la cultura juvenil. 20 canciones #1 en Billboard. Su álbum "Sgt. Pepper's" (1967) es considerado el primer álbum conceptual.</p>
+                    <div class="artista-canciones"><span class="cancion-tag">Yesterday</span><span class="cancion-tag">Hey Jude</span><span class="cancion-tag">Let It Be</span><span class="cancion-tag">Come Together</span></div>
+                    <div class="artista-logros"><i class="fas fa-trophy"></i> 7 Grammys • 600M discos vendidos (récord) • Salón de la Fama (1988) • 20 canciones #1 Billboard</div>
+                </div>
+                <div class="artista-card">
+                    <span class="artista-icon">👸</span>
+                    <h3>Beyoncé</h3>
+                    <span class="artista-pais">🇺🇸 Estados Unidos (1981-)</span>
+                    <p class="artista-desc">La artista femenina más galardonada en la historia de los Grammy (32 premios). Ex integrante de Destiny's Child. Innovadora en álbumes visuales ("Lemonade", "Renaissance") y espectáculos teatrales de gran escala. Ícono del empoderamiento femenino y la cultura afroamericana.</p>
+                    <div class="artista-canciones"><span class="cancion-tag">Halo</span><span class="cancion-tag">Single Ladies</span><span class="cancion-tag">Crazy in Love</span><span class="cancion-tag">Break My Soul</span></div>
+                    <div class="artista-logros"><i class="fas fa-trophy"></i> 32 Grammys (récord absoluto) • 200M discos vendidos • 88 nominaciones Grammy • Gira Renaissance récord</div>
+                </div>
+                <div class="artista-card">
+                    <span class="artista-icon">🎤</span>
+                    <h3>Taylor Swift</h3>
+                    <span class="artista-pais">🇺🇸 Estados Unidos (1989-)</span>
+                    <p class="artista-desc">Fenómeno del siglo XXI. Única artista en ganar 4 veces el Grammy a Álbum del Año. Comenzó en el country y evolucionó al pop global. "The Eras Tour" es la gira más taquillera de la historia con más de $2 mil millones recaudados.</p>
+                    <div class="artista-canciones"><span class="cancion-tag">Shake It Off</span><span class="cancion-tag">Blank Space</span><span class="cancion-tag">Anti-Hero</span><span class="cancion-tag">Cruel Summer</span></div>
+                    <div class="artista-logros"><i class="fas fa-trophy"></i> 14 Grammys • 4x Álbum del Año (récord) • 200M discos • The Eras Tour: $2B recaudados</div>
+                </div>
+                <div class="artista-card">
+                    <span class="artista-icon">🎤</span>
+                    <h3>Queen / Freddie Mercury</h3>
+                    <span class="artista-pais">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Reino Unido (1970-)</span>
+                    <p class="artista-desc">Banda de rock legendaria liderada por Freddie Mercury, uno de los mejores vocalistas de la historia. "Bohemian Rhapsody" es considerada una obra maestra. Su actuación en Live Aid (1985) es votada como la mejor presentación en vivo de todos los tiempos.</p>
+                    <div class="artista-canciones"><span class="cancion-tag">Bohemian Rhapsody</span><span class="cancion-tag">We Will Rock You</span><span class="cancion-tag">We Are the Champions</span><span class="cancion-tag">Radio Ga Ga</span></div>
+                    <div class="artista-logros"><i class="fas fa-trophy"></i> Salón de la Fama (2001) • 300M discos vendidos • Película biográfica récord (2018) • Live Aid 1985 legendario</div>
+                </div>
+                <div class="artista-card">
+                    <span class="artista-icon">🎸</span>
+                    <h3>Nirvana / Kurt Cobain</h3>
+                    <span class="artista-pais">🇺🇸 Estados Unidos (1987-1994)</span>
+                    <p class="artista-desc">Revolucionaron el rock con el grunge y el álbum "Nevermind" (1991). "Smells Like Teen Spirit" cambió la música para siempre. Kurt Cobain se convirtió en ícono generacional de la Generación X. Su legado sigue influyendo en el rock alternativo.</p>
+                    <div class="artista-canciones"><span class="cancion-tag">Smells Like Teen Spirit</span><span class="cancion-tag">Come As You Are</span><span class="cancion-tag">Lithium</span><span class="cancion-tag">Heart-Shaped Box</span></div>
+                    <div class="artista-logros"><i class="fas fa-trophy"></i> Salón de la Fama (2014) • 75M discos vendidos • Nevermind: 30M copias • Voz de una generación</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GRANDES ARTISTAS MEXICANOS -->
+        <div class="seccion">
+            <h2><i class="fas fa-flag-checkered"></i> Grandes Artistas Mexicanos</h2>
+            <div class="grid-artistas">
+                <div class="artista-card">
+                    <span class="artista-icon">☀️</span>
+                    <h3>Luis Miguel</h3>
+                    <span class="artista-pais">🇲🇽 México (1970-)</span>
+                    <p class="artista-desc">"El Sol de México". Uno de los cantantes latinos más exitosos de la historia. Dueño de una voz prodigiosa, ha vendido más de 100 millones de discos. Sus conciertos son experiencias de lujo. La serie biográfica de Netflix (2018) revitalizó su leyenda.</p>
+                    <div class="artista-canciones"><span class="cancion-tag">La Incondicional</span><span class="cancion-tag">Culpable o No</span><span class="cancion-tag">Ahora Te Puedes Marchar</span><span class="cancion-tag">Entrégate</span></div>
+                    <div class="artista-logros"><i class="fas fa-trophy"></i> 6 Grammys Latinos • 100M discos vendidos • Serie Netflix éxito mundial • Llenó el Auditorio Nacional +200 veces</div>
+                </div>
+                <div class="artista-card">
+                    <span class="artista-icon">🎤</span>
+                    <h3>Juan Gabriel</h3>
+                    <span class="artista-pais">🇲🇽 México (Parácuaro, Michoacán) (1950-2016)</span>
+                    <p class="artista-desc">"El Divo de Juárez". Compositor y cantante icónico de música ranchera, balada y pop. Autor de más de 1,800 canciones registradas. Ícono de la comunidad LGBTQ+. Su legado es eterno en la cultura mexicana. "Amor Eterno" es una de las canciones más cantadas en funerales mexicanos.</p>
+                    <div class="artista-canciones"><span class="cancion-tag">Amor Eterno</span><span class="cancion-tag">Querida</span><span class="cancion-tag">Así Fue</span><span class="cancion-tag">Hasta Que Te Conocí</span></div>
+                    <div class="artista-logros"><i class="fas fa-trophy"></i> 8 Grammys Latinos • 100M discos • +1,800 canciones compuestas • Estrella en Hollywood</div>
+                </div>
+                <div class="artista-card">
+                    <span class="artista-icon">👑</span>
+                    <h3>Vicente Fernández</h3>
+                    <span class="artista-pais">🇲🇽 México (Huentitán, Jalisco) (1940-2021)</span>
+                    <p class="artista-desc">"El Rey de la Música Ranchera". Ícono máximo de la cultura mexicana. Su voz potente, su bigote y su traje de charro son símbolos nacionales. Llenó plazas de toros, palenques y estadios por más de 40 años. Su música une generaciones de mexicanos en todo el mundo.</p>
+                    <div class="artista-canciones"><span class="cancion-tag">El Rey</span><span class="cancion-tag">Volver Volver</span><span class="cancion-tag">Mujeres Divinas</span><span class="cancion-tag">Acá Entre Nos</span></div>
+                    <div class="artista-logros"><i class="fas fa-trophy"></i> 8 Grammys Latinos • 50M discos vendidos • Estrella en Hollywood • Ícono cultural de México</div>
+                </div>
+                <div class="artista-card">
+                    <span class="artista-icon">🎤</span>
+                    <h3>Selena Quintanilla</h3>
+                    <span class="artista-pais">🇺🇸 (texana de ascendencia mexicana) (1971-1995)</span>
+                    <p class="artista-desc">"La Reina del Tex-Mex" y "Reina de la Música Latina". Revolucionó la cumbia, el tejano y el pop latino. Su carisma y talento la convirtieron en leyenda tras su trágica muerte a los 23 años. La película "Selena" (1997) con Jennifer Lopez la inmortalizó.</p>
+                    <div class="artista-canciones"><span class="cancion-tag">Como La Flor</span><span class="cancion-tag">Bidi Bidi Bom Bom</span><span class="cancion-tag">Amor Prohibido</span><span class="cancion-tag">I Could Fall in Love</span></div>
+                    <div class="artista-logros"><i class="fas fa-trophy"></i> Premio Grammy • Estrella en Hollywood • Película biográfica (JLo) • Legado eterno</div>
+                </div>
+                <div class="artista-card">
+                    <span class="artista-icon">🎸</span>
+                    <h3>Maná</h3>
+                    <span class="artista-pais">🇲🇽 México (Guadalajara) (1986-)</span>
+                    <p class="artista-desc">La banda de rock latino más exitosa de la historia. Activistas ambientales y sociales. Sus giras mundiales llenan estadios en Latinoamérica, Estados Unidos y Europa. Han colaborado con Santana, Shakira y Rubén Blades.</p>
+                    <div class="artista-canciones"><span class="cancion-tag">Rayando el Sol</span><span class="cancion-tag">Vivir Sin Aire</span><span class="cancion-tag">Clavado en un Bar</span><span class="cancion-tag">Mariposa Traicionera</span></div>
+                    <div class="artista-logros"><i class="fas fa-trophy"></i> 4 Grammys • 8 Grammys Latinos • 40M discos vendidos • Llenaron el Hollywood Bowl 7 veces</div>
+                </div>
+                <div class="artista-card">
+                    <span class="artista-icon">🎸</span>
+                    <h3>Carlos Santana</h3>
+                    <span class="artista-pais">🇲🇽 México / 🇺🇸 Estados Unidos (1947-)</span>
+                    <p class="artista-desc">Guitarrista mexicano-estadounidense, leyenda del rock latino. Fusión de rock, blues, jazz, salsa y ritmos latinos. Su álbum "Supernatural" (1999) ganó 8 premios Grammy en una sola noche (récord junto a Michael Jackson).</p>
+                    <div class="artista-canciones"><span class="cancion-tag">Smooth</span><span class="cancion-tag">Corazón Espinado</span><span class="cancion-tag">Oye Como Va</span><span class="cancion-tag">Black Magic Woman</span></div>
+                    <div class="artista-logros"><i class="fas fa-trophy"></i> 10 Grammys • 100M discos vendidos • Salón de la Fama • 8 Grammys en una noche</div>
+                </div>
+                <div class="artista-card">
+                    <span class="artista-icon">🔥</span>
+                    <h3>Peso Pluma</h3>
+                    <span class="artista-pais">🇲🇽 México (Guadalajara) (1999-)</span>
+                    <p class="artista-desc">El artista mexicano más escuchado del mundo en Spotify (2024-2026). Creador del fenómeno de los "corridos tumbados" fusionando corridos tradicionales con hip hop. Revolucionó la música regional mexicana llevándola a audiencias globales.</p>
+                    <div class="artista-canciones"><span class="cancion-tag">Ella Baila Sola</span><span class="cancion-tag">La Bebe</span><span class="cancion-tag">PRC</span><span class="cancion-tag">Tulum</span></div>
+                    <div class="artista-logros"><i class="fas fa-trophy"></i> +55M oyentes mensuales Spotify • #1 Global en Billboard • Revolucionó el regional mexicano</div>
+                </div>
+                <div class="artista-card">
+                    <span class="artista-icon">🎺</span>
+                    <h3>Banda MS</h3>
+                    <span class="artista-pais">🇲🇽 México (Mazatlán, Sinaloa) (2003-)</span>
+                    <p class="artista-desc">La banda sinaloense más famosa del momento. Revolucionaron la música de banda con un sonido moderno y letras románticas. Llenan estadios en México y Estados Unidos. Sus canciones son himnos en bodas, fiestas y reuniones mexicanas.</p>
+                    <div class="artista-canciones"><span class="cancion-tag">El Color de Tus Ojos</span><span class="cancion-tag">No Me Pidas Perdón</span><span class="cancion-tag">Tu Postura</span><span class="cancion-tag">Me Vas a Extrañar</span></div>
+                    <div class="artista-logros"><i class="fas fa-trophy"></i> 3 Grammys Latinos • Llenan estadios en USA • +15 años de trayectoria • Himnos de fiesta mexicana</div>
+                </div>
+                <div class="artista-card">
+                    <span class="artista-icon">🤠</span>
+                    <h3>Christian Nodal</h3>
+                    <span class="artista-pais">🇲🇽 México (Caborca, Sonora) (1999-)</span>
+                    <p class="artista-desc">Joven prodigio del regional mexicano. Revolucionó el mariachi y la música ranchera con un estilo moderno y tatuajes. "Botella Tras Botella" junto a Gera MX fue un fenómeno viral uniendo regional y rap.</p>
+                    <div class="artista-canciones"><span class="cancion-tag">Botella Tras Botella</span><span class="cancion-tag">Adiós Amor</span><span class="cancion-tag">De Los Besos Que Te Di</span><span class="cancion-tag">No Te Contaron Mal</span></div>
+                    <div class="artista-logros"><i class="fas fa-trophy"></i> 3 Grammys Latinos • Modernizó el mariachi • Colaboraciones con artistas globales</div>
+                </div>
+            </div>
+        </

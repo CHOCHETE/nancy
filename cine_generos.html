@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine: Géneros Cinematográficos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: Arial, Helvetica, sans-serif; background:#020617; color:#f8fafc; }
+        nav { background:#111827; padding:15px 18px; display:flex; justify-content:center; flex-wrap:wrap; gap:12px; position:sticky; top:0; z-index:1000; }
+        nav a { color:#f8fafc; text-decoration:none; padding:10px 16px; border-radius:999px; background:rgba(255,255,255,0.06); transition:0.2s; }
+        nav a:hover { background:#fde047; color:#111827; }
+        header { padding:80px 20px 35px; text-align:center; background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%); }
+        header h1 { font-size:3rem; color:#fde047; margin-bottom:10px; }
+        header p { max-width:780px; margin:0 auto; color:#e2e8f0; font-size:1.05rem; }
+        .container { max-width:1120px; margin:40px auto; padding:0 20px; }
+        .genre-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; }
+        .genre-card { background:#111827; border:1px solid rgba(255,255,255,0.06); border-radius:22px; padding:24px; box-shadow:0 20px 40px rgba(15,23,42,0.35); }
+        .genre-card h2 { color:#fde047; margin-bottom:14px; }
+        .genre-card p { color:#cbd5e1; font-size:1rem; line-height:1.7; }
+        .section { margin-top:40px; }
+        .section h2 { text-align:center; color:#f59e0b; margin-bottom:18px; }
+        .example-list { list-style:none; padding-left:0; display:grid; gap:16px; }
+        .example-list li { background:#111827; border:1px solid rgba(255,255,255,0.06); border-radius:18px; padding:16px; color:#e2e8f0; }
+        footer { text-align:center; padding:24px 20px; color:#94a3b8; margin-top:40px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+        <a href="cine.html"><i class="fas fa-film"></i> Mundo del Cine</a>
+        <a href="cine_actores.html"><i class="fas fa-user"></i> Actores</a>
+        <a href="cine_estrenos.html"><i class="fas fa-calendar-alt"></i> Estrenos</a>
+    </nav>
+    <header>
+        <h1>Géneros del Cine</h1>
+        <p>Explora los estilos narrativos del cine, desde el drama clásico hasta la ciencia ficción, pasando por la comedia y el terror.</p>
+    </header>
+    <main class="container">
+        <section class="section">
+            <div class="genre-grid">
+                <div class="genre-card">
+                    <h2>Drama</h2>
+                    <p>Historias centradas en las emociones, los conflictos humanos y el desarrollo profundo de personajes. El drama busca conectar con sentimientos reales.</p>
+                </div>
+                <div class="genre-card">
+                    <h2>Comedia</h2>
+                    <p>Género diseñado para provocar risa y entretener. Incluye comedia romántica, parodia, comedia negra y situaciones absurdas.</p>
+                </div>
+                <div class="genre-card">
+                    <h2>Terror</h2>
+                    <p>Películas que buscan asustar y generar tensión. Incluye sustos sobrenaturales, slasher, el horror psicológico y el gore visceral.</p>
+                </div>
+                <div class="genre-card">
+                    <h2>Ciencia Ficción</h2>
+                    <p>Historias futuristas con tecnología avanzada, viajes espaciales y mundos imaginarios. Explora cómo la ciencia influye en la sociedad y el futuro.</p>
+                </div>
+                <div class="genre-card">
+                    <h2>Acción</h2>
+                    <p>Escenas dinámicas con persecuciones, peleas, explosiones y riesgo constante. Perfecto para quienes buscan una experiencia intensa y vertiginosa.</p>
+                </div>
+                <div class="genre-card">
+                    <h2>Fantasía</h2>
+                    <p>Mundos mágicos, criaturas legendarias y aventuras épicas. La fantasía permite escapar a realidades maravillosas y héroes excepcionales.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Ejemplos Icónicos</h2>
+            <ul class="example-list">
+                <li><strong>Drama:</strong> La lista de Schindler, El padrino.</li>
+                <li><strong>Comedia:</strong> La vida de Brian, Superbad.</li>
+                <li><strong>Terror:</strong> El exorcista, Get Out.</li>
+                <li><strong>Ciencia ficción:</strong> Blade Runner, Interestelar.</li>
+                <li><strong>Acción:</strong> Mad Max: Fury Road, John Wick.</li>
+                <li><strong>Fantasía:</strong> El señor de los anillos, Harry Potter.</li>
+            </ul>
+        </section>
+        <section class="section">
+            <h2>¿Por qué importan los géneros?</h2>
+            <p>Los géneros ayudan a los espectadores a saber qué tipo de historia esperar. También permiten a los creadores jugar con convenciones, mezclar estilos y sorprender al público.</p>
+        </section>
+    </main>
+    <footer>
+        <p>© 2026 Cine en detalle | Géneros que dan forma a las películas</p>
+    </footer>
+</body>
+</html>

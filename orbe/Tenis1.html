@@ -1,0 +1,539 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>🎾 Tenis Total | Historia, Reglas, Grand Slams, Curiosidades y Leyendas</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #f5f8f0 0%, #e6ece0 100%);
+            color: #1a2c1f;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #c8d6c5;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2e7d32;
+            border-radius: 10px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1b5e20 0%, #0a3a0f 100%);
+            color: white;
+            padding: 2rem 1.5rem 3rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 6px solid #fbc02d;
+        }
+        .hero::before {
+            content: "🎾";
+            font-size: 280px;
+            opacity: 0.06;
+            position: absolute;
+            bottom: -40px;
+            right: -30px;
+            pointer-events: none;
+            transform: rotate(10deg);
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff, #f9e79f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .nav-bar {
+            background: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .nav-btn {
+            background: transparent;
+            border: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.5rem 0.9rem;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+            color: #1e3a1e;
+        }
+        .nav-btn i {
+            margin-right: 5px;
+        }
+        .nav-btn:hover {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        .nav-btn.active {
+            background: #2e7d32;
+            color: white;
+            box-shadow: 0 4px 10px rgba(46,125,50,0.3);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            display: none;
+            animation: fadeUp 0.4s ease-out forwards;
+        }
+        .section.active-section {
+            display: block;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 1.8rem;
+        }
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.6rem;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid rgba(46,125,50,0.15);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 40px -15px rgba(0,0,0,0.15);
+        }
+        .card-icon {
+            font-size: 2rem;
+            background: #e8f5e9;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            margin-bottom: 1.2rem;
+            color: #2e7d32;
+        }
+        .card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #1b5e20;
+        }
+        .card p, .card li {
+            color: #2c3e2b;
+            line-height: 1.5;
+        }
+        .list-style {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-style li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+        .list-style li i {
+            color: #2e7d32;
+            width: 24px;
+            margin-top: 3px;
+        }
+        .players-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.5rem;
+        }
+        .player-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            transition: all 0.25s;
+            text-align: center;
+            border: 1px solid #dce8dc;
+        }
+        .player-card:hover {
+            transform: scale(1.02);
+        }
+        .player-img {
+            background: linear-gradient(145deg, #1b5e20, #0a3a0f);
+            padding: 1.5rem 0 0.8rem;
+            color: white;
+            font-size: 3.2rem;
+        }
+        .player-info {
+            padding: 1.2rem 1rem 1.5rem;
+        }
+        .player-name {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+        .player-stats {
+            font-size: 0.75rem;
+            color: #f39c12;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+        .footer {
+            background: #0a2e0f;
+            color: #c8e6c9;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid #fbc02d;
+        }
+        @media (max-width: 800px) {
+            .hero h1 { font-size: 1.8rem; }
+            .nav-btn { padding: 0.35rem 0.65rem; font-size: 0.7rem; }
+        }
+        .highlight {
+            background: linear-gradient(120deg, #e8f5e9 0%, #c8e6c9 40%, transparent 60%);
+            font-weight: 600;
+            padding: 0 4px;
+        }
+        .grand-slam-table, .records-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 1rem 0;
+        }
+        th, td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8e0;
+        }
+        th {
+            background: #2e7d32;
+            color: white;
+            font-weight: 600;
+        }
+        tr:hover {
+            background: #f1f8e9;
+        }
+        hr {
+            margin: 1.8rem 0;
+            border: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #2e7d32, transparent);
+        }
+        .badge-tenis {
+            background: #e8f5e9;
+            border-left: 5px solid #fbc02d;
+            padding: 0.8rem 1rem;
+            border-radius: 20px;
+            margin: 1rem 0;
+        }
+        .subtitle {
+            font-size: 0.9rem;
+            color: #5a7c58;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1><i class="fas fa-table-tennis"></i> TENIS TOTAL <i class="fas fa-table-tennis"></i></h1>
+    <p>Historia completa, reglas oficiales, los 4 Grand Slams, curiosidades, leyendas, récords y la evolución del deporte de la raqueta</p>
+</div>
+
+<div class="nav-bar">
+    <button class="nav-btn" onclick="location.href='Deportes6.html'"><i class="fas fa-home"></i> Inicio</button>
+    <button class="nav-btn active" data-section="historia"><i class="fas fa-landmark"></i> Historia</button>
+    <button class="nav-btn" data-section="reglas"><i class="fas fa-clipboard-list"></i> Reglas</button>
+    <button class="nav-btn" data-section="grandslams"><i class="fas fa-trophy"></i> Grand Slams</button>
+    <button class="nav-btn" data-section="mejores"><i class="fas fa-medal"></i> Leyendas</button>
+    <button class="nav-btn" data-section="records"><i class="fas fa-chart-line"></i> Récords</button>
+    <button class="nav-btn" data-section="curiosidades"><i class="fas fa-lightbulb"></i> Curiosidades</button>
+    <button class="nav-btn" data-section="evolucion"><i class="fas fa-chart-line"></i> Táctica & Tecno</button>
+</div>
+
+<div class="container">
+    <!-- HISTORIA COMPLETA -->
+    <div id="historia" class="section active-section">
+        <h2><i class="fas fa-timeline"></i> Historia completa del tenis</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-scroll"></i></div>
+                <h3>📜 Orígenes ancestrales</h3>
+                <p><strong>Jeu de Paume (Francia, siglo XII):</strong> "Juego de la palma" - se golpeaba la pelota con la mano desnuda. Evolucionó con guantes y luego raquetas primitivas.<br>
+                <strong>Real Tennis (siglo XVI):</strong> Versión de interior que aún existe en Wimbledon, París y Australia.<br>
+                <strong>1873:</strong> El mayor Walter Clopton Wingfield patentó el <span class="highlight">"Sphairistiké"</span>, origen del tenis moderno.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-gavel"></i></div>
+                <h3>🎾 1877: Nace Wimbledon</h3>
+                <p>El <strong>primer Campeonato de Wimbledon</strong> se celebró en 1877 en el All England Club. Participaron 22 hombres y la final la ganó Spencer Gore. Es el torneo más antiguo y prestigioso del mundo. El torneo femenino comenzó en 1884.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+                <h3>🌍 Expansión y Era Abierta</h3>
+                <p><strong>1968:</strong> Comienza la <strong>Era Abierta</strong> (profesionales y amateurs juntos).<br>
+                <strong>1972:</strong> Fundación de la ATP.<br>
+                <strong>1973:</strong> Fundación de la WTA por Billie Jean King. La "Batalla de los Sexos" (King vs Riggs) marcó un hito para el deporte femenino.</p>
+            </div>
+        </div>
+        <div class="badge-tenis">
+            <i class="fas fa-trophy"></i> <strong>Dato histórico:</strong> La <strong>Batalla de los Sexos</strong> (1973) fue vista por 90 millones de espectadores. Billie Jean King venció a Bobby Riggs en el Astrodome de Houston.
+        </div>
+    </div>
+
+    <!-- REGLAS COMPLETAS -->
+    <div id="reglas" class="section">
+        <h2><i class="fas fa-book-open"></i> Reglas completas (Código Oficial ITF 2025)</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-chart-simple"></i></div>
+                <h3>📊 Puntuación</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-0"></i> <strong>0 = Love</strong> (del francés "l'oeuf" - huevo).</li>
+                    <li><i class="fas fa-1"></i> <strong>15, 30, 40</strong> (cuadrantes de reloj medieval).</li>
+                    <li><i class="fas fa-handshake"></i> <strong>Deuce</strong> (40-40): se necesitan 2 puntos seguidos.</li>
+                    <li><i class="fas fa-chart-line"></i> <strong>Ventaja (Ad)</strong>: punto tras el deuce.</li>
+                    <li><i class="fas fa-trophy"></i> Set: a 6 juegos con diferencia de 2. Tie-break a 7 puntos.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-court"></i></div>
+                <h3>📏 La cancha</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-ruler-combined"></i> Individuales: 23.77 m x 8.23 m.</li>
+                    <li><i class="fas fa-ruler-combined"></i> Dobles: 23.77 m x 10.97 m.</li>
+                    <li><i class="fas fa-chalkboard"></i> Red: 0.914 m en el centro.</li>
+                    <li><i class="fas fa-layer-group"></i> Superficies: <strong>césped</strong> (rápida), <strong>arcilla</strong> (lenta, más rebote), <strong>dura</strong> (rebote medio).</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-whistle"></i></div>
+                <h3>⚖️ Reglas clave</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-arrow-right"></i> <strong>Saque:</strong> Dos intentos. "Let" si toca la red y entra.</li>
+                    <li><i class="fas fa-video"></i> <strong>Hawk-Eye:</strong> Desafíos tecnológicos (3 por set).</li>
+                    <li><i class="fas fa-ban"></i> <strong>Faltas:</strong> La pelota debe botar dentro de la línea.</li>
+                    <li><i class="fas fa-gavel"></i> <strong>Conducta:</strong> No se permite coaching durante el partido.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- GRAND SLAMS Y TORNEOS -->
+    <div id="grandslams" class="section">
+        <h2><i class="fas fa-trophy"></i> Los 4 Grand Slams y grandes torneos</h2>
+        <table class="grand-slam-table">
+            <thead><tr><th>Torneo</th><th>Superficie</th><th>Mes</th><th>Dato único</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Australian Open</strong></td><td>Dura (GreenSet)</td><td>Enero</td><td>El primero del año. Techo retráctil en tres canchas. Calor extremo.</td></tr>
+                <tr><td><strong>Roland Garros</strong></td><td>Tierra batida</td><td>Mayo-junio</td><td>El único Grand Slam en arcilla. Rafa Nadal tiene 14 títulos (récord).</td></tr>
+                <tr><td><strong>Wimbledon</strong></td><td>Césped</td><td>Junio-julio</td><td>Código de vestimenta blanco. Fresas con crema. Sin publicidad en pistas.</td></tr>
+                <tr><td><strong>US Open</strong></td><td>Dura (DecoTurf)</td><td>Agosto-septiembre</td><td>Ambiente nocturno y ruidoso. Premios más altos ($3.6M al campeón 2024).</td></tr>
+            </tbody>
+        </table>
+        <div class="card">
+            <i class="fas fa-star"></i> <strong>Otros torneos importantes:</strong> ATP Finals (8 mejores del año), WTA Finals, Masters 1000 (Indian Wells, Miami, Montecarlo, Madrid, Roma, Canadá, Cincinnati, Shanghái, París), Copa Davis (hombres) y Billie Jean King Cup (mujeres).
+        </div>
+    </div>
+
+    <!-- MEJORES JUGADORES -->
+    <div id="mejores" class="section">
+        <h2><i class="fas fa-medal"></i> Las grandes leyendas del tenis mundial</h2>
+        <div class="players-grid">
+            <div class="player-card"><div class="player-img">🐐</div><div class="player-info"><div class="player-name">Novak Djokovic</div><div class="player-stats">24 Grand Slams | 400+ semanas #1 | 40 Masters 1000</div><div class="player-desc">Récord de Grand Slams masculinos. Único con todos los GS al menos 3 veces.</div></div></div>
+            <div class="player-card"><div class="player-img">💪</div><div class="player-info"><div class="player-name">Rafael Nadal</div><div class="player-stats">22 Grand Slams | 14 Roland Garros | Oro olímpico</div><div class="player-desc">"El Rey de la Arcilla". Lucha y entrega infinita.</div></div></div>
+            <div class="player-card"><div class="player-img">✨</div><div class="player-info"><div class="player-name">Roger Federer</div><div class="player-stats">20 Grand Slams | 8 Wimbledon | 237 semanas consecutivas #1</div><div class="player-desc">Elegancia pura. Se retiró en 2022.</div></div></div>
+            <div class="player-card"><div class="player-img">🦸‍♀️</div><div class="player-info"><div class="player-name">Serena Williams</div><div class="player-stats">23 Grand Slams | 319 semanas #1 | 4 oros olímpicos</div><div class="player-desc">La más dominante de la era moderna en femenino.</div></div></div>
+            <div class="player-card"><div class="player-img">🇩🇪</div><div class="player-info"><div class="player-name">Steffi Graf</div><div class="player-stats">22 Grand Slams | 377 semanas #1 | 1988 Golden Slam</div><div class="player-desc">Única en ganar los 4 Slams + oro olímpico el mismo año.</div></div></div>
+            <div class="player-card"><div class="player-img">🏆</div><div class="player-info"><div class="player-name">Martina Navratilova</div><div class="player-stats">18 GS individuales + 31 en dobles | 167 títulos</div><div class="player-desc">Versatilidad total. Mejor doblista de la historia.</div></div></div>
+        </div>
+        <hr>
+        <p><strong>Otras leyendas:</strong> Rod Laver (2 Grand Slams naturales), Björn Borg, Pete Sampras, Billie Jean King, Margaret Court, Chris Evert, Andre Agassi, John McEnroe, Jimmy Connors, Ivan Lendl, Guillermo Vilas, Justine Henin, Monica Seles, Martina Hingis, Carlos Alcaraz, Iga Świątek, Coco Gauff, Jannik Sinner.</p>
+        <div class="badge-tenis"><i class="fas fa-chart-line"></i> <strong>El Big 3 (Djokovic, Nadal, Federer)</strong> dominó el tenis masculino por más de 15 años, sumando 66 títulos de Grand Slam entre los tres.</div>
+    </div>
+
+    <!-- RÉCORDS ABSOLUTOS -->
+    <div id="records" class="section">
+        <h2><i class="fas fa-chart-simple"></i> Récords absolutos (Actualizados 2025)</h2>
+        <table class="records-table">
+            <thead><tr><th>Récord</th><th>Marca</th><th>Titular</th></tr></thead>
+            <tbody>
+                <tr><td>Más Grand Slams (masculino)</td><td>24</td><td>Novak Djokovic</td></tr>
+                <tr><td>Más Grand Slams (femenino)</td><td>24 (23 Era Abierta)</td><td>Margaret Court / Serena Williams</td></tr>
+                <tr><td>Más semanas como N°1 ATP</td><td>400+</td><td>Novak Djokovic</td></tr>
+                <tr><td>Más semanas como N°1 WTA</td><td>377</td><td>Steffi Graf</td></tr>
+                <tr><td>Más títulos ATP individuales</td><td>109</td><td>Jimmy Connors</td></tr>
+                <tr><td>Más títulos WTA individuales</td><td>167</td><td>Martina Navratilova</td></tr>
+                <tr><td>Partido más largo</td><td>11h 5min</td><td>Isner vs Mahut (Wimbledon 2010)</td></tr>
+                <tr><td>Saque más rápido ATP</td><td>253 km/h</td><td>John Isner</td></tr>
+                <tr><td>Saque más rápido WTA</td><td>230 km/h</td><td>Venus Williams, Sabine Lisicki</td></tr>
+                <tr><td>Más títulos en un mismo Grand Slam</td><td>14</td><td>Rafael Nadal (Roland Garros)</td></tr>
+                <tr><td>Más victorias en Grand Slams</td><td>382</td><td>Novak Djokovic</td></tr>
+            </tbody>
+        </table>
+        <div class="badge-tenis">
+            <i class="fas fa-calendar"></i> <strong>Golden Slam (4 Slams + Oro Olímpico):</strong> Steffi Graf (1988) es la única en lograrlo en un mismo año. Serena Williams tiene el "Golden Slam" en carrera.
+        </div>
+    </div>
+
+    <!-- CURIOSIDADES ASOMBROSAS -->
+    <div id="curiosidades" class="section">
+        <h2><i class="fas fa-lightbulb"></i> Curiosidades asombrosas</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-tachometer-alt"></i></div>
+                <h3>🚀 Datos insólitos</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-circle"></i> <strong>Pelotas blancas:</strong> hasta 1972 eran blancas, se cambiaron al amarillo para la TV.</li>
+                    <li><i class="fas fa-shoe-prints"></i> Un zapato profesional dura apenas 3-4 partidos.</li>
+                    <li><i class="fas fa-grass"></i> Wimbledon corta su césped a exactamente 8 mm.</li>
+                    <li><i class="fas fa-clock"></i> Punto más largo profesional: 71 golpes (Simon vs Monfils, 2013).</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-glasses"></i></div>
+                <h3>🎾 Datos asombrosos</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-tv"></i> Final Wimbledon 2019 (Federer-Djokovic): 1.200M de espectadores.</li>
+                    <li><i class="fas fa-money-bill"></i> Premio US Open 2024: $3.6M al campeón.</li>
+                    <li><i class="fas fa-child"></i> Jugador más joven en ganar un partido de GS: Coco Gauff (15 años).</li>
+                    <li><i class="fas fa-hand-spock"></i> Raqueta más cara: Bill Tilden (años 20) vendida por $1.3M.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-wheelchair"></i></div>
+                <h3>🌍 Datos sociales</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-wheelchair"></i> Tenis en silla de ruedas: parte del circuito paralímpico.</li>
+                    <li><i class="fas fa-ice-cream"></i> Wimbledon consume 10,000 litros de fresas con crema por torneo.</li>
+                    <li><i class="fas fa-chart-line"></i> El tenis mueve más de $1,000 millones anuales en patrocinios.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="badge-tenis"><i class="fas fa-dice-d6"></i> <strong>Dato freak:</strong> El punto más largo de la historia (no profesional) duró 26 minutos y tuvo 643 golpes (Vicki Nelson vs Jean Hepner, 1984).</div>
+    </div>
+
+    <!-- EVOLUCIÓN TÁCTICA Y TECNOLÓGICA -->
+    <div id="evolucion" class="section">
+        <h2><i class="fas fa-chart-line"></i> Evolución táctica, tecnológica y equipamiento</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-chess-board"></i></div>
+                <h3>📈 Evolución táctica</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-1920s"></i> <strong>1920-30:</strong> Saque y volea dominante (Tilden, Lacoste).</li>
+                    <li><i class="fas fa-1970s"></i> <strong>1970-80:</strong> Raquetas de metal/grafito (McEnroe, Borg).</li>
+                    <li><i class="fas fa-1990s"></i> <strong>1990:</strong> Derecha a dos manos, saque potente (Sampras, Agassi).</li>
+                    <li><i class="fas fa-2000s"></i> <strong>2000:</strong> Top-spin extremo, profundidad (Nadal, Federer).</li>
+                    <li><i class="fas fa-2010s"></i> <strong>2010-20:</strong> Devolución agresiva, juego multidimensional (Djokovic).</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-microchip"></i></div>
+                <h3>🖥️ Tecnología</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-video"></i> <strong>Hawk-Eye:</strong> Desde 2006, revisión de líneas.</li>
+                    <li><i class="fas fa-robot"></i> <strong>Hawk-Eye Live:</strong> Sin jueces de línea (2020+).</li>
+                    <li><i class="fas fa-chart-pie"></i> Análisis de datos en tiempo real (velocidad, efecto, patrón).</li>
+                    <li><i class="fas fa-table-tennis"></i> Raquetas modernas: 280-340g (las de madera pesaban 400g+).</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-ball"></i></div>
+                <h3>🎽 Equipamiento y datos</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-tennis-ball"></i> <strong>Pelotas:</strong> Wimbledon usa Slazenger desde 1902 (patrocinio más largo).</li>
+                    <li><i class="fas fa-chart-line"></i> 50,000 pelotas se usan por torneo de Wimbledon.</li>
+                    <li><i class="fas fa-shirt"></i> Camiseta con más victorias: la de Federer en sus 20 GS.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <i class="fas fa-rocket"></i> <strong>El futuro del tenis:</strong> Nuevas estrellas (Alcaraz, Sinner, Gauff, Swiatek). Reglas propuestas: tiempo de saque más corto (20s), eliminación total de jueces de línea, super-tiebreak en quinto set universal. Tenis en metaverso y análisis con IA.
+        </div>
+        <div class="badge-tenis">
+            <i class="fas fa-book"></i> <strong>Documentales y libros recomendados:</strong> <em>"Open"</em> (Andre Agassi), <em>"El método"</em> (Rafael Nadal), <em>"Strokes of Genius"</em> (ESPN), <em>"Break Point"</em> (Netflix).
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p><i class="fas fa-table-tennis"></i> Tenis Total - La guía definitiva del deporte de la raqueta <i class="fas fa-table-tennis"></i></p>
+    <p style="font-size: 0.8rem; margin-top: 8px;">Historia, reglas ITF, Grand Slams, leyendas, récords, curiosidades y evolución táctica y tecnológica.</p>
+</div>
+
+<script>
+    const sections = ['historia', 'reglas', 'grandslams', 'mejores', 'records', 'curiosidades', 'evolucion'];
+    const sectionsMap = {};
+    sections.forEach(id => { sectionsMap[id] = document.getElementById(id); });
+    const buttons = document.querySelectorAll('.nav-btn');
+    
+    function activateSection(sectionId) {
+        sections.forEach(id => { if(sectionsMap[id]) sectionsMap[id].classList.remove('active-section'); });
+        if(sectionsMap[sectionId]) sectionsMap[sectionId].classList.add('active-section');
+        buttons.forEach(btn => {
+            const btnSection = btn.getAttribute('data-section');
+            if(btnSection === sectionId) btn.classList.add('active');
+            else btn.classList.remove('active');
+        });
+        window.scrollTo({ top: document.querySelector('.container').offsetTop - 70, behavior: 'smooth' });
+    }
+    
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const sectionId = btn.getAttribute('data-section');
+            if(sectionId && sectionsMap[sectionId]) activateSection(sectionId);
+        });
+    });
+    activateSection('historia');
+</script>
+</body>
+</html>
+```

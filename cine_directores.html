@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Directores Legendarios - Nancy</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#111;
+    color:white;
+    line-height:1.6;
+}
+
+header{
+    background:linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    padding:40px;
+    text-align:center;
+    border-bottom:3px solid #ffcc00;
+}
+
+header h1{
+    font-size:50px;
+    color:#ffcc00;
+    margin-bottom:10px;
+}
+
+nav{
+    background:#1f1f1f;
+    padding:15px;
+    text-align:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-size:16px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ffcc00;
+}
+
+section{
+    padding:40px 10%;
+}
+
+h2{
+    color:#ffcc00;
+    margin:40px 0 20px 0;
+    font-size:35px;
+}
+
+h3{
+    color:#ffcc00;
+    margin:20px 0 10px 0;
+    font-size:22px;
+}
+
+p{
+    font-size:17px;
+    margin-bottom:15px;
+}
+
+.directores-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:25px;
+    margin-top:30px;
+}
+
+.director-card{
+    background:#1d1d1d;
+    padding:25px;
+    border-radius:15px;
+    border-bottom:4px solid #ffcc00;
+    transition:0.3s;
+}
+
+.director-card:hover{
+    transform:translateY(-10px);
+    background:#252525;
+}
+
+.director-card h3{
+    margin-top:0;
+    margin-bottom:5px;
+}
+
+.director-card .nacionalidad{
+    color:#aaa;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.peliculas-director{
+    background:#111;
+    padding:10px;
+    border-radius:8px;
+    margin-top:15px;
+    font-size:14px;
+}
+
+.peliculas-director strong{
+    color:#ffcc00;
+}
+
+.estilo{
+    background:#1b1b1b;
+    padding:15px;
+    border-radius:8px;
+    margin:15px 0;
+    border-left:4px solid #ffcc00;
+}
+
+footer{
+    background:#000;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+    color:#aaa;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>👥 Directores Legendarios</h1>
+    <p>Los maestros del cine que han definido generaciones</p>
+</header>
+
+<nav>
+    <a href="cine.html">🏠 Volver al Cine</a>
+    <a href="cine_historia.html">📖 Historia</a>
+    <a href="cine_premios.html">🏆 Premios</a>
+    <a href="cine_efectos.html">💫 Efectos</a>
+    <a href="index.html">Inicio</a>
+</nav>
+
+<section>
+    <h2>Maestros del Cine Mundial</h2>
+    <p>
+        Un director es el arquitecto de la visión cinematográfica. Estos maestros han 
+        transformado el cine en arte y entretenimiento, influenciando a generaciones 
+        de cineastas con sus innovadoras técnicas y narrativas.
+    </p>
+</section>
+
+<section>
+    <h2>🎬 Directores Legendarios</h2>
+    
+    <div class="directores-grid">
+        <div class="director-card">
+            <h3>Stanley Kubrick</h3>
+            <div class="nacionalidad">🇺🇸 Estadounidense (1928-1999)</div>
+            <p>
+                Perfeccionista absoluto conocido por sus ángulos de cámara únicos 
+                y ambiciones temáticas. Revolucionó la ciencia ficción.
+            </p>
+            <div class="peliculas-director">
+                <strong>Obras maestras:</strong> 2001: Odisea del Espacio, 
+                La Naranja Mecánica, El Resplandor
+            </div>
+        </div>
+
+        <div class="director-card">
+            <h3>Steven Spielberg</h3>
+            <div class="nacionalidad">🇺🇸 Estadounidense (Nacido 1946)</div>
+            <p>
+                Maestro del entretenimiento y emoción. Revolucionó el cine de aventura 
+                y ha explorado temas profundos con sensibilidad.
+            </p>
+            <div class="peliculas-director">
+                <strong>Obras maestras:</strong> Tiburón, Parque Jurásico, 
+                La Lista de Schindler
+            </div>
+        </div>
+
+        <div class="director-card">
+            <h3>Martin Scorsese</h3>
+            <div class="nacionalidad">🇺🇸 Estadounidense (Nacido 1942)</div>
+            <p>
+                Experto en narrativa visual y composición. Sus películas explore la psicología 
+                humana con intensidad cinematográfica.
+            </p>
+            <div class="peliculas-director">
+                <strong>Obras maestras:</strong> Taxi Driver, Toro Salvaje, 
+                Goodfellas
+            </div>
+        </div>
+
+        <div class="director-card">
+            <h3>Quentin Tarantino</h3>
+            <div class="nacionalidad">🇺🇸 Estadounidense (Nacido 1963)</div>
+            <p>
+                Revolucionario del cine independiente. Mezcla diálogos brillantes, 
+                violencia estilizada y referencias cinematográficas.
+            </p>
+            <div class="peliculas-director">
+                <strong>Obras maestras:</strong> Pulp Fiction, Kill Bill, 
+                Bastardos sin Gloria
+            </div>
+        </div>
+
+        <div class="director-card">
+            <h3>Christopher Nolan</h3>
+            <div class="nacionalidad">🇬🇧 Británico (Nacido 1970)</div>
+            <p>
+                Maestro del cine de ciencia ficción y suspenso. Conocido por narrativas 
+                complejas y espectáculos visuales ambiciosos.
+            </p>
+            <div class="peliculas-director">
+                <strong>Obras maestras:</strong> Memento, The Dark Knight, 
+                Inception
+            </div>
+        </div>
+
+        <div class="director-card">
+            <h3>Pedro Almodóvar</h3>
+            <div class="nacionalidad">🇪🇸 Español (Nacido 1949)</div>
+            <p>
+                Iconoclasta del cine europeo. Sus películas mezclan melodrama, humor 
+                y crítica social con colores vibrantes.
+            </p>
+            <div class="peliculas-director">
+                <strong>Obras maestras:</strong> Mujeres al Borde de un Ataque 
+                de Nervios, Todo Sobre mi Madre
+            </div>
+        </div>
+
+        <div class="director-card">
+            <h3>Akira Kurosawa</h3>
+            <div class="nacionalidad">🇯🇵 Japonés (1910-1998)</div>
+            <p>
+                Revolucionó la narrativa visual. Sus técnicas de cámara e iluminación 
+                son estudiadas hasta hoy. Maestro del samurái.
+            </p>
+            <div class="peliculas-director">
+                <strong>Obras maestras:</strong> Los Siete Samuráis, Rashomon, 
+                Ikiru
+            </div>
+        </div>
+
+        <div class="director-card">
+            <h3>Denis Villeneuve</h3>
+            <div class="nacionalidad">🇨🇦 Canadiense (Nacido 1967)</div>
+            <p>
+                Maestro contemporáneo de la épica visual. Especializado en ciencia 
+                ficción con profundidad narrativa y espectáculo cinematográfico.
+            </p>
+            <div class="peliculas-director">
+                <strong>Obras maestras:</strong> Sicario, Blade Runner 2049, 
+                Dune
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>🎨 Estilos Cinematográficos Reconocibles</h2>
+    
+    <div class="estilo">
+        <h3>Realismo Poético</h3>
+        <p>
+            Directores como Abbas Kiarostami traen autenticidad y humanidad. 
+            Exploración profunda de la condición humana con sencillez visual.
+        </p>
+    </div>
+
+    <div class="estilo">
+        <h3>Épica Visualmente Deslumbrante</h3>
+        <p>
+            Directores como James Cameron y Peter Jackson crean mundos cinematográficos 
+            inmersivos con tecnología de punta y presupuestos espectaculares.
+        </p>
+    </div>
+
+    <div class="estilo">
+        <h3>Cine de Autor Experimental</h3>
+        <p>
+            Lars von Trier, David Lynch y otros desafían convenciones. Sus películas 
+            son provocadoras, artísticas e inmediatamente reconocibles.
+        </p>
+    </div>
+
+    <div class="estilo">
+        <h3>Suspense Psicológico</h3>
+        <p>
+            Alfred Hitchcock, David Fincher y otros manipulan la audiencia con técnica 
+            magistral. Maestros de la tensión narrativa.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2>🌟 Generaciones de Directores</h2>
+    
+    <h3>Primera Generación (1920-1960)</h3>
+    <p>
+        Orson Welles, Sergei Eisenstein, Charlie Chaplin. Inventaron el lenguaje cinematográfico.
+    </p>
+
+    <h3>Segunda Generación (1960-1980)</h3>
+    <p>
+        Nouvelle Vague francesa: Godard, Truffaut. Innovadores italianos como Fellini.
+    </p>
+
+    <h3>Tercera Generación (1980-2000)</h3>
+    <p>
+        Era de Spielberg, Scorsese, Coppola. El cine blockbuster se consolida.
+    </p>
+
+    <h3>Cuarta Generación (2000-Presente)</h3>
+    <p>
+        Nolan, Villeneuve, directores emergentes de Asia y América Latina transforman 
+        el cine global.
+    </p>
+</section>
+
+<footer>
+    <p>© 2026 Directores Legendarios | Página creada por Uriel</p>
+</footer>
+
+</body>
+</html>

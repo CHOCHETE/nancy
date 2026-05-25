@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudios Cinematográficos - Nancy</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#111;
+    color:white;
+    line-height:1.6;
+}
+
+header{
+    background:linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    padding:40px;
+    text-align:center;
+    border-bottom:3px solid #ffcc00;
+}
+
+header h1{
+    font-size:50px;
+    color:#ffcc00;
+    margin-bottom:10px;
+}
+
+nav{
+    background:#1f1f1f;
+    padding:15px;
+    text-align:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-size:16px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ffcc00;
+}
+
+section{
+    padding:40px 10%;
+}
+
+h2{
+    color:#ffcc00;
+    margin:40px 0 20px 0;
+    font-size:35px;
+}
+
+h3{
+    color:#ffcc00;
+    margin:20px 0 10px 0;
+    font-size:22px;
+}
+
+p{
+    font-size:17px;
+    margin-bottom:15px;
+}
+
+.estudios-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:25px;
+    margin-top:30px;
+}
+
+.estudio-card{
+    background:#1d1d1d;
+    padding:25px;
+    border-radius:15px;
+    border-top:4px solid #ffcc00;
+    transition:0.3s;
+}
+
+.estudio-card:hover{
+    transform:translateY(-10px);
+    background:#252525;
+}
+
+.estudio-card .logo{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.estudio-card h3{
+    margin-top:0;
+}
+
+.fundacion{
+    color:#aaa;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.peliculas-estudio{
+    background:#111;
+    padding:10px;
+    border-radius:8px;
+    margin-top:15px;
+    font-size:14px;
+}
+
+.peliculas-estudio strong{
+    color:#ffcc00;
+}
+
+.info-estudio{
+    background:#1b1b1b;
+    padding:20px;
+    border-radius:10px;
+    margin:15px 0;
+    border-left:4px solid #ffcc00;
+}
+
+.comparativa{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:15px;
+    margin:20px 0;
+}
+
+.dato-estudio{
+    background:#1d1d1d;
+    padding:15px;
+    border-radius:8px;
+    border-left:4px solid #ffcc00;
+}
+
+.dato-estudio strong{
+    color:#ffcc00;
+}
+
+footer{
+    background:#000;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+    color:#aaa;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>🏢 Estudios Cinematográficos</h1>
+    <p>Las fábricas de sueños que producen el cine mundial</p>
+</header>
+
+<nav>
+    <a href="cine.html">🏠 Volver al Cine</a>
+    <a href="cine_historia.html">📖 Historia</a>
+    <a href="cine_premios.html">🏆 Premios</a>
+    <a href="index.html">Inicio</a>
+</nav>
+
+<section>
+    <h2>Las Grandes Productoras de Cine</h2>
+    <p>
+        Los estudios cinematográficos son la columna vertebral de la industria. Desde 
+        el apogeo de Hollywood hasta la era digital, han producido miles de películas 
+        que entretenido al mundo. Hoy, los estudios compiten con plataformas de 
+        streaming que transforman la industria.
+    </p>
+</section>
+
+<section>
+    <h2>🎬 Grandes Estudios Hollywoodenses</h2>
+    
+    <div class="estudios-grid">
+        <div class="estudio-card">
+            <div class="logo">🐭</div>
+            <h3>Disney</h3>
+            <div class="fundacion">Fundada: 1923</div>
+            <p>
+                El imperio más grande del cine. Propietaria de Marvel, Pixar y Lucasfilm. 
+                Produce contenido para todas las edades con presupuestos colosales.
+            </p>
+            <div class="peliculas-estudio">
+                <strong>Franquicias:</strong> Star Wars, Marvel, Pixar
+            </div>
+        </div>
+
+        <div class="estudio-card">
+            <div class="logo">📽️</div>
+            <h3>Warner Bros.</h3>
+            <div class="fundacion">Fundada: 1923</div>
+            <p>
+                Productora histórica de clásicos. Propietaria de DC Films y New Line Cinema. 
+                Legendaria por sus grandes presupuestos y producciones épicas.
+            </p>
+            <div class="peliculas-estudio">
+                <strong>Franquicias:</strong> Harry Potter, DC, El Señor de los Anillos
+            </div>
+        </div>
+
+        <div class="estudio-card">
+            <div class="logo">🎞️</div>
+            <h3>Universal Pictures</h3>
+            <div class="fundacion">Fundada: 1915</div>
+            <p>
+                Una de las más antiguas. Productora de blockbusters universales. 
+                Conocida por efectos espectaculares y franquicias de acción.
+            </p>
+            <div class="peliculas-estudio">
+                <strong>Franquicias:</strong> Fast & Furious, Monstruos Clásicos
+            </div>
+        </div>
+
+        <div class="estudio-card">
+            <div class="logo">🎭</div>
+            <h3>Paramount Pictures</h3>
+            <div class="fundacion">Fundada: 1912</div>
+            <p>
+                Histórica productora americana. Pionera del sonido en cine. Produce 
+                desde dramas independientes hasta blockbusters familiares.
+            </p>
+            <div class="peliculas-estudio">
+                <strong>Franquicias:</strong> Transformers, Star Trek, Misión Imposible
+            </div>
+        </div>
+
+        <div class="estudio-card">
+            <div class="logo">🦁</div>
+            <h3>Sony Pictures</h3>
+            <div class="fundacion">Fundada: 1987</div>
+            <p>
+                División cinematográfica del gigante tecnológico. Propietaria de Columbia 
+                Pictures y productora del universo de Spider-Man.
+            </p>
+            <div class="peliculas-estudio">
+                <strong>Franquicias:</strong> Spider-Man, James Bond (histórica)
+            </div>
+        </div>
+
+        <div class="estudio-card">
+            <div class="logo">🎬</div>
+            <h3>20th Century Studios</h3>
+            <div class="fundacion">Fundada: 1935</div>
+            <p>
+                Histórica productora, ahora propiedad de Disney. Responsable de clásicos 
+                y franquicias icónicas. Pionera en ciencia ficción y épica.
+            </p>
+            <div class="peliculas-estudio">
+                <strong>Franquicias:</strong> X-Men, Avatar, Alien
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>🌍 Estudios de Cine Europeos y Mundiales</h2>
+    
+    <div class="info-estudio">
+        <h3>Estudios Europeos</h3>
+        <p>
+            <strong>Pathé (Francia):</strong> Una de las compañías más antiguas, productora 
+            de clásicos y películas de arte.
+        </p>
+        <p style="margin-top:10px;">
+            <strong>StudioCanal (Francia/Reino Unido):</strong> Productora independiente 
+            de calibre internacional. Filmes de calidad artística.
+        </p>
+        <p style="margin-top:10px;">
+            <strong>Working Title Films (Reino Unido):</strong> Productora de comedias 
+            y dramas de gran presupuesto.
+        </p>
+    </div>
+
+    <div class="info-estudio">
+        <h3>Estudios Asiáticos</h3>
+        <p>
+            <strong>Tencent Pictures (China):</strong> Gigante emergente. Invierte en 
+            Hollywood y produce contenido asiático.
+        </p>
+        <p style="margin-top:10px;">
+            <strong>CJ Entertainment (Corea del Sur):</strong> Productora de 
+            "Parasite". Calidad de nivel mundial en cine de lengua coreana.
+        </p>
+        <p style="margin-top:10px;">
+            <strong>Toho (Japón):</strong> Histórica productora de anime, cine de acción 
+            y películas de Godzilla.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2>📊 Datos Sobre los Estudios</h2>
+    
+    <div class="comparativa">
+        <div class="dato-estudio">
+            <strong>Presupuesto Promedio:</strong> 150 millones USD para blockbuster
+        </div>
+        <div class="dato-estudio">
+            <strong>Película Más Costosa:</strong> Avatar 2: 350+ millones USD
+        </div>
+        <div class="dato-estudio">
+            <strong>Películas por Año:</strong> 600+ en Hollywood actualmente
+        </div>
+        <div class="dato-estudio">
+            <strong>Empleo:</strong> Miles de trabajadores en producción, postproducción
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>🚀 Cambios en la Industria</h2>
+    
+    <h3>Plataformas de Streaming</h3>
+    <p>
+        Netflix, Amazon Prime y Disney+ ahora producen contenido original de calidad 
+        cinematográfica. Invierten miles de millones. El cine tradicional se reinventa.
+    </p>
+
+    <h3>Producción Independiente</h3>
+    <p>
+        Directores independientes crean películas con presupuestos modestos. El acceso 
+        a herramientas digitales democratiza la producción.
+    </p>
+
+    <h3>Coproducción Internacional</h3>
+    <p>
+        Estudios colaboran entre países. Hollywood invierte en talento europeo y asiático. 
+        Narrativas globales emergentes.
+    </p>
+
+    <h3>Nuevas Tecnologías</h3>
+    <p>
+        Virtual production, de-aging digital y IA transforman cómo se produce cine. 
+        Menos sets físicos, más control creativo.
+    </p>
+</section>
+
+<footer>
+    <p>© 2026 Estudios Cinematográficos | Página creada por Uriel</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine: Estrenos y Curiosidades</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: Arial, Helvetica, sans-serif; background:#0b1220; color:#f8fafc; }
+        nav { background:#111827; padding:16px 20px; display:flex; justify-content:center; flex-wrap:wrap; gap:12px; position:sticky; top:0; z-index:1000; }
+        nav a { color:#f8fafc; text-decoration:none; padding:10px 16px; border-radius:999px; background:rgba(255,255,255,0.08); transition:0.2s; }
+        nav a:hover { background:#fbbf24; color:#111827; }
+        header { padding:70px 20px 35px; text-align:center; background:linear-gradient(135deg,#0f172a 0%,#111827 100%); }
+        header h1 { font-size:3rem; color:#fbbf24; margin-bottom:12px; }
+        header p { max-width:760px; margin:0 auto; color:#cbd5e1; font-size:1.05rem; }
+        .container { max-width:1080px; margin:40px auto; padding:0 20px; }
+        .hero-card { background:#111827; border:1px solid rgba(255,255,255,0.08); border-radius:22px; padding:28px; box-shadow:0 25px 45px rgba(0,0,0,0.35); margin-bottom:32px; }
+        .hero-card h2 { color:#fbbf24; margin-bottom:14px; }
+        .hero-card p { color:#e2e8f0; line-height:1.8; }
+        .list-grid { display:grid; gap:20px; }
+        .item-card { background:#111827; border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:22px; }
+        .item-card h3 { margin-bottom:10px; color:#facc15; }
+        .item-card p { color:#cbd5e1; line-height:1.7; }
+        .button-bar { display:flex; flex-wrap:wrap; justify-content:center; gap:14px; margin-top:25px; }
+        .button-bar a { background:#fbbf24; color:#111827; padding:14px 20px; border-radius:999px; text-decoration:none; font-weight:700; transition:transform 0.2s; }
+        .button-bar a:hover { transform:translateY(-3px); }
+        footer { text-align:center; padding:24px 20px; color:#94a3b8; margin-top:40px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+        <a href="cine.html"><i class="fas fa-film"></i> Mundo del Cine</a>
+        <a href="cine_actores.html"><i class="fas fa-user"></i> Actores</a>
+        <a href="cine_generos.html"><i class="fas fa-clapperboard"></i> Géneros</a>
+    </nav>
+    <header>
+        <h1>Estrenos y Curiosidades del Cine</h1>
+        <p>Una mirada al cine actual y sus historias más interesantes, junto a datos curiosos que todo amante del cine debe conocer.</p>
+    </header>
+    <main class="container">
+        <section class="hero-card">
+            <h2>Estrenos recientes</h2>
+            <p>El cine moderno está lleno de estrenos que combinan grandes efectos visuales con historias emotivas. Destacan desde superproducciones de acción hasta dramas independientes que llegan al corazón del público.</p>
+        </section>
+        <section class="section">
+            <div class="list-grid">
+                <div class="item-card">
+                    <h3>Películas para ver este año</h3>
+                    <p>1) Película de aventuras épicas con un héroe inesperado. 2) Drama histórico basado en hechos reales. 3) Ciencia ficción futurista con inteligencia artificial. 4) Animación familiar con una historia conmovedora.</p>
+                </div>
+                <div class="item-card">
+                    <h3>Curiosidades del lanzamiento</h3>
+                    <p>Algunas películas se retrasan por efectos especiales, otras ajustan fechas para competir en festivales. Los tráilers se lanzan meses antes y las campañas de marketing definen el éxito temprano.</p>
+                </div>
+                <div class="item-card">
+                    <h3>Festivales y premios</h3>
+                    <p>Festivales como Cannes, Sundance y Venecia son vitrinas de nuevos talentos. Muchos estrenos buscan reconocimiento en premios como los Oscar, los Globos de Oro y los BAFTA.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>¿Sabías que?</h2>
+            <div class="hero-card">
+                <p>La película con mayor recaudación en historia es una mezcla de aventura y tecnología. Muchas producciones de alto presupuesto superan los $200 millones en marketing, además de los costos de producción.</p>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Enlaces rápidos</h2>
+            <div class="button-bar">
+                <a href="cine_actores.html" target="_blank"><i class="fas fa-user"></i> Ver Actores</a>
+                <a href="cine_generos.html" target="_blank"><i class="fas fa-clapperboard"></i> Ver Géneros</a>
+                <a href="cine.html" target="_blank"><i class="fas fa-film"></i> Volver al Mundo del Cine</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2026 Cine en detalle | Estrenos y curiosidades cinematográficas</p>
+    </footer>
+</body>
+</html>

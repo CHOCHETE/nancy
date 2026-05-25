@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💻 Tecnología Musical | Música</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .header {
+            background: rgba(0,0,0,0.75);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            backdrop-filter: blur(10px);
+        }
+        .header h1 { font-size: 3.5em; margin-bottom: 10px; }
+        .header p { font-size: 1.3em; opacity: 0.9; }
+        .nav {
+            background: white;
+            padding: 15px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+        }
+        .nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 8px;
+            background: #f0f4f8;
+        }
+        .nav a:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px);
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .seccion {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .seccion h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .seccion h3 {
+            color: #1e3a5f;
+            margin: 25px 0 15px;
+            font-size: 1.4em;
+        }
+        .timeline {
+            list-style: none;
+            position: relative;
+            padding-left: 50px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #667eea, #764ba2);
+            border-radius: 4px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            transition: all 0.3s;
+            border-left: 5px solid #667eea;
+        }
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            background: white;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -59px;
+            top: 35px;
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px #667eea;
+        }
+        .era-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        .timeline-item h3 {
+            color: #1e3a5f;
+            font-size: 1.5em;
+            margin: 8px 0 12px;
+        }
+        .timeline-item p {
+            line-height: 1.9;
+            color: #475569;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        .dato-clave {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            border-left: 4px solid #764ba2;
+            margin-top: 15px;
+            font-size: 0.95em;
+            color: #1e3a5f;
+        }
+        .dato-clave i { color: #667eea; margin-right: 8px; }
+        .grid-tec {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        .tec-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .tec-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+            border-color: #667eea;
+        }
+        .tec-icon {
+            font-size: 3em;
+            color: #667eea;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .tec-card h3 {
+            color: #1e3a5f;
+            margin: 10px 0;
+            font-size: 1.3em;
+        }
+        .tec-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+        .impacto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        .impacto-card {
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            padding: 30px;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+        .impacto-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+        .impacto-card i { font-size: 2.5em; color: #667eea; margin-bottom: 12px; display: block; }
+        .impacto-card h3 { color: #1e3a5f; margin-bottom: 10px; font-size: 1.2em; }
+        .impacto-card p { color: #555; line-height: 1.7; }
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+        .footer a { color: #93c5fd; text-decoration: none; }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2em; }
+            .seccion { padding: 20px; }
+            .timeline { padding-left: 35px; }
+            .timeline::before { left: 12px; }
+            .timeline-item::before { left: -42px; width: 16px; height: 16px; }
+            .timeline-item { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>💻 Tecnología Musical</h1>
+        <p>Cómo la innovación transformó la manera de crear, grabar y escuchar música</p>
+    </header>
+
+    <nav class="nav">
+        <a href="Musica.html"><i class="fas fa-arrow-left"></i> Volver a Música</a>
+        <a href="index.html"><i class="fas fa-home"></i> Menú Principal</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- LÍNEA DEL TIEMPO TECNOLÓGICA -->
+        <div class="seccion">
+            <h2><i class="fas fa-history"></i> Evolución Tecnológica de la Música</h2>
+            <p style="color:#666; margin-bottom:30px; font-size:1.05em;">Un recorrido por los inventos que revolucionaron la música, desde la primera grabación hasta la inteligencia artificial.</p>
+            <ul class="timeline">
+
+                <li class="timeline-item">
+                    <span class="era-badge"><i class="fas fa-microphone"></i> 1857</span>
+                    <h3>Fonoautógrafo - Édouard-Léon Scott</h3>
+                    <p>Primer dispositivo capaz de grabar sonido visualmente. Usaba un diafragma que vibraba y un estilete que marcaba ondas en un cilindro cubierto de hollín. Aunque no podía REPRODUCIR el sonido, fue el primer paso hacia la grabación. En 2008, científicos lograron reproducir digitalmente una grabación de 1860 de "Au Clair de la Lune", ¡la voz humana más antigua jamás recuperada!</p>
+                    <div class="dato-clave"><i class="fas fa-lightbulb"></i> <strong>Dato clave:</strong> Scott no buscaba reproducir sonido, solo estudiarlo visualmente. La reproducción llegaría 20 años después con Edison.</div>
+                </li>
+
+                <li class="timeline-item">
+                    <span class="era-badge"><i class="fas fa-record-vinyl"></i> 1877</span>
+                    <h3>Fonógrafo - Thomas Edison</h3>
+                    <p>El primer dispositivo capaz de GRABAR Y REPRODUCIR sonido. Usaba un cilindro de estaño y una aguja. Edison grabó "Mary Had a Little Lamb" como demostración. Revolucionó la música al permitir escuchar grabaciones en casa por primera vez en la historia de la humanidad.</p>
+                    <div class="dato-clave"><i class="fas fa-lightbulb"></i> <strong>Dato clave:</strong> Edison no creía que el fonógrafo serviría para música. Pensó que se usaría para grabar testamentos, dictados de oficina y libros para ciegos.</div>
+                </li>
+
+                <li class="timeline-item">
+                    <span class="era-badge"><i class="fas fa-compact-disc"></i> 1887</span>
+                    <h3>Gramófono - Emile Berliner</h3>
+                    <p>Reemplazó los cilindros por DISCOS PLANOS de vinilo (78 RPM). Fue el antecesor directo del tocadiscos moderno. Permitía producir copias masivas a partir de un molde, abaratando costos y permitiendo la industria discográfica tal como la conocemos.</p>
+                    <div class="dato-clave"><i class="fas fa-lightbulb"></i> <strong>Dato clave:</strong> Berliner también inventó el micrófono de carbón, mejorando las comunicaciones telefónicas para siempre.</div>
+                </li>
+
+                <li class="timeline-item">
+                    <span class="era-badge"><i class="fas fa-broadcast-tower"></i> 1920s</span>
+                    <h3>Radio Comercial</h3>
+                    <p>La primera estación de radio comercial, KDKA en Pittsburgh (1920), transmitió música por primera vez en la historia. La radio llevó la música GRATIS a millones de hogares, creando la figura del "éxito radial" y transformando la industria musical para siempre. En los años 30 y 40, las big bands y crooners dominaban las ondas radiales.</p>
+                    <div class="dato-clave"><i class="fas fa-lightbulb"></i> <strong>Dato clave:</strong> En 2026, la radio tradicional aún tiene 3 mil millones de oyentes semanales en todo el mundo, compitiendo con el streaming.</div>
+                </li>
+
+                <li class="timeline-item">
+                    <span class="era-badge"><i class="fas fa-plug"></i> 1925</span>
+                    <h3>Grabación Eléctrica (Micrófonos)</h3>
+                    <p>Reemplazó la grabación acústica (tocar frente a un cuerno). Los micrófonos eléctricos capturaban frecuencias más amplias y permitían grabar orquestas completas, voces sutiles y matices dinámicos. La calidad del sonido mejoró drásticamente y la música grabada empezó a sonar "real".</p>
+                </li>
+
+                <li class="timeline-item">
+                    <span class="era-badge"><i class="fas fa-record-vinyl"></i> 1948</span>
+                    <h3>Disco de Vinilo LP (33⅓ RPM) - Columbia Records</h3>
+                    <p>El LP (Long Play) revolucionó el formato del álbum. Permitía hasta 30 minutos de música por lado (vs 3-5 minutos de los viejos 78 RPM). Los artistas empezaron a crear "álbumes conceptuales" (como "Sgt. Pepper's" de The Beatles), no solo colecciones de canciones sueltas.</p>
+                    <div class="dato-clave"><i class="fas fa-lightbulb"></i> <strong>Dato clave:</strong> En 2026, el vinilo ha resurgido como formato de colección y audiófilo. Las ventas de vinilos superan a las de CDs por primera vez desde 1987.</div>
+                </li>
+
+                <li class="timeline-item">
+                    <span class="era-badge"><i class="fas fa-tape"></i> 1963</span>
+                    <h3>Cassette - Philips</h3>
+                    <p>Primer formato portátil y grabable por el usuario. Permitió crear "mixtapes" (compilaciones personales), escuchar música en walkmans (Sony, 1979), autos y equipos portátiles. Democratizó compartir música entre amigos y parejas. Las mixtapes de los 80 y 90 son un ícono cultural.</p>
+                    <div class="dato-clave"><i class="fas fa-lightbulb"></i> <strong>Dato clave:</strong> El walkman de Sony vendió más de 400 millones de unidades. Transformó la música en una experiencia personal y portátil.</div>
+                </li>
+
+                <li class="timeline-item">
+                    <span class="era-badge"><i class="fas fa-compact-disc"></i> 1982</span>
+                    <h3>Disco Compacto (CD) - Philips y Sony</h3>
+                    <p>Primer formato digital masivo. Ofrecía sonido perfecto (sin ruido de fondo), sin desgaste por reproducción y 74 minutos de música en un disco de 12 cm. El CD fue el formato dominante por 20 años (1985-2005). "The Visitors" de ABBA (1982) fue el primer CD comercial de la historia.</p>
+                </li>
+
+                <li class="timeline-item">
+                    <span class="era-badge"><i class="fas fa-laptop"></i> 1998-1999</span>
+                    <h3>MP3 y Napster - La Revolución Digital</h3>
+                    <p>El formato MP3 comprimía archivos de audio sin perder mucha calidad perceptible. Napster (1999), creado por Shawn Fanning, permitió compartir música GRATIS entre millones de usuarios (P2P). La industria musical se derrumbó: las ventas de CDs cayeron un 50% en 5 años. Fue el inicio de la era digital, aunque de forma caótica y pirateada. Napster fue cerrado en 2001 por demandas millonarias.</p>
+                    <div class="dato-clave"><i class="fas fa-lightbulb"></i> <strong>Dato clave:</strong> En su pico, Napster tuvo 80 millones de usuarios. Metallica demandó a Napster en 2000, convirtiéndose en el rostro de la lucha anti-piratería.</div>
+                </li>
+
+                <li class="timeline-item">
+                    <span class="era-badge"><i class="fas fa-mobile-alt"></i> 2001</span>
+                    <h3>iPod + iTunes - Apple</h3>
+                    <p>Steve Jobs revolucionó la música digital con el iPod ("1,000 canciones en tu bolsillo") y la tienda iTunes (descargas legales a 99 centavos por canción). Apple demostró que la gente PAGARÍA por música digital si era fácil, rápida y a buen precio. El iPod vendió más de 400 millones de unidades hasta su descontinuación en 2022.</p>
+                </li>
+
+                <li class="timeline-item">
+                    <span class="era-badge"><i class="fas fa-cloud"></i> 2008 - Presente</span>
+                    <h3>Streaming: Spotify, Apple Music, YouTube Music</h3>
+                    <p>El streaming reemplazó la compra de canciones por acceso ilimitado mediante suscripción mensual. Spotify (2008, Suecia) lidera el mercado con 602 millones de usuarios activos en 2026. El modelo "freemium" (gratis con anuncios o premium sin anuncios) democratizó el acceso global a la música. Hoy, el 85% del consumo musical mundial es por streaming.</p>
+                    <div class="dato-clave"><i class="fas fa-lightbulb"></i> <strong>Dato clave:</strong> Spotify paga aproximadamente $0.003 a $0.005 por reproducción a los artistas. Un millón de streams genera unos $3,000-$5,000 USD.</div>
+                </li>
+
+                <li class="timeline-item">
+                    <span class="era-badge"><i class="fas fa-robot"></i> 2023 - 2026</span>
+                    <h3>Inteligencia Artificial Musical</h3>
+                    <p>La IA generativa (Suno AI, Udio, MusicLM de Google, Soundraw) puede COMPONER canciones completas a partir de texto: melodía, armonía, ritmo, letra e incluso voces sintéticas realistas. Herramientas como LANDR masterizan canciones automáticamente. Los algoritmos de recomendación (Spotify, TikTok) determinan el 70% de lo que escuchamos. En 2026, se estima que la IA genera el 5% de la música nueva subida a plataformas diariamente. El debate sobre derechos de autor y el valor del arte humano está más vigente que nunca.</p>
+                    <div class="dato-clave"><i class="fas fa-lightbulb"></i> <strong>Dato clave:</strong> En 2024, una canción generada por IA se volvió viral en TikTok imitando las voces de Drake y The Weeknd, generando un intenso debate legal y ético.</div>
+                </li>
+
+                <li class="timeline-item">
+                    <span class="era-badge"><i class="fas fa-vr-cardboard"></i> 2026</span>
+                    <h3>Audio Espacial, VR y el Metaverso Musical</h3>
+                    <p>El audio espacial (Dolby Atmos, Sony 360 Reality Audio) crea experiencias inmersivas donde el sonido "envuelve" al oyente. Los conciertos virtuales en Fortnite, Roblox y Meta Horizon Worlds reúnen a millones de avatares (Travis Scott: 27 millones de espectadores; Ariana Grande: 78 millones). Los auriculares con cancelación de ruido activa son el estándar. El metaverso promete conciertos interactivos donde los fans pueden "estar" en primera fila desde su casa.</p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- TECNOLOGÍAS ACTUALES -->
+        <div class="seccion">
+            <h2><i class="fas fa-microchip"></i> Tecnologías Musicales Actuales (2026)</h2>
+            <div class="grid-tec">
+                <div class="tec-card">
+                    <i class="fas fa-headphones tec-icon"></i>
+                    <h3>Auriculares Inalámbricos Premium</h3>
+                    <p>Cancelación de ruido activa, audio espacial, 30+ horas de batería. Apple AirPods Pro 2, Sony WH-1000XM6 y Bose QuietComfort Ultra lideran el mercado global.</p>
+                </div>
+                <div class="tec-card">
+                    <i class="fas fa-laptop-code tec-icon"></i>
+                    <h3>DAW (Estaciones de Audio Digital)</h3>
+                    <p>Ableton Live, FL Studio, Logic Pro, Pro Tools y Cubase permiten producir música profesional desde una laptop con plugins, samplers e instrumentos virtuales.</p>
+                </div>
+                <div class="tec-card">
+                    <i class="fas fa-robot tec-icon"></i>
+                    <h3>IA Generativa Musical</h3>
+                    <p>Suno AI, Udio, Soundraw y MusicLM generan canciones completas desde texto. En 2026, la IA produce el 5% de la música nueva subida a plataformas.</p>
+                </div>
+                <div class="tec-card">
+                    <i class="fas fa-vr-cardboard tec-icon"></i>
+                    <h3>Conciertos Virtuales</h3>
+                    <p>Fortnite, Roblox y Meta Horizon Worlds. Travis Scott reunió 27M de avatares. Ariana Grande 78M. El futuro de los conciertos es híbrido: físico + virtual.</p>
+                </div>
+                <div class="tec-card">
+                    <i class="fas fa-brain tec-icon"></i>
+                    <h3>Algoritmos de Recomendación</h3>
+                    <p>Spotify Discover Weekly, TikTok For You Page. Los algoritmos determinan el 70% de lo que escuchamos diariamente.</p>
+                </div>
+                <div class="tec-card">
+                    <i class="fas fa-sliders-h tec-icon"></i>
+                    <h3>Masterización Automática IA</h3>
+                    <p>LANDR, CloudBounce y iZotope Ozone usan IA para masterizar canciones profesionalmente en minutos. Democratiza la producción para músicos independientes.</p>
+                </div>
+                <div class="tec-card">
+                    <i class="fas fa-fingerprint tec-icon"></i>
+                    <h3>Blockchain y NFTs Musicales</h3>
+                    <p>Audius y Royal permiten vender propieda

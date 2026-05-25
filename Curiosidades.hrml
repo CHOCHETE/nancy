@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💡 Curiosidades Musicales | Música</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .header {
+            background: rgba(0,0,0,0.75);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            backdrop-filter: blur(10px);
+        }
+        .header h1 { font-size: 3.5em; margin-bottom: 10px; }
+        .header p { font-size: 1.3em; opacity: 0.9; }
+        .nav {
+            background: white;
+            padding: 15px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+        }
+        .nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 8px;
+            background: #f0f4f8;
+        }
+        .nav a:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .seccion {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .seccion h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .seccion h3 {
+            color: #1e3a5f;
+            margin: 25px 0 15px;
+            font-size: 1.4em;
+        }
+        .grid-curiosidades {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 25px;
+        }
+        .curiosidad-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+        .curiosidad-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+            border-color: #667eea;
+        }
+        .curiosidad-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .curiosidad-card h3 {
+            color: #1e3a5f;
+            font-size: 1.3em;
+            margin: 8px 0 12px;
+        }
+        .curiosidad-card p {
+            color: #475569;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+        .dato-destacado {
+            background: #667eea15;
+            padding: 12px 18px;
+            border-radius: 10px;
+            margin-top: 12px;
+            font-weight: 600;
+            color: #667eea;
+            font-size: 0.9em;
+        }
+        .lista-insolita {
+            list-style: none;
+            counter-reset: item;
+        }
+        .lista-insolita li {
+            padding: 18px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            counter-increment: item;
+            transition: all 0.3s;
+        }
+        .lista-insolita li:hover {
+            background: #f8f9fa;
+            transform: translateX(5px);
+        }
+        .lista-insolita li::before {
+            content: counter(item);
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9em;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+        .lista-insolita li h4 {
+            color: #1e3a5f;
+            margin-bottom: 5px;
+        }
+        .lista-insolita li p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+        .sabias-que {
+            background: linear-gradient(135deg, #667eea10, #764ba210);
+            border-left: 6px solid #667eea;
+            padding: 25px 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+        .sabias-que i {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .sabias-que h3 {
+            color: #1e3a5f;
+            margin: 5px 0 10px;
+            font-size: 1.3em;
+        }
+        .sabias-que p {
+            color: #475569;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+        .footer a { color: #93c5fd; text-decoration: none; }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2em; }
+            .seccion { padding: 20px; }
+            .grid-curiosidades { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>💡 Curiosidades Musicales</h1>
+        <p>Datos sorprendentes, récords insólitos y rarezas del mundo de la música</p>
+    </header>
+
+    <nav class="nav">
+        <a href="Musica.html"><i class="fas fa-arrow-left"></i> Volver a Música</a>
+        <a href="index.html"><i class="fas fa-home"></i> Menú Principal</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- RÉCORDS MUNDIALES -->
+        <div class="seccion">
+            <h2><i class="fas fa-trophy"></i> Récords Mundiales Musicales</h2>
+            <div class="grid-curiosidades">
+                <div class="curiosidad-card">
+                    <span class="curiosidad-icon">⚡</span>
+                    <h3>La Canción Más Corta del Mundo</h3>
+                    <p>"You Suffer" de la banda británica Napalm Death (género grindcore) dura exactamente <strong>1.316 segundos</strong>. La canción consta de un solo compás con un grito. Está reconocida por el Libro Guinness de los Récords como la canción más corta jamás grabada.</p>
+                    <div class="dato-destacado">⏱️ Dura menos que un estornudo promedio (2-3 segundos)</div>
+                </div>
+                <div class="curiosidad-card">
+                    <span class="curiosidad-icon">⏰</span>
+                    <h3>La Canción Más Larga del Mundo</h3>
+                    <p>"The Rise and Fall of Bossanova" (PC III) tiene una duración de <strong>13 horas, 23 minutos y 32 segundos</strong>. Para escucharla completa necesitarías más de medio día. Existen otras obras experimentales aún más largas, pero esta ostenta el récord oficial.</p>
+                    <div class="dato-destacado">🕐 Equivale a ver 5 películas de El Señor de los Anillos (versión extendida) seguidas</div>
+                </div>
+                <div class="curiosidad-card">
+                    <span class="curiosidad-icon">💎</span>
+                    <h3>El Instrumento Más Caro del Mundo</h3>
+                    <p>El violín "Vieuxtemps" Guarneri del Gesù, fabricado en 1741 en Cremona (Italia), se vendió por <strong>$16 millones de dólares</strong>. Está considerado uno de los mejores violines jamás construidos. Solo unos pocos violinistas privilegiados han podido tocarlo.</p>
+                    <div class="dato-destacado">💰 Podrías comprar 3 islas privadas en el Caribe por ese precio</div>
+                </div>
+                <div class="curiosidad-card">
+                    <span class="curiosidad-icon">🎤</span>
+                    <h3>El Concierto Más Grande de la Historia</h3>
+                    <p>Rod Stewart reunió a <strong>3.5 millones de personas</strong> en la playa de Copacabana, Río de Janeiro, el 31 de diciembre de 1994. Fue un concierto gratuito de Año Nuevo. La multitud ocupó más de 4 kilómetros de playa.</p>
+                    <div class="dato-destacado">🌎 Esa cantidad equivale a TODA la población de Uruguay junta</div>
+                </div>
+                <div class="curiosidad-card">
+                    <span class="curiosidad-icon">📀</span>
+                    <h3>El Álbum Más Vendido de Todos los Tiempos</h3>
+                    <p>"Thriller" de Michael Jackson (1982) ha vendido más de <strong>70 millones de copias</strong> mundialmente. Ningún otro álbum se le ha acercado. Pasó 37 semanas en el #1 de Billboard y ganó 8 premios Grammy en 1984.</p>
+                    <div class="dato-destacado">💿 1 de cada 100 personas en el planeta tiene una copia de Thriller</div>
+                </div>
+                <div class="curiosidad-card">
+                    <span class="curiosidad-icon">🔄</span>
+                    <h3>La Canción Más Versionada</h3>
+                    <p>"Yesterday" de The Beatles (Paul McCartney) acumula más de <strong>2,200 versiones grabadas oficialmente</strong> por diferentes artistas. Es la canción con más covers en la historia de la música. Desde Elvis Presley hasta Frank Sinatra la han interpretado.</p>
+                    <div class="dato-destacado">🎵 Si escucharas cada versión una tras otra, tardarías más de 5 días sin dormir</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DATOS CURIOSOS DEL CUERPO Y LA MÚSICA -->
+        <div class="seccion">
+            <h2><i class="fas fa-brain"></i> La Música y el Cuerpo Humano</h2>
+            <div class="grid-curiosidades">
+                <div class="curiosidad-card">
+                    <span class="curiosidad-icon">🧠</span>
+                    <h3>La Música Libera Dopamina</h3>
+                    <p>Escuchar música que te gusta libera <strong>dopamina</strong> en el cerebro, exactamente la misma hormona del placer que se libera al comer chocolate, tener relaciones sexuales o consumir drogas. La música es literalmente adictiva (¡de forma saludable!). El pico máximo de dopamina ocurre justo ANTES del estribillo.</p>
+                </div>
+                <div class="curiosidad-card">
+                    <span class="curiosidad-icon">👶</span>
+                    <h3>Los Bebés Escuchan Música en el Vientre</h3>
+                    <p>Los fetos humanos empiezan a reaccionar a la música a partir de la <strong>semana 20 de gestación</strong>. Pueden distinguir ritmos y melodías. Los bebés recuerdan canciones que escucharon en el útero hasta un año después de nacer.</p>
+                    <div class="dato-destacado">👂 El primer sonido que "escuchan" es el latido del corazón de su madre (ritmo natural)</div>
+                </div>
+                <div class="curiosidad-card">
+                    <span class="curiosidad-icon">😵</span>
+                    <h3>El "Gusano Musical" (Earworm)</h3>
+                    <p>Se calcula que el <strong>98% de las personas</strong> experimentan tener una canción pegada en la cabeza. El fenómeno se llama "earworm" (gusano auditivo) o "síndrome de la canción pegada". Las canciones más pegajosas suelen tener ritmos rápidos, intervalos pequeños y estructuras repetitivas.</p>
+                    <div class="dato-destacado">🎵 La canción más "pegajosa" según estudios: "We Will Rock You" de Queen</div>
+                </div>
+                <div class="curiosidad-card">
+                    <span class="curiosidad-icon">🎤</span>
+                    <h3>La Voz Más Grave del Mundo</h3>
+                    <p>Tim Storms (Estados Unidos) tiene el récord Guinness de la nota más grave cantada por un humano: <strong>G-7 (0.189 Hz)</strong>. Esta frecuencia es INFRASONIDO, inaudible para el oído humano (que escucha de 20 Hz a 20,000 Hz). ¡Los elefantes sí podrían oírlo!</p>
+                </div>
+                <div class="curiosidad-card">
+                    <span class="curiosidad-icon">🎶</span>
+                    <h3>El "Efecto Mozart"</h3>
+                    <p>Un estudio de 1993 sugirió que escuchar a Mozart aumenta temporalmente el coeficiente intelectual (8-9 puntos). Aunque el efecto es real, dura solo 15 minutos. La música clásica mejora la concentración, pero no te vuelve más inteligente permanentemente.</p>
+                </div>
+                <div class="curiosidad-card">
+                    <span class="curiosidad-icon">💊</span>
+                    <h3>Musicoterapia: La Música Sana</h3>
+                    <p>La musicoterapia es una disciplina científica reconocida. Se usa para tratar Alzheimer (los pacientes recuerdan canciones incluso en etapas avanzadas), autismo, depresión, Parkinson (el ritmo ayuda a caminar), rehabilitación física y reducción del estrés postraumático.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SABÍAS QUE... -->
+        <div class="seccion">
+            <h2><i class="fas fa-lightbulb"></i> ¿Sabías Que...?</h2>
+            
+            <div class="sabias-que">
+                <i class="fas fa-skull"></i>
+                <h3>Beethoven estaba completamente sordo al componer su 9ª Sinfonía</h3>
+                <p>Cuando Beethoven compuso su obra maestra, la 9ª Sinfonía con el "Himno de la Alegría", estaba completamente sordo. No podía oír ni una sola nota. En el estreno (1824), dirigió la orquesta de memoria. Al terminar, el público estalló en aplausos, pero Beethoven seguía dirigiendo de espaldas sin oír nada. La contralto Caroline Unger lo tomó del brazo y lo giró hacia el público para que viera la ovación.</p>
+            </div>
+
+            <div class="sabias-que">
+                <i class="fas fa-guitar"></i>
+                <h3>Robert Johnson "vendió su alma al diablo" en un cruce de caminos</h3>
+                <p>Según la leyenda del blues, Robert Johnson era un guitarrista mediocre hasta que una noche en un cruce de caminos del Delta del Mississippi se encontró con el Diablo, quien afinó su guitarra a cambio de su alma. Johnson regresó siendo un virtuoso. Grabó solo 29 canciones antes de morir a los 27 años (envenenado por un marido celoso). Es considerado "el abuelo del rock and roll".</p>
+            </div>
+
+            <div class="sabias-que">
+                <i class="fas fa-compact-disc"></i>
+                <h3>La primera canción grabada de la historia no fue con Edison</h3>
+                <p>En 1860, 17 años ANTES que el fonógrafo de Edison, el francés Édouard-Léon Scott de Martinville grabó "Au Clair de la Lune" en un fonoautógrafo (una máquina que dibujaba ondas sonoras en papel cubierto de hollín). No podía reproducirse... hasta 2008, cuando científicos digitalizaron las ondas y ¡escucharon la grabación de voz humana más antigua!</p>
+            </div>
+
+            <div class="sabias-que">
+                <i class="fas fa-space-shuttle"></i>
+                <h3>Se grabó el primer video musical en el ESPACIO</h3>
+                <p>En 2013, el astronauta canadiense Chris Hadfield grabó una versión de "Space Oddity" de David Bowie desde la Estación Espacial Internacional (ISS). Flotando en gravedad cero con su guitarra, es el primer video musical filmado en el espacio. Bowie lo felicitó públicamente. El video tiene más de 50 millones de vistas en YouTube.</p>
+            </div>
+
+            <div class="sabias-que">
+                <i class="fas fa-film"></i>
+                <h3>El video musical más caro de la historia costó $7 millones... en 1995</h3>
+                <p>"Scream" de Michael Jackson y su hermana Janet Jackson costó <strong>$7 millones de dólares</strong> (equivalentes a $14 millones actuales ajustados por inflación). Dirigido por Mark Romanek, es una obra de arte visual en blanco y negro con efectos especiales revolucionarios para la época. Sigue siendo el video más caro jamás producido.</p>
+            </div>
+
+            <div class="sabias-que">
+                <i class="fas fa-drum"></i>
+                <h3>La pieza más famosa de "silencio": 4'33" de John Cage</h3>
+                <p>En 1952, el compositor John Cage presentó "4'33"", una pieza en tres movimientos donde el pianista NO TOCA NINGUNA NOTA durante 4 minutos y 33 segundos. El "silencio" obliga al público a escuchar los sonidos ambientales: la respiración, el viento, los murmullos. Es una de las obras más controvertidas y filosóficas de la historia.</p>
+            </div>
+        </div>
+
+        <!-- DATOS INSÓLITOS Y DIVERTIDOS -->
+        <div class="seccion">
+            <h2><i class="fas fa-laugh-squint"></i> Datos Insólitos y Divertidos</h2>
+            <ol class="lista-insolita">
+                <li>
+                    <div>
+                        <h4>La canción más odiada de la historia</h4>
+                        <p>"My Pal Foot Foot" de The Shaggs (1969) es considerada por críticos como la "peor canción jamás grabada". Tres hermanas que apenas sabían tocar sus instrumentos crearon un sonido tan caótico y extraño que se volvió objeto de culto. Frank Zappa dijo que "eran mejores que The Beatles".</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <h4>Mozart compuso una pieza titulada "Lame mi culo"</h4>
+                        <p>Sí, Mozart escribió un canon vocal titulado "Leck mich im Arsch" ("Lame mi culo" en alemán, K. 231). Era una broma entre amigos compositores. El lado irreverente del genio de Salzburgo.</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <h4>El himno nacional más antiguo del mundo es de los Países Bajos</h4>
+                        <p>"Het Wilhelmus" (1572) es el himno nacional más antiguo del mundo. Tiene 15 estrofas que forman un acróstico con el nombre "Willem van Nassov". El himno mexicano es de 1854 y tiene 10 estrofas (aunque solo se cantan 4 oficialmente).</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <h4>El piano más grande del mundo mide 5.7 metros</h4>
+                        <p>Un estudiante de ingeniería alemán construyó un piano de cola de 5.7 metros de largo. ¡Necesitas una escalera para tocar las notas más graves! Tiene 85 teclas en lugar de las 88 estándar, pero cada tecla mide lo mismo que un brazo humano.</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <h4>Existe una banda que solo toca con impresoras</h4>
+                        <p>La "Orquesta de Impresoras" usa impresoras matriciales, escáneres y discos duros viejos para crear música electrónica experimental. Cada dispositivo emite sonidos rítmicos al funcionar que, combinados, crean composiciones sorprendentes.</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <h4>Madonna demandó a un tipo por vender su ADN</h4>
+                        <p>En 2019, un fanático recuperó un pañuelo usado por Madonna en un concierto y lo puso a la venta en internet ofreciendo "clonar" a la cantante. Madonna lo demandó inmediatamente por violación de privacidad.</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <h4>El himno de la Champions League es un "canto de reyes"</h4>
+                        <p>La música

@@ -1,0 +1,288 @@
+He integrado toda la información de tu documento en el sitio web, organizándola en las secciones correspondientes: historia ampliada con todos los hitos, pruebas detalladas, récords mundiales actualizados, leyendas completas, competiciones y curiosidades. Aquí está el sitio completamente actualizado.
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>🏃 Atletismo Total | Historia, Pruebas, Récords, Leyendas y Curiosidades</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(145deg, #f0f4f8 0%, #e2e8f0 100%); color: #1e293b; line-height: 1.5; scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: #0284c7; border-radius: 10px; }
+        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: white; padding: 2rem 1.5rem 3rem 1.5rem; text-align: center; position: relative; overflow: hidden; border-bottom: 6px solid #fbbf24; }
+        .hero::before { content: "🏃"; font-size: 280px; opacity: 0.06; position: absolute; bottom: -40px; right: -30px; pointer-events: none; transform: rotate(10deg); }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 0.5rem; background: linear-gradient(135deg, #fff, #fde047); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto; opacity: 0.9; }
+        .nav-bar { background: white; box-shadow: 0 8px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; display: flex; justify-content: center; flex-wrap: wrap; gap: 0.3rem; padding: 0.7rem 1rem; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .nav-btn { background: transparent; border: none; font-size: 0.8rem; font-weight: 600; padding: 0.5rem 0.85rem; border-radius: 40px; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; color: #1e293b; }
+        .nav-btn i { margin-right: 5px; }
+        .nav-btn:hover { background: #e0f2fe; color: #0284c7; }
+        .nav-btn.active { background: #0284c7; color: white; box-shadow: 0 4px 10px rgba(2,132,199,0.3); }
+        .container { max-width: 1300px; margin: 2rem auto; padding: 0 1.5rem; }
+        .section { display: none; animation: fadeUp 0.4s ease-out forwards; }
+        .section.active-section { display: block; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 1.8rem; }
+        .card { background: white; border-radius: 28px; padding: 1.6rem; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s; border: 1px solid rgba(2,132,199,0.15); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 25px 40px -15px rgba(0,0,0,0.15); }
+        .card-icon { font-size: 2rem; background: #e0f2fe; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; border-radius: 30px; margin-bottom: 1.2rem; color: #0284c7; }
+        .card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.75rem; color: #0f172a; }
+        .card p, .card li { color: #334155; line-height: 1.5; }
+        .list-style { list-style: none; padding-left: 0; }
+        .list-style li { margin-bottom: 0.8rem; display: flex; align-items: baseline; gap: 12px; }
+        .list-style li i { color: #0284c7; width: 24px; margin-top: 3px; }
+        .athletes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 1.5rem; }
+        .athlete-card { background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.08); transition: all 0.25s; text-align: center; border: 1px solid #e2e8f0; }
+        .athlete-card:hover { transform: scale(1.02); }
+        .athlete-img { background: linear-gradient(145deg, #1e3a8a, #0f172a); padding: 1.5rem 0 0.8rem; color: white; font-size: 3rem; }
+        .athlete-info { padding: 1.2rem 1rem 1.5rem; }
+        .athlete-name { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.25rem; }
+        .athlete-stats { font-size: 0.75rem; color: #f59e0b; font-weight: 700; margin: 0.5rem 0; }
+        .footer { background: #0f172a; color: #cbd5e1; text-align: center; padding: 2rem; margin-top: 3rem; border-top: 1px solid #fbbf24; }
+        @media (max-width: 760px) { .hero h1 { font-size: 1.8rem; } .nav-btn { padding: 0.3rem 0.6rem; font-size: 0.7rem; } }
+        .highlight { background: linear-gradient(120deg, #e0f2fe 0%, #bae6fd 40%, transparent 60%); font-weight: 600; padding: 0 4px; }
+        .records-table { width: 100%; border-collapse: collapse; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin: 1rem 0; }
+        th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th { background: #0284c7; color: white; font-weight: 600; }
+        tr:hover { background: #f0f9ff; }
+        hr { margin: 1.8rem 0; border: 0; height: 2px; background: linear-gradient(90deg, transparent, #0284c7, transparent); }
+        .badge-athletics { background: #e0f2fe; border-left: 5px solid #fbbf24; padding: 0.8rem 1rem; border-radius: 20px; margin: 1rem 0; }
+        .event-badge { display: inline-block; background: #f1f5f9; padding: 4px 12px; border-radius: 30px; font-size: 0.7rem; font-weight: 600; margin: 0.2rem; }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1><i class="fas fa-running"></i> ATLETISMO TOTAL <i class="fas fa-running"></i></h1>
+    <p>Historia completa, pruebas, récords mundiales, leyendas, curiosidades y competiciones del deporte más antiguo</p>
+</div>
+
+<div class="nav-bar">
+    <button class="nav-btn" onclick="location.href='Deportes6.html'"><i class="fas fa-home"></i> Inicio</button>
+    <button class="nav-btn active" data-section="historia"><i class="fas fa-landmark"></i> Historia</button>
+    <button class="nav-btn" data-section="pruebas"><i class="fas fa-chalkboard"></i> Pruebas & Reglas</button>
+    <button class="nav-btn" data-section="records"><i class="fas fa-chart-line"></i> Récords Mundiales</button>
+    <button class="nav-btn" data-section="mejores"><i class="fas fa-medal"></i> Leyendas</button>
+    <button class="nav-btn" data-section="curiosidades"><i class="fas fa-lightbulb"></i> Curiosidades</button>
+    <button class="nav-btn" data-section="competiciones"><i class="fas fa-trophy"></i> Competiciones</button>
+</div>
+
+<div class="container">
+    <!-- HISTORIA COMPLETA (del documento) -->
+    <div id="historia" class="section active-section">
+        <h2><i class="fas fa-timeline"></i> Historia completa del atletismo</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-olympic"></i></div>
+                <h3>🏛️ Orígenes en la Antigüedad (776 a.C.)</h3>
+                <p><span class="highlight">Juegos Olímpicos Antiguos:</span> La única prueba fue el <strong>stadion</strong> (192m). El primer campeón fue <strong>Coroebus de Élida</strong>. Luego se añadieron diaulos (400m), dólico (4.800m) y pentatlón. Teodosio I los prohibió en 393 d.C. por paganos.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-flag-checkered"></i></div>
+                <h3>🇬🇧 Renacimiento moderno (S. XVIII-XIX)</h3>
+                <p><strong>1864:</strong> Primer Oxford vs Cambridge. <strong>1866:</strong> Amateur Athletic Club. <strong>1896, Atenas:</strong> Primeros Juegos Olímpicos modernos con 12 pruebas masculinas. El maratón lo ganó <strong>Spyridon Louis</strong>, un pastor griego.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+                <h3>🌍 Era moderna y leyendas</h3>
+                <p><strong>1912:</strong> Fundación de la IAAF (hoy World Athletics). <strong>Jesse Owens</strong> (4 oros Berlín 1936), <strong>Fanny Blankers-Koen</strong> (4 oros 1948), <strong>Emil Zátopek</strong> (triple oro 1952), <strong>Usain Bolt</strong> (8 oros, récords 9.58/19.19).</p>
+            </div>
+        </div>
+        <div class="badge-athletics">
+            <i class="fas fa-trophy"></i> <strong>Hitos históricos:</strong> Abebe Bikila ganó el maratón de Roma 1960... ¡descalzo! Bob Beamon saltó 8.90m en México 1968 (23cm más que el récord). El "Fosbury Flop" revolucionó el salto de altura.
+        </div>
+    </div>
+
+    <!-- PRUEBAS Y REGLAS (completo del documento) -->
+    <div id="pruebas" class="section">
+        <h2><i class="fas fa-chalkboard"></i> Pruebas del atletismo y reglas (World Athletics)</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-running"></i></div>
+                <h3>🏃 Carreras (Track)</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-bolt"></i> <strong>Velocidad:</strong> 100m, 200m, 400m (tacos de salida, false start = descalificación).</li>
+                    <li><i class="fas fa-chart-line"></i> <strong>Medio fondo:</strong> 800m, 1500m.</li>
+                    <li><i class="fas fa-road"></i> <strong>Fondo:</strong> 5000m, 10000m, maratón (42.195 km).</li>
+                    <li><i class="fas fa-water"></i> <strong>Vallas:</strong> 100/110m vallas, 400m vallas.</li>
+                    <li><i class="fas fa-flag-checkered"></i> <strong>Relevos:</strong> 4x100m, 4x400m (zona de cambio de 20m).</li>
+                    <li><i class="fas fa-walking"></i> <strong>Marcha:</strong> 20km y 35km (regla de contacto: un pie siempre en el suelo).</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-basketball-ball"></i></div>
+                <h3>🎯 Saltos y lanzamientos (Field)</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-arrow-up"></i> <strong>Saltos:</strong> Longitud (tabla de batida), Triple salto (hop-step-jump), Altura (Fosbury Flop), Pértiga (fibra de carbono).</li>
+                    <li><i class="fas fa-circle"></i> <strong>Lanzamientos:</strong> Peso (7.26kg/4kg), Disco (2kg/1kg), Jabalina, Martillo (con cable de acero).</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-chart-simple"></i></div>
+                <h3>⚡ Pruebas combinadas</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-trophy"></i> <strong>Decatlón (hombres):</strong> 10 pruebas en 2 días (100m, longitud, peso, altura, 400m, 110m vallas, disco, pértiga, jabalina, 1500m).</li>
+                    <li><i class="fas fa-trophy"></i> <strong>Heptatlón (mujeres):</strong> 100m vallas, altura, peso, 200m, longitud, jabalina, 800m.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="badge-athletics">
+            <i class="fas fa-chalkboard"></i> <strong>Regla clave:</strong> En lanzamientos, el atleta no puede pisar fuera del círculo. En saltos de longitud, tres intentos y luego finalistas tienen tres adicionales. El viento máximo para récords es +2.0 m/s.
+        </div>
+    </div>
+
+    <!-- RÉCORDS MUNDIALES ACTUALIZADOS (documento) -->
+    <div id="records" class="section">
+        <h2><i class="fas fa-chart-line"></i> Récords Mundiales al aire libre (World Athletics)</h2>
+        <table class="records-table">
+            <thead><tr><th>Prueba</th><th>Marca</th><th>Atleta</th><th>País</th><th>Año</th></tr></thead>
+            <tbody>
+                <tr><td>100m masculino</td><td>9.58</td><td>Usain Bolt</td><td>Jamaica</td><td>2009</td></tr>
+                <tr><td>200m masculino</td><td>19.19</td><td>Usain Bolt</td><td>Jamaica</td><td>2009</td></tr>
+                <tr><td>400m masculino</td><td>43.03</td><td>Wayde van Niekerk</td><td>Sudáfrica</td><td>2016</td></tr>
+                <tr><td>800m masculino</td><td>1:40.91</td><td>David Rudisha</td><td>Kenia</td><td>2012</td></tr>
+                <tr><td>1500m masculino</td><td>3:26.00</td><td>Hicham El Guerrouj</td><td>Marruecos</td><td>1998</td></tr>
+                <tr><td>5000m masculino</td><td>12:35.36</td><td>Joshua Cheptegei</td><td>Uganda</td><td>2020</td></tr>
+                <tr><td>10000m masculino</td><td>26:11.00</td><td>Joshua Cheptegei</td><td>Uganda</td><td>2020</td></tr>
+                <tr><td>Maratón masculino</td><td>2:01:09</td><td>Eliud Kipchoge</td><td>Kenia</td><td>2022</td></tr>
+                <tr><td>400m vallas</td><td>45.94</td><td>Karsten Warholm</td><td>Noruega</td><td>2021</td></tr>
+                <tr><td>Salto de longitud</td><td>8.95m</td><td>Mike Powell</td><td>EE.UU.</td><td>1991</td></tr>
+                <tr><td>Salto de altura</td><td>2.45m</td><td>Javier Sotomayor</td><td>Cuba</td><td>1993</td></tr>
+                <tr><td>Pértiga</td><td>6.27m</td><td>Armand Duplantis</td><td>Suecia</td><td>2024</td></tr>
+                <tr><td>Peso (7.26kg)</td><td>23.37m</td><td>Ryan Crouser</td><td>EE.UU.</td><td>2021</td></tr>
+                <tr><td>Decatlón</td><td>9126 pts</td><td>Kevin Mayer</td><td>Francia</td><td>2018</td></tr>
+                <tr style="background:#fef9f0;"><td><strong>100m femenino</strong></td><td>10.49</td><td>Florence Griffith-Joyner</td><td>EE.UU.</td><td>1988</td></tr>
+                <tr><td>400m vallas femenino</td><td>50.68</td><td>Sydney McLaughlin-Levrone</td><td>EE.UU.</td><td>2024</td></tr>
+                <tr><td>Maratón femenino</td><td>2:09:56</td><td>Tigst Assefa</td><td>Etiopía</td><td>2023</td></tr>
+                <tr><td>Heptatlón</td><td>7291 pts</td><td>Jackie Joyner-Kersee</td><td>EE.UU.</td><td>1988</td></tr>
+            </tbody>
+        </table>
+        <div class="badge-athletics"><i class="fas fa-bolt"></i> <strong>Dato récord:</strong> La velocidad máxima de Usain Bolt fue 44.72 km/h. El récord de salto de altura (2.45m) lleva imbatido desde 1993. FloJo 10.49 sigue en controversia por viento.</div>
+    </div>
+
+    <!-- LEYENDAS COMPLETAS (documento) -->
+    <div id="mejores" class="section">
+        <h2><i class="fas fa-medal"></i> Las leyendas inmortales del atletismo mundial</h2>
+        <div class="athletes-grid">
+            <div class="athlete-card"><div class="athlete-img">🇯🇲 ⚡</div><div class="athlete-info"><div class="athlete-name">Usain Bolt</div><div class="athlete-stats">8 oros olímpicos | 11 mundiales | 9.58 / 19.19</div><div class="athlete-desc">El hombre más rápido de la historia. Triple triple olímpico (100,200,4x100).</div></div></div>
+            <div class="athlete-card"><div class="athlete-img">🇺🇸 🦅</div><div class="athlete-info"><div class="athlete-name">Carl Lewis</div><div class="athlete-stats">9 oros olímpicos | 10 mundiales | 100m, longitud, relevos</div><div class="athlete-desc">Dominó Los Ángeles 1984. Igualó a Jesse Owens en Berlín 1936.</div></div></div>
+            <div class="athlete-card"><div class="athlete-img">🇫🇮 🏃</div><div class="athlete-info"><div class="athlete-name">Paavo Nurmi</div><div class="athlete-stats">9 oros olímpicos | 22 récords mundiales</div><div class="athlete-desc">"El Finlandés Volador". Dominó el fondo en los años 20.</div></div></div>
+            <div class="athlete-card"><div class="athlete-img">🇺🇸 ✊</div><div class="athlete-info"><div class="athlete-name">Jesse Owens</div><div class="athlete-stats">4 oros en Berlín 1936 | 100m, 200m, longitud, 4x100m</div><div class="athlete-desc">Humilló a Hitler ante sus ojos. Leyenda contra el nazismo.</div></div></div>
+            <div class="athlete-card"><div class="athlete-img">🇨🇿 💪</div><div class="athlete-info"><div class="athlete-name">Emil Zátopek</div><div class="athlete-stats">Triple oro Helsinki 1952 (5000m, 10000m, maratón)</div><div class="athlete-desc">Revolucionó el entrenamiento con intervalos.</div></div></div>
+            <div class="athlete-card"><div class="athlete-img">🇺🇸 🦸‍♀️</div><div class="athlete-info"><div class="athlete-name">Allyson Felix</div><div class="athlete-stats">11 medallas olímpicas (7 oros) | 13 mundiales</div><div class="athlete-desc">La atleta más condecorada en la historia del atletismo femenino.</div></div></div>
+            <div class="athlete-card"><div class="athlete-img">🇪🇹 👑</div><div class="athlete-info"><div class="athlete-name">Kenenisa Bekele</div><div class="athlete-stats">3 oros olímpicos | 5 mundiales | Récords 5000m/10000m</div><div class="athlete-desc">Rey del fondo durante 16 años.</div></div></div>
+            <div class="athlete-card"><div class="athlete-img">🇺🇦 🎯</div><div class="athlete-info"><div class="athlete-name">Sergey Bubka</div><div class="athlete-stats">35 récords mundiales | Primero en saltar 6m en pértiga</div><div class="athlete-desc">Dominó la pértiga durante dos décadas.</div></div></div>
+        </div>
+        <hr>
+        <div class="badge-athletics"><i class="fas fa-star"></i> <strong>Otras leyendas:</strong> Jackie Joyner-Kersee (heptatlón), Florence Griffith-Joyner (100/200m), Hicham El Guerrouj (1500m), Eliud Kipchoge (maratón sub2 no oficial), Mike Powell (longitud 8.95m), Javier Sotomayor (altura 2.45m), Mondo Duplantis (pértiga 6.27m), Fanny Blankers-Koen (4 oros 1948), Sydney McLaughlin-Levrone (400m vallas 50.68).</div>
+    </div>
+
+    <!-- CURIOSIDADES ASOMBROSAS (documento) -->
+    <div id="curiosidades" class="section">
+        <h2><i class="fas fa-lightbulb"></i> Curiosidades fascinantes del atletismo</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-tachometer-alt"></i></div>
+                <h3>🚀 Datos récord</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-bolt"></i> <strong>Bob Beamon (1968):</strong> saltó 8.90m, 23cm más que el récord. Duró 23 años.</li>
+                    <li><i class="fas fa-hourglass-end"></i> <strong>Javier Sotomayor:</strong> 2.45m en altura (1993). Nadie se ha acercado a menos de 5cm.</li>
+                    <li><i class="fas fa-child"></i> <strong>Atleta más joven en oro olímpico:</strong> Bob Mathias (17 años, decatlón 1948).</li>
+                    <li><i class="fas fa-female"></i> <strong>Fanny Blankers-Koen (1948):</strong> compitió embarazada y ganó 4 oros.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-glasses"></i></div>
+                <h3>🎽 Datos culturales</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-tv"></i> La final de 100m masculino es el evento más visto del mundo (+1.000M espectadores).</li>
+                    <li><i class="fas fa-shoe-prints"></i> Las "superzapatillas" (Nike Vaporfly) revolucionaron el maratón. World Athletics limitó la suela a 40mm.</li>
+                    <li><i class="fas fa-chart-line"></i> El récord de FloJo (10.49) tiene controversia por viento a favor no medido correctamente.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-hand-spock"></i></div>
+                <h3>🏟️ Historias únicas</h3>
+                <ul class="list-style">
+                    <li><i class="fas fa-star"></i> <strong>Abebe Bikila (1960):</strong> ganó el maratón de Roma ¡descalzo!</li>
+                    <li><i class="fas fa-wheelchair"></i> La jabalina tuvo que rediseñarse en 1999 porque los varones llegaban a 98-100m.</li>
+                    <li><i class="fas fa-chart-line"></i> El récord de 400m vallas femenino lo ha bajado Sydney McLaughlin 6 veces en dos años.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="badge-athletics"><i class="fas fa-dice-d6"></i> <strong>Dato freak:</strong> El maratón de Nueva York reúne a 2 millones de espectadores en la ruta. El estadio más grande para atletismo es el Olímpico de Berlín (74.000 espectadores).</div>
+    </div>
+
+    <!-- COMPETICIONES PRINCIPALES (documento) -->
+    <div id="competiciones" class="section">
+        <h2><i class="fas fa-trophy"></i> Grandes competiciones de atletismo</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-olympic"></i></div>
+                <h3>🥇 Juegos Olímpicos</h3>
+                <p>Desde 1896. El atletismo es el deporte con más pruebas (48 en París 2024). La prueba reina: 100m masculino. Los récords olímpicos a menudo se convierten en récords mundiales.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+                <h3>🌍 Campeonatos del Mundo (World Athletics)</h3>
+                <p>Desde 1983 (Helsinki). Cada 2 años (años impares). Usain Bolt tiene 11 títulos mundiales (récord). Allyson Felix tiene 20 medallas (14 oros).</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-diamond"></i></div>
+                <h3>🏆 Maratones Major y otras</h3>
+                <p><strong>Maratones Major (6):</strong> Tokio, Boston, Londres, Berlín, Chicago, Nueva York. <strong>World Athletics Continental Tour</strong> (anual). <strong>Campeonato Mundial en Pista Cubierta</strong> (cada 2 años).</p>
+            </div>
+        </div>
+        <div class="badge-athletics">
+            <i class="fas fa-calendar"></i> <strong>Eventos destacados:</strong> <span class="event-badge">Juegos Olímpicos (cada 4 años)</span> <span class="event-badge">Campeonato Mundial (año impar)</span> <span class="event-badge">World Athletics Indoor</span> <span class="event-badge">Diamond League</span> <span class="event-badge">Campeonato de Europa</span>
+        </div>
+        <div class="card">
+            <h3><i class="fas fa-chart-line"></i> El futuro del atletismo</h3>
+            <ul class="list-style">
+                <li><i class="fas fa-future"></i> Nuevas pruebas: mixed 4x400m ya olímpico, posible 3.000m mixto.</li>
+                <li><i class="fas fa-microchip"></i> Tecnología: fotofinish automatizado, sensores de false start, cronometraje atómico.</li>
+                <li><i class="fas fa-globe"></i> Crecimiento de África y Asia: Etiopía, Kenia dominan fondo; China y Japón invierten.</li>
+                <li><i class="fas fa-bolt"></i> ¿Próximos récords?: ¿Alguien bajará de 9.50 en 100m? ¿Duplantis superará 6.30m? ¿Maratón sub 2h oficial?</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p><i class="fas fa-running"></i> Atletismo Total - La esencia pura del deporte <i class="fas fa-running"></i></p>
+    <p style="font-size: 0.8rem; margin-top: 8px;">Historia, pruebas, récords mundiales, leyendas, curiosidades y competiciones del deporte más antiguo. Basado en datos de World Athletics.</p>
+</div>
+
+<script>
+    const sections = ['historia', 'pruebas', 'records', 'mejores', 'curiosidades', 'competiciones'];
+    const sectionsMap = {};
+    sections.forEach(id => { sectionsMap[id] = document.getElementById(id); });
+    const buttons = document.querySelectorAll('.nav-btn');
+    
+    function activateSection(sectionId) {
+        sections.forEach(id => { if(sectionsMap[id]) sectionsMap[id].classList.remove('active-section'); });
+        if(sectionsMap[sectionId]) sectionsMap[sectionId].classList.add('active-section');
+        buttons.forEach(btn => {
+            const btnSection = btn.getAttribute('data-section');
+            if(btnSection === sectionId) btn.classList.add('active');
+            else btn.classList.remove('active');
+        });
+        window.scrollTo({ top: document.querySelector('.container').offsetTop - 70, behavior: 'smooth' });
+    }
+    
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const sectionId = btn.getAttribute('data-section');
+            if(sectionId && sectionsMap[sectionId]) activateSection(sectionId);
+        });
+    });
+    activateSection('historia');
+</script>
+</body>
+</html>
+```
